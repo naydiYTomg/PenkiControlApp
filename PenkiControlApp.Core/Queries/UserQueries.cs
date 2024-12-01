@@ -1,6 +1,6 @@
 ﻿namespace PenkiControlApp.Core.Queries
 {
-    public class UserQueries
+    public static class UserQueries
     {
         public const string GET_USERS_QUERY = "SELECT * FROM \"User\"";
         public const string INSERT_USER_QUERY =
