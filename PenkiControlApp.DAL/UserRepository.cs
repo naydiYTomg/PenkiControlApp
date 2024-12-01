@@ -34,7 +34,7 @@ public class UserRepository
         string connectionString = Constants.CONNECTION_INFO;
         using (var connection = new NpgsqlConnection(connectionString))
         {
-            string query = Constants.GET_USER_BY_ID_QUERY;
+            string query = UserQueries.GET_USER_BY_ID_QUERY;
             var properties = new
             {
                 Id = id
@@ -57,7 +57,7 @@ public class UserRepository
         string connectionString = Constants.CONNECTION_INFO;
         using (var connection = new NpgsqlConnection(connectionString))
         {
-            string query = Constants.INSERT_USER_QUERY;
+            string query = UserQueries.INSERT_USER_QUERY;
             var properties = new
             {
                 Name = user.Name,
