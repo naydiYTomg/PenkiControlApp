@@ -8,6 +8,7 @@
         public const string GET_USER_BY_ID_QUERY =
             "select \"Id\", \"Name\", \"Login\", \"Password\" from \"User\" where \"Id\"=@Id";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 <<<<<<< Updated upstream
@@ -16,5 +17,7 @@
 =======
 >>>>>>> Stashed changes
 >>>>>>> 943e985 (Update UserQueries.cs)
+=======
+>>>>>>> 74aac75 (Update UserQueries.cs)
     }
 }
