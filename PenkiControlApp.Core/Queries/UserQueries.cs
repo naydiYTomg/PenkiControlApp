@@ -9,6 +9,7 @@
             "select \"Id\", \"Name\", \"Login\", \"Password\" from \"User\" where \"Id\"=@Id";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 <<<<<<< Updated upstream
@@ -19,5 +20,7 @@
 >>>>>>> 943e985 (Update UserQueries.cs)
 =======
 >>>>>>> 74aac75 (Update UserQueries.cs)
+=======
+>>>>>>> main/userQueries
     }
 }
