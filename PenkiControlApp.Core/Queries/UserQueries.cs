@@ -9,7 +9,10 @@
 
         public const string GET_USER_BY_ID_QUERY =
             "select \"Id\", \"Name\", \"Login\", \"Password\" from \"User\" where \"Id\"=@Id";
+<<<<<<< Updated upstream
 =======
 >>>>>>> main
+=======
+>>>>>>> Stashed changes
     }
 }
