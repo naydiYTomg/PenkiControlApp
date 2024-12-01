@@ -10,4 +10,6 @@ public static class Constants
 
     public const string GET_USER_BY_ID_QUERY =
         "select \"Id\", \"Name\", \"Login\", \"Password\" from \"User\" where \"Id\"=@Id";
+
+    public const string DO_QQQ = "select * from \"Order\"";
 }
