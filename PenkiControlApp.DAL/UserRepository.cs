@@ -2,6 +2,7 @@
 using Npgsql;
 using PenkiControlApp.Core;
 using PenkiControlApp.Core.DTOs;
+using PenkiControlApp.Core.Queries;
 using PenkiControlApp.Core.Types;
 
 namespace PenkiControlApp.DAL;
@@ -17,7 +18,7 @@ public class UserRepository
             connection.Open();
             try
             {
-                List<UserDTO> result = connection.Query<UserDTO>(Constants.GET_USERS_QUERY).ToList();
+                List<UserDTO> result = connection.Query<UserDTO>(UserQueries.GET_USERS_QUERY).ToList();
                 return new Result<List<UserDTO>>(result, null);
             }
             catch (Exception e)
