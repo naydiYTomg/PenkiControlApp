@@ -1,0 +1,52 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PenkiControlApp">
+                    
+  <DrawingImage x:Key="Loopy">
+      <DrawingImage.Drawing>
+        <DrawingGroup ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+          <GeometryDrawing Brush="#FF515262" Geometry="F1 M512,512z M0,0z M340.28,295.632C390.582,359.982 456.87,375.273 493.595,426.276 530.319,477.28 500.74,500.74 500.74,500.74 500.74,500.74 477.28,530.319 426.276,493.595 375.272,456.871 359.982,390.581 295.632,340.28L340.28,295.632z" />
+          <GeometryDrawing Geometry="F1 M512,512z M0,0z M460.511,459.36C409.508,422.636,394.217,356.347,329.867,306.045L295.632,340.28C359.982,390.582 375.273,456.871 426.276,493.595 477.28,530.319 500.74,500.74 500.74,500.74 500.74,500.74 510.18,493.25 511.771,477.537 499.672,478.763 482.699,475.336 460.511,459.36z">
+            <GeometryDrawing.Brush>
+              <SolidColorBrush Color="#FF000000" Opacity="0.1" />
+            </GeometryDrawing.Brush>
+          </GeometryDrawing>
+          <DrawingGroup Transform="-0.7071,-0.7071,0.7071,-0.7071,299.0423,721.9669">
+            <GeometryDrawing Brush="#FFB4BBCC">
+              <GeometryDrawing.Geometry>
+                <EllipseGeometry RadiusX="41.395" RadiusY="53.777" Center="299.045,299.05" />
+              </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+          </DrawingGroup>
+          <GeometryDrawing Geometry="F1 M512,512z M0,0z M286.701,311.397C274.004,298.7 273.704,277.391 284.331,258.656 279.212,261.56 274.285,265.273 269.779,269.779 248.779,290.779 244.86,320.908 261.026,337.073 277.192,353.239 307.321,349.32 328.321,328.32 332.827,323.814 336.541,318.886 339.444,313.768 320.707,324.394 299.398,324.094 286.701,311.397z">
+            <GeometryDrawing.Brush>
+              <SolidColorBrush Color="#FF000000" Opacity="0.1" />
+            </GeometryDrawing.Brush>
+          </GeometryDrawing>
+          <GeometryDrawing Brush="#FF7DD2F0">
+            <GeometryDrawing.Geometry>
+              <EllipseGeometry RadiusX="176.982" RadiusY="176.982" Center="176.982,176.982" />
+            </GeometryDrawing.Geometry>
+          </GeometryDrawing>
+          <GeometryDrawing Brush="#FFFFFFFF">
+            <GeometryDrawing.Geometry>
+              <EllipseGeometry RadiusX="125.142" RadiusY="125.142" Center="176.982,176.982" />
+            </GeometryDrawing.Geometry>
+          </GeometryDrawing>
+          <GeometryDrawing Geometry="F1 M512,512z M0,0z M122.734,265.479C73.862,216.607 73.862,137.372 122.734,88.5 142.805,68.429 167.999,56.609 194.106,53.024 156.644,47.879 117.3,59.7 88.498,88.5 39.626,137.372 39.628,216.607 88.498,265.479 117.298,294.279 156.643,306.1 194.104,300.955 167.999,297.37 142.806,285.549 122.734,265.479z">
+            <GeometryDrawing.Brush>
+              <SolidColorBrush Color="#FF000000" Opacity="0.1" />
+            </GeometryDrawing.Brush>
+          </GeometryDrawing>
+        </DrawingGroup>
+      </DrawingImage.Drawing>
+    </DrawingImage>
+  <DrawingImage x:Key="Login">
+    <DrawingImage.Drawing>
+      <DrawingGroup ClipGeometry="M0,0 V24 H24 V0 H0 Z">
+        <GeometryDrawing Brush="#FF1C274C" Geometry="F0 M24,24z M0,0z M1.625,12C1.625,12.4142,1.96079,12.75,2.375,12.75L13.3476,12.75 11.3869,14.4306C11.0724,14.7001 11.036,15.1736 11.3056,15.4881 11.5751,15.8026 12.0486,15.839 12.3631,15.5694L15.8631,12.5694C16.0293,12.427 16.125,12.2189 16.125,12 16.125,11.7811 16.0293,11.573 15.8631,11.4306L12.3631,8.43056C12.0486,8.16099 11.5751,8.19741 11.3056,8.51191 11.036,8.8264 11.0724,9.29988 11.3869,9.56944L13.3476,11.25 2.375,11.25C1.96079,11.25,1.625,11.5858,1.625,12z" />
+        <GeometryDrawing Brush="#FF1C274C" Geometry="F1 M24,24z M0,0z M9.375,9.75004L9.75328,9.75004C9.49473,9.01645 9.6241,8.16876 10.1667,7.53576 10.9754,6.59228 12.3958,6.48301 13.3393,7.29171L16.8393,10.2917C17.338,10.7192 17.625,11.3432 17.625,12 17.625,12.6569 17.338,13.2809 16.8393,13.7084L13.3393,16.7084C12.3958,17.5171 10.9754,17.4078 10.1667,16.4643 9.6241,15.8313 9.49473,14.9836 9.75328,14.25L9.375,14.25 9.375,16C9.375,18.8284 9.375,20.2426 10.2537,21.1213 11.1324,22 12.5466,22 15.375,22L16.375,22C19.2034,22 20.6176,22 21.4963,21.1213 22.375,20.2426 22.375,18.8284 22.375,16L22.375,8C22.375,5.17158 22.375,3.75736 21.4963,2.87868 20.6176,2 19.2034,2 16.375,2L15.375,2C12.5466,2 11.1324,2 10.2537,2.87868 9.375,3.75736 9.375,5.17157 9.375,8L9.375,9.75004z" />
+      </DrawingGroup>
+    </DrawingImage.Drawing>
+  </DrawingImage>
+</ResourceDictionary>
