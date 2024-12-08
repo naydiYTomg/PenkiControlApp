@@ -49,4 +49,18 @@
       </DrawingGroup>
     </DrawingImage.Drawing>
   </DrawingImage>
+  <ControlTemplate x:Key="NoMouseOverTemplate" TargetType="Button">
+    <!-- <ImageBrush ImageSource="{StaticResource Loopy}"/> -->
+    <Button BorderThickness="0">
+      <Button.Background>
+        <ImageBrush ImageSource="{StaticResource Loopy}"></ImageBrush>
+      </Button.Background>
+    </Button>
+    <ControlTemplate.Triggers>
+      <Trigger Property="IsEnabled" Value="False">
+        <Setter Property="Background" Value="{StaticResource Loopy}"></Setter>
+        <Setter Property="Foreground" Value="{StaticResource Loopy}"></Setter>
+      </Trigger>
+    </ControlTemplate.Triggers>
+  </ControlTemplate>
 </ResourceDictionary>

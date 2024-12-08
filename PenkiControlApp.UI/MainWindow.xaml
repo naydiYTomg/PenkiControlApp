@@ -7,6 +7,7 @@
         Title="MainWindow" Height="720" Width="1280" Background="#9aa7c7" ResizeMode="CanMinimize" WindowStyle="ToolWindow">
     <Window.Resources>
         <ResourceDictionary Source="Vectors.xaml"/>
+        
     </Window.Resources>
     <Grid>
         <Canvas Width="1280" Height="100" Background="#f9d57a" Margin="0,-620,0,0">
@@ -19,22 +20,23 @@
                 
             </TextBox>
             
-            <Button x:Name="SearchButton" Width="40" Height="40" Margin="1165, 30, 0, 0" BorderThickness="0">
-                <!-- <Button.Background> -->
-                <!--     <ImageBrush ImageSource="{StaticResource Loopy}"></ImageBrush> -->
-                <!-- </Button.Background> -->
-                <Button.Template>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Background" Value="{ImageBrush ImageSource={StaticResource Loopy}}"></Setter>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Button.Template>
+            <Button x:Name="SearchButton" Width="40" Height="40" Margin="1165, 30, 0, 0" BorderThickness="0" Template="{StaticResource NoMouseOverTemplate}">
+                <Button.Background>
+                    <ImageBrush ImageSource="{StaticResource Loopy}"></ImageBrush>
+                </Button.Background>
+                <!-- <Button.Template> -->
+                <!--     <ControlTemplate TargetType="{x:Type Button}"> -->
+                <!--         <ControlTemplate.Triggers> -->
+                <!--             <Trigger Property="IsEnabled" Value="False"> -->
+                <!--                 <Setter Property="Background" Value="{StaticResource Loopy}"></Setter> -->
+                <!--                 <Setter Property="Ima"></Setter> -->
+                <!--             </Trigger> -->
+                <!--         </ControlTemplate.Triggers> -->
+                <!--     </ControlTemplate> -->
+                <!-- </Button.Template> -->
                 
             </Button>
-            <Button x:Name="Login" Width="40" Height="40" Margin="1220, 30, 0, 0" BorderThickness="0">
+            <Button x:Name="Login" Width="40" Height="40" Margin="1220, 30, 0, 0" BorderThickness="0" Focusable="False">
                 <Button.Background>
                     <ImageBrush ImageSource="{StaticResource Login}"></ImageBrush>
                 </Button.Background>
