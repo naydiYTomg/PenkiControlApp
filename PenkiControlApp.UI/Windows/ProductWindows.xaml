@@ -9,11 +9,29 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+
         </Grid.RowDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+                
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="8*"/>
+                
+            </Grid.RowDefinitions>
+            <Image Source="\Resources\Images\penek.png" Grid.Column="1" Height="100" Width="100" Grid.ColumnSpan="3">
+            </Image>
+            <Label x:Name="_ProductName" Content="Название" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+            <Label Content="ID:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            <TextBlock x:Name="_ProductInformation" Text="Информация" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+            <TextBlock x:Name="_ProductID" Text="123456789" Grid.Column="1" VerticalAlignment="Center" Grid.Row="1" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+
+        </Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
