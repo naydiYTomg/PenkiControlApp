@@ -30,5 +30,6 @@ class Program
             Console.WriteLine($"Got error while inserting user::[ {insertedId.Except()} ]");
         }
         //УБРАЛ Ю
+        //QQQ
     }
 }
