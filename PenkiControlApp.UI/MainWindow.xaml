@@ -1,0 +1,15 @@
+﻿<Window x:Class="PenkiControlApp.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PenkiControlApp.UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280" Background="#9aa7c7" ResizeMode="CanMinimize" WindowStyle="ToolWindow">
+    <Grid>
+        <Canvas Width="1280" Height="100" Background="#f9d57a" Margin="0,-610,0,0">
+            <TextBox Name="Search" Width="320" FontSize="30" Height="50" Background="#c9b176" Margin="900,25,0,0" BorderThickness="6" BorderBrush="Black"></TextBox>
+            <Button Name="Tut" Width="50" Height="50" Margin="100, 25, 0, 0" Click="Tut_OnClick"></Button>
+        </Canvas>
+    </Grid>
+</Window>
