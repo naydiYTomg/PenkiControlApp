@@ -1,4 +1,4 @@
-﻿<Window x:Class="PenkiControlApp.UI.Windows.ManagerWindows"
+﻿<Window x:Class="PenkiControlApp.UI.Windows.Container"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,7 @@
     <Grid>
 
         <Grid>
-            <TextBlock x:Name="_ManagerInformation" Text="Информация" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" TextWrapping="Wrap" Margin="0,10,0,0" Height="80" Width="780"/>
+            <TextBlock x:Name="_ContainerInformation" Text="Информация" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" TextWrapping="Wrap" Margin="0,10,0,0" Height="80" Width="780"/>
         </Grid>
 
     </Grid>
