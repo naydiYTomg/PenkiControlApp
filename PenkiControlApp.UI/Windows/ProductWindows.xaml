@@ -31,10 +31,20 @@
             <TextBlock x:Name="_ProductID" Text="123456789" Grid.Column="1" VerticalAlignment="Center" Grid.Row="1" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
 
         </Grid>
-        <Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+        </Grid>
+            <Grid.ColumnDefinitions>
+            
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="1.8*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
     </Grid>
+    
 </Window>
