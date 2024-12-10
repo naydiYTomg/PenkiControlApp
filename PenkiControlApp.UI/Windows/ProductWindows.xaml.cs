@@ -17,7 +17,7 @@ namespace PenkiControlApp.UI.Windows
     /// <summary>
     /// Interaction logic for ProductWindows.xaml
     /// </summary>
-    public partial class ProductWindows : Window
+    public partial class ProductWindows : UserControl
     {
         public ProductWindows()
         {
