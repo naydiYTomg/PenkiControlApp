@@ -10,7 +10,7 @@
         <ResourceDictionary Source="/Vectors.xaml"/>
         
     </UserControl.Resources>
-    <Grid x:Name="ToolbarGrid" Width="1280" Height="100">
+    <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
