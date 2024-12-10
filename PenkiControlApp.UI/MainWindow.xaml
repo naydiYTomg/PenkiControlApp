@@ -4,75 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280" Background="#9aa7c7" ResizeMode="CanMinimize" WindowStyle="ToolWindow">
+        Title="MainWindow" Width="1280" Background="#f9d57a" ResizeMode="CanMinimize" WindowStyle="ToolWindow" d:DesignWidth="1280" d:DesignHeight="">
     <Window.Resources>
         <ResourceDictionary Source="Vectors.xaml"/>
         
     </Window.Resources>
-    <Grid>
-        <Canvas Width="1280" Height="100" Background="#f9d57a" Margin="0,-620,0,0">
-            <TextBox x:Name="Search" Width="450" FontSize="30" Height="50" Background="#c9b176" Margin="765,25,0,0" BorderThickness="3" BorderBrush="Black">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="15"/>
-                    </Style>
-                </TextBox.Resources>
-                
-            </TextBox>
-            
-            <Button x:Name="SearchButton" Width="40" Height="40" Margin="1165, 30, 0, 0" BorderThickness="0" Template="{StaticResource NoMouseOverTemplate}">
-                <Button.Background>
-                    <ImageBrush ImageSource="{StaticResource Loopy}"></ImageBrush>
-                </Button.Background>
-                <!-- <Button.Template> -->
-                <!--     <ControlTemplate TargetType="{x:Type Button}"> -->
-                <!--         <ControlTemplate.Triggers> -->
-                <!--             <Trigger Property="IsEnabled" Value="False"> -->
-                <!--                 <Setter Property="Background" Value="{StaticResource Loopy}"></Setter> -->
-                <!--                 <Setter Property="Ima"></Setter> -->
-                <!--             </Trigger> -->
-                <!--         </ControlTemplate.Triggers> -->
-                <!--     </ControlTemplate> -->
-                <!-- </Button.Template> -->
-                
-            </Button>
-            <Button x:Name="Login" Width="40" Height="40" Margin="1220, 30, 0, 0" BorderThickness="0" Focusable="False">
-                <Button.Background>
-                    <ImageBrush ImageSource="{StaticResource Login}"></ImageBrush>
-                </Button.Background>
-                
-            </Button>
-            <Image x:Name="Logo" Width="100" Height="100" Margin="0,0,0,0" Source="Resources/Images/penek.png"></Image>
-            <Button x:Name="Clients" Width="50" Height="50" Margin="140, 25, 0, 0" BorderBrush="#4f2607" BorderThickness="4"  Click="Clients_OnClick">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="Products" Width="50" Height="50" Margin="200, 25, 0, 0" BorderBrush="#4f2607" BorderThickness="4"  Click="Products_OnClick">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="TagsNCategories" Width="50" Height="50" Margin="260, 25, 0, 0" BorderBrush="#4f2607" BorderThickness="4"  Click="TagsNCategories_OnClick">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-            <Button x:Name="Managers" Width="50" Height="50" Margin="320, 25, 0, 0" BorderBrush="#4f2607" BorderThickness="4"  Click="Managers_OnClick">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="25"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </Canvas>
-    </Grid>
-   
     
+        
 </Window>
