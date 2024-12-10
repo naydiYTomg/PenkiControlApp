@@ -38,6 +38,29 @@
                 <RowDefinition Height="*"/>
 
             </Grid.RowDefinitions>
+
+            <ListView Grid.Row="1" HorizontalAlignment="Center">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <Button Content="&lt;"/>
+                <ListView Grid.Row="1">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <Button Content="EPIC ELEMENT1"/>
+                    <Button Content="EPIC ELEMENT2"/>
+                
+                </ListView>
+                <Button Content="&gt;"/>
+
+            </ListView>
+
+
         </Grid>
             <Grid.ColumnDefinitions>
             
