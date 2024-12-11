@@ -23,7 +23,11 @@ public partial class Toolbar : UserControl
 
     private void Products_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        var window = new ProductWindows { Height = 700, Width = 1280 };
+        _logger.LogMessage($"Clicked Products button and created {window}");
+        Products.IsEnabled = false;
+        _mainWindow.AddElement(window, 1);
+
     }
 
     private void TagsNCategories_OnClick(object sender, RoutedEventArgs e)
