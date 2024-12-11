@@ -12,4 +12,8 @@
       <Folder Include="Resources\Images\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\PenkiControlApp.Logging\PenkiControlApp.Logging.csproj" />
+    </ItemGroup>
+
 </Project>

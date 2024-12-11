@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PenkiControlApp.Logging;
 using PenkiControlApp.UI.Windows;
 
 namespace PenkiControlApp.UI;
@@ -18,39 +19,33 @@ namespace PenkiControlApp.UI;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public List<UIElement> Elements { get; private set; } = new List<UIElement>();
+    private readonly PCALogger _logger = PCALogger.GetInstance();
 
     public MainWindow()
     {
         InitializeComponent();
-        Elements.Add(new Toolbar(this) { Height = 100 });
+        AddElement(new Toolbar(this){ Height = 100 }, 0);
     }
 
-    public void WindowInitialized(UIElement element)
+    public void AddElement(UIElement element, int which)
     {
-        switch (element)
+        
+        _logger.LogMessage($"Element {element} is created");
+
+        switch (which)
         {
-            case Toolbar:
-                Console.WriteLine("Element Toolbar added");
-                Grid.SetRow(element, 0);
+            case 0:
                 WrapTools.Children.Add(element);
                 break;
-            case TagsNCategoriesWindow:
-                Console.WriteLine("Element TagsNCategories added");
-                Grid.SetRow(element, 1);
+            case 1:
                 WrapWins.Children.Add(element);
                 break;
         }
     }
 
-    public void UpdateElements()
-    {
-        WrapTools.Children.Clear();
-        foreach (var element in Elements)
-        {
-            WrapTools.Children.Add(element);
-        }
-    }
+    
+
+    
 
     
 }
