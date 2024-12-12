@@ -19,16 +19,16 @@ public class TabManager(MainWindow window)
             switch (tab)
             {
                 case 1:
-                    _mainWindow.AddElement(new ClientWindows() { Height = 700, Width = 1280 }, 1);
+                    _mainWindow.AddElement(new ClientWindows{ Height = 600, Width = 1160 }, 1);
                     break;
                 case 2:
-                    _mainWindow.AddElement(new ProductWindows(){Height = 700, Width = 1280}, 1);
+                    _mainWindow.AddElement(new ProductWindows{Height = 600, Width = 1160}, 1);
                     break;
                 case 3:
-                    _mainWindow.AddElement(new TagsNCategoriesWindow(){Height = 700, Width = 1280}, 1);
+                    _mainWindow.AddElement(new TagsNCategoriesWindow{Height = 600, Width = 1160}, 1);
                     break;
                 case 4:
-                    _mainWindow.AddElement(new ManagerWindows() { Height = 700, Width = 1280 }, 1);
+                    _mainWindow.AddElement(new ManagerWindows{ Height = 600, Width = 1160 }, 1);
                     break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);

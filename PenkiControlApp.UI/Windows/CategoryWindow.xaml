@@ -9,74 +9,23 @@
     <Button>
         <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         
-        <Label x:Name="NameOfCategory" Content="NameOfCategory" FontSize="20" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalContentAlignment="Center"></Label>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag1" Content="tag1" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag2" Content="tag2" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag3" Content="tag3" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag4" Content="tag4" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag5" Content="tag5" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag6" Content="tag6" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
+        <Label x:Name="NameOfCategory" Content="PlaceholderCategory" Margin="0 0 0 0" Grid.Row="0" FontSize="30"/>
+        <WrapPanel Grid.Row="1" x:Name="Tags" Margin="30 40 30 100 " Height="150" Width="230">
+            <Border BorderBrush="Black" BorderThickness="8" Height="53" Width="65" CornerRadius="10">
+                <Label Content="Tag1" FontSize="20"></Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="8" Height="53" Width="65" CornerRadius="10" Margin="100 0 0 0 ">
+                <Label Content="Tag2" FontSize="20"></Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="8" Height="53" Width="65" CornerRadius="10" Margin="0 10 0 0 ">
+                <Label Content="Tag3" FontSize="20"></Label>
+            </Border>
+            
+        </WrapPanel>
         
         
     </Grid>
