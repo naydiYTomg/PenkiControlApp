@@ -28,7 +28,7 @@ public class TabManager(MainWindow window)
                     _mainWindow.AddElement(new TagsNCategoriesWindow(){Height = 700, Width = 1280}, 1);
                     break;
                 case 4:
-                    _mainWindow.tabmgrlog("TODO:: Create managers tab");
+                    _mainWindow.AddElement(new ManagerWindows() { Height = 700, Width = 1280 }, 1);
                     break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);
