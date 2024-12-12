@@ -17,30 +17,28 @@ public partial class Toolbar : UserControl
     
     private void Clients_OnClick(object sender, RoutedEventArgs e)
     {
-        Console.WriteLine(Search.Text);
-        Search.Text = "";
+        _logger.LogMessage($"Clicked Products button and created? Clients window");
+        _mainWindow.TabManager.ChangeTab(1);
     }
 
     private void Products_OnClick(object sender, RoutedEventArgs e)
     {
-        var window = new ProductWindows { Height = 700, Width = 1280 };
-        _logger.LogMessage($"Clicked Products button and created {window}");
-        Products.IsEnabled = false;
-        _mainWindow.AddElement(window, 1);
+        _logger.LogMessage($"Clicked Products button and created Products window");
+        _mainWindow.TabManager.ChangeTab(2);
 
     }
 
     private void TagsNCategories_OnClick(object sender, RoutedEventArgs e)
     {
-        var window = new TagsNCategoriesWindow{Height = 700, Width = 1280};
-        _logger.LogMessage($"Clicked TagsNCategories button and created {window}");
-        TagsNCategories.IsEnabled = false;
-        _mainWindow.AddElement(window, 1);
+        _logger.LogMessage($"Clicked TagsNCategories button and created Tags&Categories window");
+        _mainWindow.TabManager.ChangeTab(3);
+        
     }
 
     private void Managers_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        _logger.LogMessage($"Clicked Products button and created? Managers window");
+        _mainWindow.TabManager.ChangeTab(4);
     }
 
     // private void Toolbar_OnInitialized(object? sender, EventArgs e)

@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PenkiControlApp.Logging;
+using PenkiControlApp.UI.Controls;
 using PenkiControlApp.UI.Windows;
 
 namespace PenkiControlApp.UI;
@@ -20,13 +21,26 @@ namespace PenkiControlApp.UI;
 public partial class MainWindow : Window
 {
     private readonly PCALogger _logger = PCALogger.GetInstance();
+    public Toolbar Toolbar { get; private set; }
+    public TabManager TabManager { get; private set;  }
 
     public MainWindow()
     {
         InitializeComponent();
-        AddElement(new Toolbar(this){ Height = 100 }, 0);
+        TabManager = new TabManager(this);
+        Toolbar = new Toolbar(this) { Height = 100 };
+        AddElement(Toolbar, 0);
     }
 
+    public void tabmgrerror(string message, bool isDrop)
+    {
+        _logger.LogError(message, isDrop);
+    }
+    public void tabmgrlog(string message)
+    {
+        _logger.LogMessage(message);
+    }
+    
     public void AddElement(UIElement element, int which)
     {
         
