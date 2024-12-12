@@ -1,0 +1,28 @@
+﻿<Window x:Name="MWin" x:Class="PenkiControlApp.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PenkiControlApp.UI"
+        xmlns:localWindows="clr-namespace:PenkiControlApp.UI.Windows"
+        mc:Ignorable="d"
+        Title="MainWindow" Width="1280" Background="#9aa7c7" ResizeMode="CanMinimize" WindowStyle="ToolWindow" d:DesignWidth="1280" d:DesignHeight="720">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- <localWindows:Toolbar Grid.Row="0"/> -->
+         <WrapPanel Grid.Row="0" Grid.RowSpan="1" x:Name="WrapTools">
+             
+         </WrapPanel>   
+        <WrapPanel x:Name="WrapWins" Grid.Row="1" Grid.RowSpan="7"></WrapPanel>
+        
+    </Grid>
+</Window>

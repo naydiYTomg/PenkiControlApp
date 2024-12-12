@@ -1,0 +1,58 @@
+<UserControl x:Class="PenkiControlApp.UI.Windows.TagsNCategoriesWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
+      mc:Ignorable="d"
+      d:DesignHeight="600" d:DesignWidth="1160">
+    
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="2" Content="Tags &amp; Categories" FontSize="20" FontFamily="sans" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" FontWeight="Bold"></Label>
+                <local:CategoryWindow Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"></local:CategoryWindow>
+                <local:CategoryWindow Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2"></local:CategoryWindow>
+                <local:CategoryWindow Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="2"></local:CategoryWindow>
+                <ListView Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="8" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <Button Content="&lt;"/>
+                    <ListView Grid.Row="1">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <Button Content="EPIC ELEMENT1"/>
+                        <Button Content="EPIC ELEMENT2"/>
+            
+                    </ListView>
+                    <Button Content="&gt;"/>
+            
+                </ListView>
+            </Grid>
+
+    
+        
+        
+    
+</UserControl>

@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="PenkiControlApp.UI.Windows.ManagerWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="4*"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="8*"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="_ProductName" Text="Ф.И." Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+            <Label Content="ID:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+            <TextBlock x:Name="_ProductInformation" Text="Информация" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+            <TextBlock x:Name="_ProductID" Text="123456789" Grid.Column="1" VerticalAlignment="Center" Grid.Row="1" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+
+            <ListView Grid.Row="1" HorizontalAlignment="Center">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <Button Content="&lt;"/>
+                <ListView Grid.Row="1">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <Button Content="EPIC ELEMENT1"/>
+                    <Button Content="EPIC ELEMENT2"/>
+
+                </ListView>
+                <Button Content="&gt;"/>
+
+            </ListView>
+
+
+        </Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="1.8*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+    </Grid>
+
+</UserControl>
