@@ -80,7 +80,7 @@
                     <ImageBrush ImageSource="{StaticResource Loopy}"></ImageBrush>
                 </Button.Background>
             </Button>
-            <Image x:Name="Logo" Source="/Resources/Images/penek.png" Grid.Column="0"></Image>
+            <Image x:Name="Logo" Source="{StaticResource LogoP}" Grid.Column="0"></Image>
             
         </Grid>
 </UserControl>
