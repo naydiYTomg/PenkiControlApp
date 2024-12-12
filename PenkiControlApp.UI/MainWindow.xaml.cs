@@ -23,7 +23,7 @@ public partial class MainWindow : Window
     private readonly PCALogger _logger = PCALogger.GetInstance();
     public Toolbar Toolbar { get; private set; }
     public TabManager TabManager { get; private set;  }
-
+    //qqq
     public MainWindow()
     {
         InitializeComponent();
