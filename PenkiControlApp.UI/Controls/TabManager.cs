@@ -19,7 +19,7 @@ public class TabManager(MainWindow window)
             switch (tab)
             {
                 case 1:
-                    _mainWindow.tabmgrlog("TODO:: Create clients tab");
+                    _mainWindow.AddElement(new ClientWindows() { Height = 700, Width = 1280 }, 1);
                     break;
                 case 2:
                     _mainWindow.AddElement(new ProductWindows(){Height = 700, Width = 1280}, 1);
