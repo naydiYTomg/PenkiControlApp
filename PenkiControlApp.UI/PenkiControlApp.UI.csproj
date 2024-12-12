@@ -16,4 +16,10 @@
       <ProjectReference Include="..\PenkiControlApp.Logging\PenkiControlApp.Logging.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Resources\Images\penek.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
