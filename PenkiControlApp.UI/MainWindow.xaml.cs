@@ -24,6 +24,7 @@ public partial class MainWindow : Window
     public Toolbar Toolbar { get; private set; }
     public TabManager TabManager { get; private set;  }
     //qqq
+    //eee
     public MainWindow()
     {
         InitializeComponent();
