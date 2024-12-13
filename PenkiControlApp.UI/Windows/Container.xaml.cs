@@ -19,9 +19,18 @@ namespace PenkiControlApp.UI.Windows
     /// </summary>
     public partial class Container : UserControl
     {
-        public Container()
+        public int Id { get; set; }
+        private ManagerWindows _parent;
+        public Container(ManagerWindows parent)
         {
             InitializeComponent();
+            _parent = parent;
+        }
+
+        private void _Information_OnClick(object sender, RoutedEventArgs e)
+        {
+            _parent.Name.Text = (string)_Information.Content;
+            _parent.ManagerId.Content = Id;
         }
     }
 }

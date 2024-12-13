@@ -23,5 +23,22 @@ namespace PenkiControlApp.UI.Windows
         {
             InitializeComponent();
         }
+
+        private void ManagerWindows_OnInitialized(object? sender, EventArgs e)
+        {
+            var result = App.UserManager.GetAllManagers();
+            result.ForEach(x =>
+            {
+                var manager = new Container(this)
+                {
+                    Id = x.Id,
+                    _Information =
+                    {
+                        Content = x.Name
+                    }
+                };
+                ManagersContent.Children.Add(manager);
+            });
+        }
     }
 }

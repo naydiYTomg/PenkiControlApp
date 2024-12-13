@@ -52,6 +52,17 @@ public class UserRepository
         }
     }
 
+    public List<UserDTO> GetManagers()
+    {
+        string connectionString = Constants.CONNECTION_INFO;
+        using (var connection = new NpgsqlConnection(connectionString))
+        {
+            string query = UserQueries.GET_MANAGERS_QUERY;
+            List<UserDTO> result = connection.Query<UserDTO>(query).ToList();
+            return result;
+        }
+    }
+
     public Result<int> InsertUser(UserDTO user)
     {
         string connectionString = Constants.CONNECTION_INFO;
@@ -62,7 +73,8 @@ public class UserRepository
             {
                 Name = user.Name,
                 Login = user.Login,
-                Password = user.Password
+                Password = user.Password,
+                Manager = user.Manager
             };
             connection.Open();
             try

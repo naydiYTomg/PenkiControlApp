@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\PenkiControlApp.BLL\PenkiControlApp.BLL.csproj" />
       <ProjectReference Include="..\PenkiControlApp.Logging\PenkiControlApp.Logging.csproj" />
     </ItemGroup>
 
