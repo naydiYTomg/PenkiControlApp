@@ -5,7 +5,7 @@ namespace PenkiControlApp.BLL;
 
 public class UserManager
 {
-    private UserRepository _userRepository = new();
+    private readonly UserRepository _userRepository = new();
 
     public List<ManagerForDisplayingOutputModel> GetAllManagers()
     {
