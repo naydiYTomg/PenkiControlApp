@@ -9,6 +9,6 @@
             "select \"Id\", \"Name\", \"Login\", \"Password\", \"Manager\" from \"User\" where \"Id\"=@Id";
 
         public const string GET_MANAGERS_QUERY =
-            "select \"Id\", \"Name\", \"Login\", \"Password\", \"Manager\" from \"User\" where \"Manager\"=true";
+            "select \"Id\", \"Name\", \"Login\", \"Password\", \"Manager\", \"Surname\" from \"User\" where \"Manager\"=true";
     }
 }
