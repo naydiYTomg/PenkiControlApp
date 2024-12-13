@@ -5,69 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
         mc:Ignorable="d"
-        Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-
-        </Grid.RowDefinitions>
-        <Grid Grid.Column="0">
+        d:DesignHeight="640" d:DesignWidth="1280">
+    <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
+        
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="4*"/>
-                
+                <ColumnDefinition Width="3*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="8*"/>
-                
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Image Source="\Resources\Images\penek.png" Grid.Column="1" Height="100" Width="100" Grid.ColumnSpan="3">
-            </Image>
-            <TextBlock x:Name="_ProductName" Text="Название" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
-            <Label Content="ID:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-            <TextBlock x:Name="_ProductInformation" Text="Информация" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
-            <TextBlock x:Name="_ProductID" Text="123456789" Grid.Column="1" VerticalAlignment="Center" Grid.Row="1" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
-
-        </Grid>
-        
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="*"/>
-
-            </Grid.RowDefinitions>
-
-            <ListView Grid.Row="1" HorizontalAlignment="Center">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <Button Content="&lt;"/>
-                <ListView Grid.Row="1">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <Button Content="EPIC ELEMENT1"/>
-                    <Button Content="EPIC ELEMENT2"/>
+            <Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Content="Products" FontSize="40" Margin="60 0 0  0"></Label>
+            <Border Grid.Row="1" Grid.Column="0" x:Name="CurrentProduct" CornerRadius="50" Margin="20">
                 
-                </ListView>
-                <Button Content="&gt;"/>
-
-            </ListView>
-
-
+                <Grid>
+                    <Rectangle Fill="White" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="4*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="Name" FontSize="35" VerticalContentAlignment="Center" Content="Название" Margin="40 20 0 0 "></Label>
+                        <Image Grid.Column="1" Grid.Row="0" Source="/Resources/Images/penek.png" Margin="0 0 10 0"></Image>
+                        <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" x:Name="ManagerId" Content="ID:" HorizontalContentAlignment="Left" FontSize="20" Margin="40 0 140 0"></Label>
+                        <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Margin="10 0 10 20">
+                            <TextBlock TextWrapping="Wrap" FontSize="20" Margin="40 0 0 0">
+                                About
+                            </TextBlock>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+                
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" x:Name="Content" CornerRadius="50" Margin="7">
+                <Grid>
+                    <Rectangle  Fill="White" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>
+                    <ScrollViewer Margin="0 10 15 10 ">
+                        <StackPanel Margin="20">
+                            <local:Container Width="600"></local:Container>
+                            <local:Container Width="600"></local:Container>
+                            <local:Container Width="600"></local:Container>
+                            <local:Container Width="600"></local:Container>
+                            <local:Container Width="600"></local:Container>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
         </Grid>
-            <Grid.ColumnDefinitions>
-            
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="1.8*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-    </Grid>
+    </Border>
     
 </UserControl>
