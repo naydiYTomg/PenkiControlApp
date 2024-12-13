@@ -17,11 +17,11 @@ namespace PenkiControlApp.UI.Windows
     /// <summary>
     /// Interaction logic for ProductWindows.xaml
     /// </summary>
-    public partial class Container : UserControl
+    public partial class ManagerContainer : UserControl
     {
         public int Id { get; init; }
         private readonly ManagerWindows _parent;
-        public Container(ManagerWindows parent)
+        public ManagerContainer(ManagerWindows parent)
         {
             InitializeComponent();
             _parent = parent;

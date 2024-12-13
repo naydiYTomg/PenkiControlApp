@@ -18,7 +18,7 @@ namespace PenkiControlApp.UI.Windows
             var result = App.UserManager.GetAllManagers();
             result.ForEach(x =>
             {
-                var manager = new Container(this)
+                var manager = new ManagerContainer(this)
                 {
                     Id = x.Id,
                     NameLabel = 

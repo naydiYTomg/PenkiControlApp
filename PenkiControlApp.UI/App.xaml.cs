@@ -14,6 +14,7 @@ public partial class App : Application
 {
     private readonly PCALogger _logger = PCALogger.GetInstance();
     public static readonly UserManager UserManager = new UserManager();
+    public static readonly ClientManager ClientManager = new ClientManager();
     private void App_OnExit(object sender, ExitEventArgs e)
     {
         _logger.OnExit();
