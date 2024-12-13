@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       d:DesignHeight="600" d:DesignWidth="1160">
     
-      <Border BorderBrush="Black" BorderThickness="5" CornerRadius="40">
+      <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
           <Grid>
               
               <!-- <Grid.ColumnDefinitions> -->
@@ -20,9 +20,9 @@
                   <RowDefinition Height="3*"/>
                   <RowDefinition Height="1*"/>
               </Grid.RowDefinitions>
-              <Rectangle Grid.Row="0" Grid.RowSpan="3" Fill="Black" RadiusX="32" RadiusY="32" Opacity=".6"></Rectangle>
-              <Label Grid.Row="0" Foreground="White" Content="Tags &amp; Categories" FontSize="20" FontFamily="sans" HorizontalContentAlignment="Center" FontWeight="Bold"></Label>
-              <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Rectangle Grid.Row="0" Grid.RowSpan="3" Fill="Black" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>
+            <Label Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Content="Tags &amp; Categories" FontSize="40" Margin="60 0 0  0"></Label>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
                   <local:CategoryWindow Width="270" Margin="10 0 0 0"></local:CategoryWindow>
                   <local:CategoryWindow Width="270" Margin="150 0 0 0 "></local:CategoryWindow>
                   <local:CategoryWindow Width="270" Margin="150 0 0 0"></local:CategoryWindow>

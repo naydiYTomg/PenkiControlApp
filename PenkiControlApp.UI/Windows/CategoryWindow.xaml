@@ -15,7 +15,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         
-        <Label x:Name="NameOfCategory" Content="PlaceholderCategory" Margin="0 0 0 0" Grid.Row="0" Grid.RowSpan="2" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="NameOfCategory" Content="PlaceholderCategory" Margin="0 0 0 0" Grid.Row="0" Grid.RowSpan="2" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
         <WrapPanel Grid.Row="2" x:Name="Tags" Width="200">
             <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10">
                 <Label Content="Tag1" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
