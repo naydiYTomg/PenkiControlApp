@@ -10,4 +10,8 @@ public partial class TagsNCategoriesWindow : UserControl
         InitializeComponent();
     }
 
+    private void CategoryWindow_Loaded(object sender, System.Windows.RoutedEventArgs e)
+    {
+
+    }
 }
