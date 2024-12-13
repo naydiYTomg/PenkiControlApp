@@ -29,8 +29,9 @@ namespace PenkiControlApp.UI.Windows
 
         private void _Information_OnClick(object sender, RoutedEventArgs e)
         {
-            _parent.Name.Text = (string)_Information.Content;
+            _parent.Name.Text = NameLabel.Content.ToString();
             _parent.ManagerId.Content = Id;
+            _parent.Surname.Text = SurnameLabel.Content.ToString();
         }
     }
 }
