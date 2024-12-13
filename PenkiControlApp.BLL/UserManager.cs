@@ -11,7 +11,7 @@ public class UserManager
     {
         List<ManagerForDisplayingOutputModel> outputModels = [];
         var got = _userRepository.GetManagers();
-        got.ForEach(x => outputModels.Add(new ManagerForDisplayingOutputModel{Name = x.Name!, Id = x.Id }));
+        got.ForEach(x => outputModels.Add(new ManagerForDisplayingOutputModel{Name = x.Name!, Id = x.Id, Surname = x.Surname! }));
         return outputModels;
     }
 }

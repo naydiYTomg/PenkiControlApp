@@ -21,9 +21,13 @@ namespace PenkiControlApp.UI.Windows
                 var manager = new Container(this)
                 {
                     Id = x.Id,
-                    _Information =
+                    NameLabel = 
                     {
                         Content = x.Name
+                    },
+                    SurnameLabel =
+                    {
+                        Content = x.Surname
                     }
                 };
                 ManagersContent.Children.Add(manager);

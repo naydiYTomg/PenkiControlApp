@@ -8,14 +8,21 @@
         d:DesignHeight="100" d:DesignWidth="400">
     <Grid>
         
-        <Button x:Name="_Information" Content="Информация" BorderBrush="Black" BorderThickness="5" VerticalAlignment="Center" Width="600" Height="100" HorizontalAlignment="Center" FontSize="20" Background="#00000000" Click="_Information_OnClick">
+        <Button x:Name="_Information" BorderBrush="Black" BorderThickness="5" VerticalAlignment="Center" Width="600" Height="100" HorizontalAlignment="Center" FontSize="20" Background="#00000000" Click="_Information_OnClick">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="30"/>
                 </Style>
                 
             </Button.Resources>
-            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="NameLabel" Grid.Column="0" Content="John" FontSize="24"/>
+                <Label x:Name="SurnameLabel"  Grid.Column="1" Content="Davey Harris" FontSize="24"></Label>
+            </Grid>
         </Button>
 
 
