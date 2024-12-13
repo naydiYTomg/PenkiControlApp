@@ -50,11 +50,7 @@
                     <Rectangle  Fill="White" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>
                     <ScrollViewer Margin="0 10 15 10 ">
                         <StackPanel Margin="20">
-                            <local:Container Width="600"></local:Container>
-                            <local:Container Width="600"></local:Container>
-                            <local:Container Width="600"></local:Container>
-                            <local:Container Width="600"></local:Container>
-                            <local:Container Width="600"></local:Container>
+                            
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>

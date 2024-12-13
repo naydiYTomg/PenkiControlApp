@@ -19,8 +19,8 @@ namespace PenkiControlApp.UI.Windows
     /// </summary>
     public partial class Container : UserControl
     {
-        public int Id { get; set; }
-        private ManagerWindows _parent;
+        public int Id { get; init; }
+        private readonly ManagerWindows _parent;
         public Container(ManagerWindows parent)
         {
             InitializeComponent();

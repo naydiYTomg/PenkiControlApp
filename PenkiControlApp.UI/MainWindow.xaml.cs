@@ -53,7 +53,6 @@ public partial class MainWindow : Window
                 break;
             case 1:
                 WrapWins.Children.Add(element);
-                // WrapWins.
                 break;
         }
     }
