@@ -23,5 +23,26 @@ namespace PenkiControlApp.UI.Windows
         {
             InitializeComponent();
         }
+
+        private void ProductWindows_OnInitialized(object? sender, EventArgs e)
+        {
+            var result = App.ProductManager.GetAllProducts();
+            result.ForEach(x =>
+            {
+                var product = new ProductContainer(this)
+                {
+                    Id = x.Id,
+                    NameLabel =
+                    {
+                        Content = x.Name
+                    },
+                    CategoryLabel =
+                    {
+                        Content = $":{x.CategoryName}"
+                    }
+                };
+                ProductsContent.Children.Add(product);
+            });
+        }
     }
 }

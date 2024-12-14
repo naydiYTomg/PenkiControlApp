@@ -13,8 +13,9 @@ namespace PenkiControlApp.UI;
 public partial class App : Application
 {
     private readonly PCALogger _logger = PCALogger.GetInstance();
-    public static readonly UserManager UserManager = new UserManager();
-    public static readonly ClientManager ClientManager = new ClientManager();
+    public static readonly UserManager UserManager = new();
+    public static readonly ClientManager ClientManager = new();
+    public static readonly ProductManager ProductManager = new();
     private void App_OnExit(object sender, ExitEventArgs e)
     {
         _logger.OnExit();

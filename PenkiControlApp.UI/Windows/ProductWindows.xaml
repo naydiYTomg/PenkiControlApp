@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
         mc:Ignorable="d"
-        d:DesignHeight="640" d:DesignWidth="1280">
+        d:DesignHeight="640" d:DesignWidth="1280" Initialized="ProductWindows_OnInitialized">
     <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
         
         <Grid>
@@ -33,9 +33,9 @@
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <Label x:Name="Name" FontSize="35" VerticalContentAlignment="Center" Content="Название" Margin="40 20 0 0"></Label>
+                        <Label x:Name="ProductName" FontSize="35" VerticalContentAlignment="Center" Content="Название" Margin="40 20 0 0"></Label>
                         <Image Grid.Column="1" Grid.Row="0" Source="/Resources/Images/penek.png" Margin="0 0 10 0"></Image>
-                        <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" x:Name="ManagerId" Content="ID:" HorizontalContentAlignment="Left" FontSize="20" Margin="40 0 140 0"></Label>
+                        <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" x:Name="ProductId" Content="ID:" HorizontalContentAlignment="Left" FontSize="20" Margin="40 0 140 0"></Label>
                         <ScrollViewer Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0" Margin="10 0 10 20">
                             <TextBlock TextWrapping="Wrap" FontSize="20" Margin="40 0 0 0">
                                 About
@@ -45,11 +45,11 @@
                 </Grid>
                 
             </Border>
-            <Border Grid.Row="1" Grid.Column="1" x:Name="Content" CornerRadius="50" Margin="7">
+            <Border Grid.Row="1" Grid.Column="1" CornerRadius="50" Margin="7">
                 <Grid>
                     <Rectangle  Fill="White" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>
                     <ScrollViewer Margin="0 10 15 10 ">
-                        <StackPanel Margin="20">
+                        <StackPanel  x:Name="ProductsContent" Margin="20">
 
                         </StackPanel>
                     </ScrollViewer>
