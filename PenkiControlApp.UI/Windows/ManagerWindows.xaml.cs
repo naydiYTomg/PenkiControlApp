@@ -11,6 +11,11 @@ namespace PenkiControlApp.UI.Windows
         public ManagerWindows()
         {
             InitializeComponent();
+            InfoLabel.Content = App.UILanguage switch
+            {
+                InternalTypes.Language.Russian => "Менеджеры",
+                _ => InfoLabel.Content
+            };
         }
 
         private void ManagerWindows_OnInitialized(object? sender, EventArgs e)

@@ -17,7 +17,7 @@ public partial class Toolbar : UserControl
     
     private void Clients_OnClick(object sender, RoutedEventArgs e)
     {
-        _logger.LogMessage($"Clicked Products button and created? Clients window");
+        _logger.LogMessage($"Clicked Products button and created Clients window");
         _mainWindow.TabManager.ChangeTab(1);
     }
 
@@ -37,7 +37,7 @@ public partial class Toolbar : UserControl
 
     private void Managers_OnClick(object sender, RoutedEventArgs e)
     {
-        _logger.LogMessage($"Clicked Products button and created? Managers window");
+        _logger.LogMessage($"Clicked Products button and created Managers window");
         _mainWindow.TabManager.ChangeTab(4);
     }
 
@@ -46,4 +46,9 @@ public partial class Toolbar : UserControl
     //     Console.WriteLine("Initialized toolbar");
     //     MainWindow.WindowInitialized(this);
     // }
+    private void Login_OnClick(object sender, RoutedEventArgs e)
+    {
+        _logger.LogMessage($"Clicked Login button and created LoginRegistration window");
+        _mainWindow.TabManager.ChangeTab(5);
+    }
 }

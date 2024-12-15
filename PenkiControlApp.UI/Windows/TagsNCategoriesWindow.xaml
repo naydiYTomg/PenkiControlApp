@@ -21,7 +21,7 @@
                   <RowDefinition Height="1*"/>
               </Grid.RowDefinitions>
             <Rectangle Grid.Row="0" Grid.RowSpan="3" Fill="Black" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>
-            <Label Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Content="Tags &amp; Categories" FontSize="40" Margin="60 0 0 0" Foreground="White"></Label>
+            <Label x:Name="InfoLabel" Grid.Row="0" HorizontalAlignment="Center" Content="Tags &amp; Categories" FontSize="40" Margin="60 0 0 0" Foreground="White"></Label>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                   <local:CategoryWindow Width="270" Margin="10 0 0 0"></local:CategoryWindow>
                   <local:CategoryWindow Width="270" Margin="150 0 0 0 " Loaded="CategoryWindow_Loaded"></local:CategoryWindow>

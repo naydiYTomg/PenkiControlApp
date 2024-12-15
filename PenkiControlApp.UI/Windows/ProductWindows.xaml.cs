@@ -22,6 +22,11 @@ namespace PenkiControlApp.UI.Windows
         public ProductWindows()
         {
             InitializeComponent();
+            InfoLabel.Content = App.UILanguage switch
+            {
+                InternalTypes.Language.Russian => "Продукты",
+                _ => InfoLabel.Content
+            };
         }
 
         private void ProductWindows_OnInitialized(object? sender, EventArgs e)

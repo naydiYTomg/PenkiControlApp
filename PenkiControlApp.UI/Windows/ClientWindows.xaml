@@ -18,7 +18,7 @@
                 <RowDefinition Height="9*"></RowDefinition>
             </Grid.RowDefinitions>
             <Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
-            <Label Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Content="Clients" FontSize="40" Margin="60 0 0  0"></Label>
+            <Label x:Name="InfoLabel" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Content="Clients" FontSize="40" Margin="60 0 0  0" Foreground="White"></Label>
             <Border Grid.Row="1" Grid.Column="0" x:Name="CurrentClient" CornerRadius="50" Margin="20">
                 
                 <Grid>
