@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
         mc:Ignorable="d"
-        d:DesignHeight="100" d:DesignWidth="400">
+        d:DesignHeight="70" d:DesignWidth="400">
     <Grid>
         
         <Button  BorderBrush="Black" BorderThickness="5" VerticalAlignment="Center" Width="600" Height="100" HorizontalAlignment="Center" FontSize="20" Background="#00000000" Click="ButtonBase_OnClick">
