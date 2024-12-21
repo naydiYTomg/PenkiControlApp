@@ -10,22 +10,13 @@ namespace PenkiControlApp.DAL;
 
 public class UserRepository
 {
-    public Result<List<UserDTO>> GetAllUsers()
+    public List<UserDTO> GetAllUsers()
     {
         string connectionString = Constants.CONNECTION_INFO;
         
         using (var connection = new NpgsqlConnection(connectionString)) {
-            connection.Open();
-            try
-            {
-                List<UserDTO> result = connection.Query<UserDTO>(UserQueries.GET_USERS_QUERY).ToList();
-                return new Result<List<UserDTO>>(result, null);
-            }
-            catch (Exception e)
-            {
-                return new Result<List<UserDTO>>(null, e);
-            }
-        
+            List<UserDTO> result = connection.Query<UserDTO>(UserQueries.GET_USERS_QUERY).ToList();
+            return result;
         }
     }
 
@@ -63,7 +54,7 @@ public class UserRepository
         }
     }
 
-    public Result<int> InsertUser(UserDTO user)
+    public int InsertUser(UserDTO user)
     {
         string connectionString = Constants.CONNECTION_INFO;
         using (var connection = new NpgsqlConnection(connectionString))
@@ -74,18 +65,13 @@ public class UserRepository
                 Name = user.Name,
                 Login = user.Login,
                 Password = user.Password,
-                Manager = user.Manager
+                Manager = user.Manager,
+                Surname = user.Surname
             };
             connection.Open();
-            try
-            {
-                int ser = connection.Query<int>(query, properties).First();
-                return new Result<int>(ser, null);
-            }
-            catch (Exception e)
-            {
-                return new Result<int>(0, e);
-            }
+            int ser = connection.Query<int>(query, properties).First();
+            return ser;
+            
         }
     }
 }

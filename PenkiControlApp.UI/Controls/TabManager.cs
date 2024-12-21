@@ -31,7 +31,7 @@ public class TabManager(MainWindow window)
                     _mainWindow.AddElement(new ManagerWindows{ Height = 600, Width = 1160 }, 1);
                     break;
                 case 5:
-                    _mainWindow.AddElement(new LoginRegistrationWindow{ Height = 600, Width = 1160}, 1);
+                    _mainWindow.AddElement(new LoginRegistrationWindow(_mainWindow){ Height = 600, Width = 1160}, 1);
                     break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);

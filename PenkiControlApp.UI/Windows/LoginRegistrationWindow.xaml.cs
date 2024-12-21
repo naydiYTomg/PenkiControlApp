@@ -1,12 +1,15 @@
+using System.Windows;
 using System.Windows.Controls;
 
 namespace PenkiControlApp.UI.Windows;
 
 public partial class LoginRegistrationWindow : UserControl
 {
-    public LoginRegistrationWindow()
+    private MainWindow _window;
+    public LoginRegistrationWindow(MainWindow mainWindow)
     {
         InitializeComponent();
+        _window = mainWindow;
         LoginAs.Content = App.UILanguage switch
         {
             InternalTypes.Language.Russian => "Войти как...",
@@ -29,8 +32,16 @@ public partial class LoginRegistrationWindow : UserControl
         };
         Register.Content = App.UILanguage switch
         {
-            InternalTypes.Language.Russian => "Зарегестрироваться",
+            InternalTypes.Language.Russian => "Зарегистрироваться",
             _ => Register.Content
         };
+    }
+
+    private void Register_OnClick(object sender, RoutedEventArgs e)
+    {
+        Container.Children.RemoveRange(1, Container.Children.Count-1);
+        var window = new RegistrationWindow(_window);
+        Grid.SetColumnSpan(window, 2);
+        Container.Children.Add(window);
     }
 }

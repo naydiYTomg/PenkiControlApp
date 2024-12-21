@@ -6,15 +6,15 @@
              xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
              mc:Ignorable="d"
              d:DesignHeight="640" d:DesignWidth="1280">
-    <Grid>
+    <Grid >
         <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
             
-            <Grid>
+            <Grid x:Name="Container">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Rectangle Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
+                <Rectangle x:Name="Rectangle" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
                 <Border Grid.Column="0" BorderBrush="Black" BorderThickness="8" CornerRadius="40 0 0 40">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -45,7 +45,7 @@
                 <Border Grid.Column="1" BorderBrush="Black" BorderThickness="8" CornerRadius="0 40 40 0">
                     <Grid>
                         
-                        <Button x:Name="Register" Content="Register" FontSize="50" Background="#00000000" Foreground="White" BorderThickness="0"/>
+                        <Button x:Name="Register" Content="Register" FontSize="50" Background="#00000000" Foreground="White" BorderThickness="0" Click="Register_OnClick"/>
                     </Grid>
                 </Border>
             </Grid>
