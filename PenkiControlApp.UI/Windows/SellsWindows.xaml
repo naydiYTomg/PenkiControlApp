@@ -12,62 +12,39 @@
 
         </Grid.RowDefinitions>
         <Grid Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="4*"/>
-                
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="8*"/>
-                
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
-            <Image Source="\Resources\Images\penek.png" Grid.Column="1" Height="100" Width="100" Grid.ColumnSpan="3">
-            </Image>
-            <TextBlock x:Name="_ProductName" Text="Название" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
-            <Label Content="ID:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-            <TextBlock x:Name="_ProductInformation" Text="Информация" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
-            <TextBlock x:Name="_ProductID" Text="123456789" Grid.Column="1" VerticalAlignment="Center" Grid.Row="1" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
-
+            <TextBlock Text="Choose a client" Grid.Column="0" Grid.Row="0" FontSize="20" TextWrapping="Wrap"/>
+            <TextBlock Text="Client about" Grid.Column="0" Grid.Row="2" FontSize="20" TextWrapping="Wrap"/>
         </Grid>
-        
+
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="*"/>
-
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
+            <Button Content="SELL" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48"/>
 
-            <ListView Grid.Row="1" HorizontalAlignment="Center">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <Button Content="&lt;"/>
-                <ListView Grid.Row="1">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <Button Content="EPIC ELEMENT1"/>
-                    <Button Content="EPIC ELEMENT2"/>
-                
-                </ListView>
-                <Button Content="&gt;"/>
-
-            </ListView>
-
-
+            <TextBlock Text="Additional information" Grid.Column="1" Grid.Row="2" FontSize="20" TextWrapping="Wrap"/>
         </Grid>
-            <Grid.ColumnDefinitions>
-            
+        
+        <TextBlock Text="Choose a product" Grid.Column="1" Grid.Row="1" FontSize="20" TextWrapping="Wrap"/>
+        
+        
+        <Grid.ColumnDefinitions>
+
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="1.8*"></ColumnDefinition>
+            
         </Grid.ColumnDefinitions>
-
+        
     </Grid>
-    
+
 </UserControl>
