@@ -2,11 +2,13 @@
 using PenkiControlApp.Core.OutputModels;
 using PenkiControlApp.DAL;
 
+
 namespace PenkiControlApp.BLL;
 
 public class UserManager
 {
     private readonly UserRepository _userRepository = new();
+    
 
     public List<ManagerForDisplayingOutputModel> GetAllManagers()
     {

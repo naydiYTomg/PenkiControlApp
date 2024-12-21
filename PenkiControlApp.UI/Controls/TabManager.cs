@@ -33,6 +33,9 @@ public class TabManager(MainWindow window)
                 case 5:
                     _mainWindow.AddElement(new LoginRegistrationWindow(_mainWindow){ Height = 600, Width = 1160}, 1);
                     break;
+                case 6:
+                    _mainWindow.AddElement(new SellsWindow() { Height = 700, Width = 1280}, 1);
+                    break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);
                     break;
@@ -47,7 +50,7 @@ public class TabManager(MainWindow window)
         List<UIElement> temp =
         [
             _mainWindow.Toolbar.Clients, _mainWindow.Toolbar.Products, _mainWindow.Toolbar.TagsNCategories,
-            _mainWindow.Toolbar.Managers, _mainWindow.Toolbar.Login
+            _mainWindow.Toolbar.Managers, _mainWindow.Toolbar.Login, _mainWindow.Toolbar.Sells
         ];
         temp[except - 1].IsEnabled = false;
         temp.ForEach(x =>

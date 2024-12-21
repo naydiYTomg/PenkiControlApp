@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\PenkiControlApp.Core\PenkiControlApp.Core.csproj" />
+      <ProjectReference Include="..\PenkiControlApp.Logging\PenkiControlApp.Logging.csproj" />
     </ItemGroup>
 
     <ItemGroup>

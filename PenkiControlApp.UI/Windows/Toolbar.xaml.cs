@@ -52,19 +52,25 @@ public partial class Toolbar : UserControl
     private void Login_OnClick(object sender, RoutedEventArgs e)
     {
         _logger.LogMessage($"Clicked Login button up and created LoginRegistration window");
-        Login.Source = (ImageSource)Resources["Login"];
+        Login.Source = (ImageSource)Resources["Login"]!;
         _mainWindow.TabManager.ChangeTab(5);
     }
 
     private void Login_OnMouseDown(object sender, MouseButtonEventArgs e)
     {
         _logger.LogMessage($"Clicked Login button down");
-        Login.Source = (ImageSource)Resources["LoginClicked"];
+        Login.Source = (ImageSource)Resources["LoginClicked"]!;
     }
 
     private void Login_OnMouseLeave(object sender, MouseEventArgs e)
     {
         _logger.LogMessage($"Leaved Login button");
-        Login.Source = (ImageSource)Resources["Login"];
+        Login.Source = (ImageSource)Resources["Login"]!;
+    }
+
+    private void Sells_OnClick(object sender, RoutedEventArgs e)
+    {
+        _logger.LogMessage($"Clicked Sells button and created Sells window");
+        _mainWindow.TabManager.ChangeTab(6);
     }
 }

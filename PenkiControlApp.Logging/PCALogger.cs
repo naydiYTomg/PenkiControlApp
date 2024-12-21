@@ -8,12 +8,21 @@ public class PCALogger
     {
         return _instance ??= new PCALogger();
     }
+    public static PCALogger GetInstance(string filename)
+    {
+        return _instance ??= new PCALogger(filename);
+    }
 
     private PCALogger()
     {
         var date = DateTime.Now;
         Directory.CreateDirectory("./Log");
         _current = new StreamWriter(File.Create($"./Log/LOG{date.Year}{date.Month}{date.Day}{date.Hour}{date.Minute}{date.Second}.log"));
+    }
+    private PCALogger(string filename)
+    {
+        Directory.CreateDirectory("./Log");
+        _current = new StreamWriter(File.Create($"./Log/{filename}.log"));
     }
 
     public void LogWarning(string message)

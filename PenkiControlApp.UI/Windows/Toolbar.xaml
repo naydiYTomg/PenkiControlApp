@@ -62,6 +62,13 @@
                         </Style>
                     </Button.Resources>
                 </Button>
+                <Button x:Name="Sells" Grid.Column="4" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" Click="Sells_OnClick">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="25"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
             </Grid>
             <TextBox x:Name="Search" Height="50" Grid.Column="7" Grid.ColumnSpan="4" Background="#c9b176" FontSize="30" BorderThickness="3" BorderBrush="Black">
                 <TextBox.Resources>
