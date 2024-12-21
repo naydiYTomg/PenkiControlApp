@@ -40,6 +40,11 @@ public partial class Toolbar : UserControl
         _logger.LogMessage($"Clicked Products button and created Managers window");
         _mainWindow.TabManager.ChangeTab(4);
     }
+    private void Sells_OnClick(object sender, RoutedEventArgs e)
+    {
+        _logger.LogMessage($"Clicked Sells button and created Sells window");
+        _mainWindow.TabManager.ChangeTab(5);
+    }
 
     // private void Toolbar_OnInitialized(object? sender, EventArgs e)
     // {
