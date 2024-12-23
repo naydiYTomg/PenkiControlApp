@@ -19,9 +19,11 @@ namespace PenkiControlApp.UI.Windows
     /// </summary>
     public partial class ProductWindows : UserControl
     {
-        public ProductWindows()
+        private MainWindow _window;
+        public ProductWindows(MainWindow window)
         {
             InitializeComponent();
+            _window = window;
             InfoLabel.Content = App.UILanguage switch
             {
                 InternalTypes.Language.Russian => "Продукты",
@@ -48,6 +50,11 @@ namespace PenkiControlApp.UI.Windows
                 };
                 ProductsContent.Children.Add(product);
             });
+        }
+
+        private void CreateProductButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            _window.TabManager.ChangeTab(7);
         }
     }
 }

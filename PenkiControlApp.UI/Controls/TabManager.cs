@@ -22,7 +22,7 @@ public class TabManager(MainWindow window)
                     _mainWindow.AddElement(new ClientWindows{ Height = 600, Width = 1160 }, 1);
                     break;
                 case 2:
-                    _mainWindow.AddElement(new ProductWindows{Height = 600, Width = 1160}, 1);
+                    _mainWindow.AddElement(new ProductWindows(_mainWindow){Height = 600, Width = 1160}, 1);
                     break;
                 case 3:
                     _mainWindow.AddElement(new TagsNCategoriesWindow{Height = 600, Width = 1160}, 1);
@@ -36,12 +36,18 @@ public class TabManager(MainWindow window)
                 case 6:
                     _mainWindow.AddElement(new SellsWindow() { Height = 700, Width = 1280}, 1);
                     break;
+                case 7: //Product creation window
+                    _mainWindow.AddElement(new ProductCreationWindow { Height = 700, Width = 1160}, 1);
+                    break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);
                     break;
             }
 
-            UpdateButtons(tab);
+            if (tab != 7)
+            {
+                UpdateButtons(tab);
+            }
         }
     }
 

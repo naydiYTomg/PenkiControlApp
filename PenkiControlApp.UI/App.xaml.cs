@@ -18,6 +18,8 @@ public partial class App : Application
     public static readonly UserManager UserManager = new();
     public static readonly ClientManager ClientManager = new();
     public static readonly ProductManager ProductManager = new();
+    public static readonly CategoryManager CategoryManager = new();
+    public static readonly TagManager TagManager = new();
     public static User? CurrentUser { get; set; }
     public static Language UILanguage { get; set; }
     private void App_OnExit(object sender, ExitEventArgs e)

@@ -3,6 +3,7 @@ using Npgsql;
 using PenkiControlApp.Core;
 using PenkiControlApp.Core.DTOs;
 using PenkiControlApp.Core.Queries;
+using PenkiControlApp.DAL.Internal;
 using PenkiControlApp.Logging;
 namespace PenkiControlApp.DAL;
 
@@ -23,5 +24,18 @@ public class CategoryRepository
             _logger.LogMessage($"Got this {result.ToString()}");
             return result;
         }
+    }
+
+    public int GetCategoryIdByName(string name)
+    {
+        var connection = new ConnectionBuilder().WithQuery(CategoryQueries.GetCategoryIdByName)
+            .WithProperties(new { Name = name }).Pack();
+        return connection.ExecuteFirst<int>();
+    }
+
+    public List<CategoryDTO> GetCategories()
+    {
+        var connection = new ConnectionBuilder().WithQuery(CategoryQueries.GET_CATEGORIES_QUERY).Pack();
+        return connection.Execute<CategoryDTO>().ToList();
     }
 }
