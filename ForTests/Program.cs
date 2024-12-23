@@ -23,17 +23,20 @@ class Program
         // {
         //     Console.WriteLine($"{temp.Value.Name}, {temp.Value.Surname}, {temp.Value.Login}, {temp.Value.Password}");
         // }
-        using (var connection = new NpgsqlConnection(Environment.GetEnvironmentVariable("DATABASE_ACCESS")))
-        {
-            connection.Query("""
-                             update "User"
-                             set "Password" = @Password
-                             where "Surname" = 'Davey Harris'
-                             """, new
-            {
-                Password = Encoding.UTF8.GetString(SHA256.HashData("very_strong_password"u8.ToArray()))
-            });
-        }
+        var a = "hello".ToCharArray();
+        a[0] = a[0].ToString().ToUpper().ToCharArray()[0];
+        Console.WriteLine(new string(a));
+        // using (var connection = new NpgsqlConnection(Environment.GetEnvironmentVariable("DATABASE_ACCESS")))
+        // {
+        //     connection.Query("""
+        //                      update "User"
+        //                      set "Password" = @Password
+        //                      where "Surname" = 'Davey Harris'
+        //                      """, new
+        //     {
+        //         Password = Encoding.UTF8.GetString(SHA256.HashData("very_strong_password"u8.ToArray()))
+        //     });
+        // }
         // var insertedId = repository.InsertUser(new UserDTO { Name = "JohnDaveyHarris", Login = "jdh993", Password = "very_strong_password", Manager = true});
         // var insertedId2 = repository.InsertUser(new UserDTO()
         //     { Name = "Artyom", Login = "cool_manager", Password = "cool", Manager = true });

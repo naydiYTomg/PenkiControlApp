@@ -4,6 +4,7 @@ using PenkiControlApp.Core;
 using PenkiControlApp.Core.DTOs;
 using PenkiControlApp.Core.Queries;
 using PenkiControlApp.Core.Types;
+using PenkiControlApp.DAL.Internal;
 
 namespace PenkiControlApp.DAL;
 
@@ -12,153 +13,73 @@ public class UserRepository
 {
     public List<UserDTO> GetAllUsers()
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        
-        using (var connection = new NpgsqlConnection(connectionString)) {
-            List<UserDTO> result = connection.Query<UserDTO>(UserQueries.GET_USERS_QUERY).ToList();
-            return result;
-        }
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_USERS_QUERY).Pack();
+        return connection.Execute<UserDTO>().ToList();
     }
 
     public UserDTO GetUserByLogin(string login)
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            string query = UserQueries.GET_USER_BY_LOGIN_QUERY;
-            var properties = new
-            {
-                Login = login
-            };
-            UserDTO user = connection.QueryFirst<UserDTO>(query, properties);
-            return user;
-        }
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_USER_BY_LOGIN_QUERY)
+            .WithProperties(new { Login = login }).Pack();
+        return connection.ExecuteFirst<UserDTO>();
     }
  
-    public Result<UserDTO> GetUserById(int id)
+    public UserDTO GetUserById(int id)
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            string query = UserQueries.GET_USER_BY_ID_QUERY;
-            var properties = new
-            {
-                Id = id
-            };
-            try
-            {
-                UserDTO user = connection.QueryFirst<UserDTO>(query, properties);
-                return new Result<UserDTO>(user, null);
-            }
-            catch (Exception e)
-            {
-                return new Result<UserDTO>(null, e);
-            }
-            //QQQ
-        }
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_USER_BY_ID_QUERY)
+            .WithProperties(new { Id = id }).Pack();
+        return connection.ExecuteFirst<UserDTO>();
     }
 
     public List<UserDTO> GetManagers()
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            string query = UserQueries.GET_MANAGERS_QUERY;
-            List<UserDTO> result = connection.Query<UserDTO>(query).ToList();
-            return result;
-        }
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_MANAGERS_QUERY).Pack();
+        return connection.Execute<UserDTO>().ToList();
     }
 
     public int InsertUser(UserDTO user)
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        using (var connection = new NpgsqlConnection(connectionString))
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.INSERT_USER_QUERY).WithProperties(new
         {
-            string query = UserQueries.INSERT_USER_QUERY;
-            var properties = new
-            {
-                Name = user.Name,
-                Surname = user.Surname,
-                Login = user.Login,
-                Password = user.Password,
-                Manager = user.Manager,
-                Administrator = user.Administrator
-            };
-            int ser = connection.Query<int>(query, properties).First();
-            return ser;
-            
-        }
+            Name = user.Name,
+            Surname = user.Surname,
+            Login = user.Login,
+            Password = user.Password,
+            Manager = user.Manager,
+            Administrator = user.Administrator
+        }).Pack();
+        return connection.ExecuteFirst<int>();
     }
 
     public UserDTO GetManagerByLogin(string login)
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            string query = UserQueries.GET_MANAGER_BY_LOGIN_QUERY;
-            var properties = new
-            {
-                Login = login
-            };
-            UserDTO user = connection.QueryFirst<UserDTO>(query, properties);
-            return user;
-        }
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_MANAGER_BY_LOGIN_QUERY)
+            .WithProperties(new { Login = login }).Pack();
+        return connection.ExecuteFirst<UserDTO>();
     }
     public UserDTO GetAdministratorByLogin(string login)
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            string query = UserQueries.GET_ADMINISTRATOR_BY_LOGIN_QUERY;
-            var properties = new
-            {
-                Login = login
-            };
-            UserDTO user = connection.QueryFirst<UserDTO>(query, properties);
-            return user;
-        }
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_ADMINISTRATOR_BY_LOGIN_QUERY)
+            .WithProperties(new { Login = login }).Pack();
+        return connection.ExecuteFirst<UserDTO>();
     }
 
     public string GetUserPasswordByLogin(string login)
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            string query = UserQueries.GET_USER_PASSWORD_BY_LOGIN_QUERY;
-            var properties = new
-            {
-                Login = login
-            };
-            string password = connection.Query<string>(query, properties).First();
-            return password;
-        }
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_USER_PASSWORD_BY_LOGIN_QUERY)
+            .WithProperties(new { Login = login }).Pack();
+        return connection.ExecuteFirst<string>();
     }
     public string GetManagerPasswordByLogin(string login)
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            string query = UserQueries.GET_MANAGER_PASSWORD_BY_LOGIN_QUERY;
-            var properties = new
-            {
-                Login = login
-            };
-            string password = connection.Query<string>(query, properties).First();
-            return password;
-        }
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_MANAGER_PASSWORD_BY_LOGIN_QUERY)
+            .WithProperties(new { Login = login }).Pack();
+        return connection.ExecuteFirst<string>();
     }
     public string GetAdministratorPasswordByLogin(string login)
     {
-        string connectionString = Constants.CONNECTION_INFO;
-        using (var connection = new NpgsqlConnection(connectionString))
-        {
-            string query = UserQueries.GET_ADMINISTRATOR_PASSWORD_BY_LOGIN_QUERY;
-            var properties = new
-            {
-                Login = login
-            };
-            string password = connection.Query<string>(query, properties).First();
-            return password;
-        }
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_ADMINISTRATOR_PASSWORD_BY_LOGIN_QUERY)
+            .WithProperties(new { Login = login }).Pack();
+        return connection.ExecuteFirst<string>();
     }
 }
