@@ -1,5 +1,4 @@
-﻿using PenkiControlApp.Logging;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 
@@ -22,9 +21,8 @@ namespace PenkiControlApp.UI.Windows
             };
         }
 
-        
-   
-        private void ManagerWindows_OnInitialized(object? sender, EventArgs e)
+
+        private void AddManagerWindows_OnInitialized(object? sender, EventArgs e)
         {
             var result = App.UserManager.GetAllManagers();
             result.ForEach(x =>
@@ -32,7 +30,7 @@ namespace PenkiControlApp.UI.Windows
                 var manager = new ManagerContainer(this)
                 {
                     Id = x.Id,
-                    NameLabel = 
+                    NameLabel =
                     {
                         Content = x.Name
                     },
@@ -43,6 +41,7 @@ namespace PenkiControlApp.UI.Windows
                 };
                 ManagersContent.Children.Add(manager);
             });
+
         }
     }
 }
