@@ -18,6 +18,7 @@ public partial class ProductCreationWindow : UserControl
 
     private void ChosenCategories_OnSelected(object sender, SelectionChangedEventArgs e)
     {
+        TagsContainer.Children.Clear();
         var tags = App.TagManager.GetTagsByCategoryName((ChosenCategories.SelectedItem as ComboBoxItem)!.Content.ToString()!);
         tags.ForEach(x =>
         {
