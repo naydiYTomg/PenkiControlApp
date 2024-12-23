@@ -1,6 +1,7 @@
 using System.Diagnostics.Eventing.Reader;
 using System.Windows;
 using System.Windows.Controls;
+using PenkiControlApp.UI.InternalTypes;
 
 namespace PenkiControlApp.UI.Windows;
 
@@ -26,6 +27,7 @@ public partial class RegistrationWindow : UserControl
         else
         {
             App.UserManager.AddNewUser(NameField.Text, SurnameField.Text, LoginField.Text, PasswordField.Text, false, false);
+            App.CurrentUser = new User() { Name = NameField.Text, Surname = SurnameField.Text, Id = 0 };
             _window.TabManager.ChangeTab(1);
         }
         

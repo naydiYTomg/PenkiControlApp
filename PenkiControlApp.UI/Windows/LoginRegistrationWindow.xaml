@@ -30,9 +30,9 @@
                                 </Style>
                             </Label.Resources>    
                         </Label>
-                        <Button Grid.Row="1" BorderThickness="0 5 0 0" BorderBrush="Black" x:Name="AsWorker" Content="Worker" FontSize="50" Background="#00000000" Foreground="YellowGreen"/>
-                        <Button Grid.Row="2" BorderThickness="0 5 0 0" BorderBrush="Black" x:Name="AsManager" Content="Manager" FontSize="50" Background="#00000000" Foreground="BurlyWood"/>
-                        <Button Grid.Row="3" BorderThickness="0 5 0 5" BorderBrush="Black" x:Name="AsAdmin" Content="Administrator" FontSize="50" Background="#00000000" Foreground="DarkGoldenrod">
+                        <Button Grid.Row="1" BorderThickness="0 5 0 0" BorderBrush="Black" x:Name="AsWorker" Content="Worker" FontSize="50" Background="#00000000" Foreground="YellowGreen" Click="AsWorker_OnClick"/>
+                        <Button Grid.Row="2" BorderThickness="0 5 0 0" BorderBrush="Black" x:Name="AsManager" Content="Manager" FontSize="50" Background="#00000000" Foreground="BurlyWood" Click="AsManager_OnClick"/>
+                        <Button Grid.Row="3" BorderThickness="0 5 0 5" BorderBrush="Black" x:Name="AsAdmin" Content="Administrator" FontSize="50" Background="#00000000" Foreground="DarkGoldenrod" Click="AsAdmin_OnClick">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="0 0 0 30"/>
