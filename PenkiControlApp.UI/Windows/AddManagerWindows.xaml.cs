@@ -1,28 +1,26 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 
 namespace PenkiControlApp.UI.Windows
 {
-    /// <summary>
-    /// Interaction logic for ManagerWindows.xaml
-    /// </summary>
-    public partial class ManagerWindows : UserControl
+
+    public partial class AddManagerWindows : UserControl
     {
 
-        public ManagerWindows()
+        public AddManagerWindows()
         {
 
             InitializeComponent();
             InfoLabel.Content = App.UILanguage switch
             {
-                InternalTypes.Language.Russian => "Менеджеры",
+                InternalTypes.Language.Russian => "Добавление менеджеров",
                 _ => InfoLabel.Content
             };
         }
 
 
-        private void AddManagerWindows_OnInitialized(object? sender, EventArgs e)
+
+        private void ManagerWindows_OnInitialized(object? sender, EventArgs e)
         {
             var result = App.UserManager.GetAllManagers();
             result.ForEach(x =>
@@ -41,7 +39,6 @@ namespace PenkiControlApp.UI.Windows
                 };
                 ManagersContent.Children.Add(manager);
             });
-
         }
     }
 }

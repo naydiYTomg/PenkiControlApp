@@ -21,10 +21,16 @@ namespace PenkiControlApp.UI.Windows
     {
         public int Id { get; init; }
         private readonly ManagerWindows _parent;
-        public ManagerContainer(ManagerWindows parent)
+        private readonly AddManagerWindows _parentAdd;
+        public ManagerContainer(ManagerWindows parent, AddManagerWindows parentAdd)
         {
             InitializeComponent();
             _parent = parent;
+            _parentAdd = parentAdd;
+        }
+
+        public ManagerContainer(ManagerWindows managerWindows)
+        {
         }
 
         private void _Information_OnClick(object sender, RoutedEventArgs e)
@@ -33,5 +39,6 @@ namespace PenkiControlApp.UI.Windows
             _parent.ManagerId.Content = Id;
             _parent.Surname.Text = SurnameLabel.Content.ToString();
         }
+        
     }
 }
