@@ -6,80 +6,47 @@
              xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Button>
+    <Border Background="White" CornerRadius="30" BorderBrush="Black" BorderThickness="5">
         <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         
-        <Label x:Name="NameOfCategory" Content="NameOfCategory" FontSize="20" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalContentAlignment="Center"></Label>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag1" Content="tag1" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag2" Content="tag2" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag3" Content="tag3" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag4" Content="tag4" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag5" Content="tag5" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        <Grid Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Rectangle Width="100" Height="50" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Fill="Gray" RadiusX="30" RadiusY="30" Stroke="Black"> </Rectangle>
-            <Label x:Name="NameOfTag6" Content="tag6" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"></Label>
-        </Grid>
-        
+        <Label x:Name="NameOfCategory" Content="PlaceholderCategory" Margin="0 0 0 0" Grid.Row="0" Grid.RowSpan="2" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        <WrapPanel Grid.Row="2" x:Name="Tags" Width="200">
+            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10">
+                <Label Content="Tag1" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="60 0 0 0 ">
+                <Label Content="Tag2" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="0 00 0 0 ">
+                <Label Content="Tag3" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="60 00 0 0 ">
+                <Label Content="Tag4" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="0 00 0 0 ">
+                <Label Content="Tag5" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="60 00 0 0 ">
+                <Label Content="Tag6" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
+            </Border>
+            
+        </WrapPanel>
+        <Button Content="Подробнее" x:Name="About" Grid.Row="3" Background="Bisque" Foreground="Black" FontSize="15" BorderThickness="0">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="0 0 25 25"/>
+                    
+                </Style>
+            </Button.Resources>
+        </Button>
         
     </Grid>
-    </Button>
+    </Border>
    
 </UserControl>

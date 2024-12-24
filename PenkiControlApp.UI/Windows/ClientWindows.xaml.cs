@@ -22,6 +22,32 @@ namespace PenkiControlApp.UI.Windows
         public ClientWindows()
         {
             InitializeComponent();
+            InfoLabel.Content = App.UILanguage switch
+            {
+                InternalTypes.Language.Russian => "Клиенты",
+                _ => InfoLabel.Content
+            };
+        }
+
+        private void ClientWindows_OnInitialized(object? sender, EventArgs e)
+        {
+            var clients = App.ClientManager.GetAllClients();
+            clients.ForEach(x =>
+            {
+                var client = new ClientContainer(this)
+                {
+                    NameLabel =
+                    {
+                        Content = x.Name
+                    },
+                    SurnameLabel =
+                    {
+                        Content = x.Surname
+                    },
+                    Id = x.Id
+                };
+                ClientsContent.Children.Add(client);
+            });
         }
     }
 }

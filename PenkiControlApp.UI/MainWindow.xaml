@@ -9,20 +9,16 @@
         Title="MainWindow" Width="1280" Background="#9aa7c7" ResizeMode="CanMinimize" WindowStyle="ToolWindow" d:DesignWidth="1280" d:DesignHeight="720">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <!-- <localWindows:Toolbar Grid.Row="0"/> -->
-         <WrapPanel Grid.Row="0" Grid.RowSpan="1" x:Name="WrapTools">
+         <WrapPanel Grid.Row="0" x:Name="WrapTools">
              
          </WrapPanel>   
-        <WrapPanel x:Name="WrapWins" Grid.Row="1" Grid.RowSpan="7"></WrapPanel>
+        <WrapPanel x:Name="WrapWins" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            
+        </WrapPanel>
         
     </Grid>
 </Window>

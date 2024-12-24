@@ -5,67 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
         mc:Ignorable="d"
-        Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-
-        </Grid.RowDefinitions>
-        <Grid Grid.Column="0">
+        d:DesignHeight="640" d:DesignWidth="1280" Initialized="ManagerWindows_OnInitialized">
+    <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
+        
+        <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="4*"/>
-
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="8*"/>
-
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="_ProductName" Text="Ф.И." Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
-            <Label Content="ID:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
-            <TextBlock x:Name="_ProductInformation" Text="Информация" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
-            <TextBlock x:Name="_ProductID" Text="123456789" Grid.Column="1" VerticalAlignment="Center" Grid.Row="1" FontSize="20" Grid.ColumnSpan="2" TextWrapping="Wrap"/>
-
+            <Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
+            <Label x:Name="InfoLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Managers" FontSize="40" Margin="60 0 0 0" Foreground="White"></Label>
+            <Border Grid.Row="1" Grid.Column="0" x:Name="CurrentManager" CornerRadius="50" Margin="20">
+                
+                <Grid>
+                    <Rectangle Fill="White" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>    
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="4*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="Name" FontSize="35" TextWrapping="WrapWithOverflow" Margin="40 20 0 0 ">Имя</TextBlock>
+                        <TextBlock Grid.Row="1" x:Name="Surname" FontSize="30" TextWrapping="WrapWithOverflow" Margin="40 0 0 0 ">Фамилия</TextBlock>
+                        <Label Grid.Row="2" x:Name="ManagerId" Content="ID:" HorizontalContentAlignment="Left" FontSize="20" Margin="40 0 140 0"></Label>
+                        <ScrollViewer Grid.Row="3" Margin="10 0 10 20">
+                            <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0 0 0 0">
+                                About
+                            </TextBlock>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+                
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1" CornerRadius="50" Margin="7">
+                <Grid>
+                    <Rectangle  Fill="White" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>
+                    <ScrollViewer Margin="0 10 15 10 ">
+                        <StackPanel x:Name="ManagersContent" Margin="20">
+                            
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
         </Grid>
-
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="*"/>
-
-            </Grid.RowDefinitions>
-
-            <ListView Grid.Row="1" HorizontalAlignment="Center">
-                <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ListView.ItemsPanel>
-                <Button Content="&lt;"/>
-                <ListView Grid.Row="1">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <Button Content="EPIC ELEMENT1"/>
-                    <Button Content="EPIC ELEMENT2"/>
-
-                </ListView>
-                <Button Content="&gt;"/>
-
-            </ListView>
-
-
-        </Grid>
-        <Grid.ColumnDefinitions>
-
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="1.8*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-    </Grid>
+    </Border>
 
 </UserControl>

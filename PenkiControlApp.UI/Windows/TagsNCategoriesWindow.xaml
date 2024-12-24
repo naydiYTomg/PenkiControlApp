@@ -7,49 +7,48 @@
       mc:Ignorable="d"
       d:DesignHeight="600" d:DesignWidth="1160">
     
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.Column="2" Content="Tags &amp; Categories" FontSize="20" FontFamily="sans" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" FontWeight="Bold"></Label>
-                <local:CategoryWindow Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"></local:CategoryWindow>
-                <local:CategoryWindow Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2"></local:CategoryWindow>
-                <local:CategoryWindow Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="2"></local:CategoryWindow>
-                <ListView Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="8" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                    <Button Content="&lt;"/>
-                    <ListView Grid.Row="1">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <Button Content="EPIC ELEMENT1"/>
-                        <Button Content="EPIC ELEMENT2"/>
-            
-                    </ListView>
-                    <Button Content="&gt;"/>
-            
-                </ListView>
-            </Grid>
+      <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
+          <Grid>
+              
+              <!-- <Grid.ColumnDefinitions> -->
+              <!--     <ColumnDefinition Width="1*"/> -->
+              <!--     <ColumnDefinition Width="2*"/> -->
+              <!--     <ColumnDefinition Width="1*"/> -->
+              <!-- </Grid.ColumnDefinitions> -->
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="1*"/>
+                  <RowDefinition Height="3*"/>
+                  <RowDefinition Height="1*"/>
+              </Grid.RowDefinitions>
+            <Rectangle Grid.Row="0" Grid.RowSpan="3" Fill="Black" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>
+            <Label x:Name="InfoLabel" Grid.Row="0" HorizontalAlignment="Center" Content="Tags &amp; Categories" FontSize="40" Margin="60 0 0 0" Foreground="White"></Label>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                  <local:CategoryWindow Width="270" Margin="10 0 0 0"></local:CategoryWindow>
+                  <local:CategoryWindow Width="270" Margin="150 0 0 0 " Loaded="CategoryWindow_Loaded"></local:CategoryWindow>
+                  <local:CategoryWindow Width="270" Margin="150 0 0 0"></local:CategoryWindow>
+              </StackPanel>
+              <ListView Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                  <ListView.ItemsPanel>
+                      <ItemsPanelTemplate>
+                          <WrapPanel/>
+                      </ItemsPanelTemplate>
+                  </ListView.ItemsPanel>
+                  <Button Content="&lt;"/>
+                  <ListView Grid.Row="1">
+                      <ListView.ItemsPanel>
+                          <ItemsPanelTemplate>
+                              <WrapPanel/>
+                          </ItemsPanelTemplate>
+                      </ListView.ItemsPanel>
+                      <Button Content="EPIC ELEMENT1"/>
+                      <Button Content="EPIC ELEMENT2"/>
+          
+                  </ListView>
+                  <Button Content="&gt;"/>
+      
+              </ListView>
+          </Grid>
+      </Border>
 
     
         
