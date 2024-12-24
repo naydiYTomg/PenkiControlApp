@@ -22,6 +22,17 @@ namespace PenkiControlApp.UI.Windows
         public SellsWindows()
         {
             InitializeComponent();
+            var ProductAddingListStackPanel = (StackPanel)this.FindName("ProductAddingListStackPanel");
+            ProductAddingListStackPanel.Children.Add(new ProductAddingElement());
+            ProductAddingListStackPanel.Children.Add(new ProductAddingElement());
+            ProductAddingListStackPanel.Children.Add(new ProductAddingElement());
+            ProductAddingListStackPanel.Children.Add(new ProductAddingElement());
+            ProductAddingListStackPanel.Children.Add(new ProductAddingElement());
+            ProductAddingListStackPanel.Children.Add(new ProductAddingElement());
+            ProductAddingListStackPanel.Children.Add(new ProductAddingElement());
+            ProductAddingListStackPanel.Children.Add(new ProductAddingElement());
+            ProductAddingListStackPanel.Children.Add(new ProductAddingElement());
+            //var ProductAddingListStackPanel = (TextBlock)this.FindName("myTextBlock");
         }
     }
 }
