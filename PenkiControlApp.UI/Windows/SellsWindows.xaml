@@ -39,8 +39,8 @@
             <TextBlock Text="Choose a product" Grid.Column="1" Grid.Row="0" FontSize="20" TextWrapping="Wrap"/>
             <Border BorderBrush="#FF000000" BorderThickness="1" CornerRadius="8" Grid.Row="2" Margin="0 0 25 0">
                 <Grid>
-                    <ScrollViewer>
-                        <StackPanel x:Name="ProductAddingListStackPanel">
+                    <ScrollViewer Grid.Row="1">
+                        <StackPanel x:Name="ProductAddingListStackPanel" Grid.Row="1">
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
