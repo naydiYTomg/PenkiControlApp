@@ -15,4 +15,10 @@ public class CategoryManager
         return outputModels;
     }
 
+    public int GetCategoryIdByName(string name)
+    {
+        var got = _category.GetCategoryIdByName(name);
+        return got;
+    }
+
 }

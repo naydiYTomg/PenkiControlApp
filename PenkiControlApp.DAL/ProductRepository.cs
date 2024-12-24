@@ -2,6 +2,7 @@ using Dapper;
 using PenkiControlApp.Core;
 using PenkiControlApp.Core.DTOs;
 using PenkiControlApp.Core.Queries;
+using PenkiControlApp.DAL.Internal;
 
 namespace PenkiControlApp.DAL;
 
@@ -16,5 +17,12 @@ public class ProductRepository
             List<ProductDTO> result = connection.Query<ProductDTO>(query).ToList();
             return result;
         }
+    }
+
+    public int AddNewProduct(string name, int categoryId)
+    {
+        var connection = new ConnectionBuilder().WithQuery(ProductQueries.AddProductQuery)
+            .WithProperties(new { Name = name, CategoryId = categoryId }).Pack();
+        return connection.ExecuteFirst<int>();
     }
 }

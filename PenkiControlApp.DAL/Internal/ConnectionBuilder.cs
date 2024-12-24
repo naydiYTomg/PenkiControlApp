@@ -43,6 +43,23 @@ public class Connection(string connectionString, string query, object? propertie
             }
         }
     }
+
+    public void ExecuteNoReturn()
+    {
+        using (var connection = new NpgsqlConnection(_connectionString))
+        {
+            if (_properties is null)
+            {
+                connection.Query(_connectionString);
+            }
+            else
+            {
+                connection.Query(_connectionString, _properties);
+            }
+        }
+    }
+
+    public ConnectionBuilder Unpack() => new ConnectionBuilder().WithQuery(_query).WithProperties(_properties);
 }
 
 public class ConnectionBuilder
@@ -63,7 +80,7 @@ public class ConnectionBuilder
         return this;
     }
 
-    public ConnectionBuilder WithProperties(object properties)
+    public ConnectionBuilder WithProperties(object? properties)
     {
         _properties = properties;
         return this;

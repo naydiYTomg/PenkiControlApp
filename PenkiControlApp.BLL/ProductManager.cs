@@ -30,4 +30,10 @@ public class ProductManager
         });
         return outputModels;
     }
+
+    public int AddNewProduct(string name, int categoryId)
+    {
+        var got = _repository.AddNewProduct(name, categoryId);
+        return got;
+    }
 }

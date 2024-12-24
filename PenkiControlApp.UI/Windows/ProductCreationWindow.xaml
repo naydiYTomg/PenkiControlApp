@@ -49,7 +49,7 @@
                     <StackPanel x:Name="TagsContainer">
                     </StackPanel>
                 </ScrollViewer>
-                <Button x:Name="CreateButton" Grid.Row="4" Grid.Column="1" Content="Create!" FontSize="60"/>
+                <Button x:Name="CreateButton" Grid.Row="4" Grid.Column="1" Content="Create!" FontSize="60" Click="CreateButton_OnClick"/>
             </Grid>
             
         </Grid>

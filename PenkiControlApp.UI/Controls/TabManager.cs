@@ -37,7 +37,7 @@ public class TabManager(MainWindow window)
                     _mainWindow.AddElement(new SellsWindow() { Height = 700, Width = 1280}, 1);
                     break;
                 case 7: //Product creation window
-                    _mainWindow.AddElement(new ProductCreationWindow { Height = 700, Width = 1160}, 1);
+                    _mainWindow.AddElement(new ProductCreationWindow(_mainWindow) { Height = 700, Width = 1160}, 1);
                     break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);

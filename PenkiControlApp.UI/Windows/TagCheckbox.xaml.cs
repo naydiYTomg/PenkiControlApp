@@ -4,8 +4,10 @@ namespace PenkiControlApp.UI.Windows;
 
 public partial class TagCheckbox : UserControl
 {
-    public TagCheckbox()
+    public int Id { get; private set; }
+    public TagCheckbox(int id)
     {
         InitializeComponent();
+        Id = id;
     }
 }
