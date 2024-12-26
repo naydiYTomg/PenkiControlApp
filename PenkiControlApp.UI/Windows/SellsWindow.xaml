@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
         mc:Ignorable="d"
-        Height="450" Width="800">
+        d:DesignHeight="640" d:DesignWidth="1280">
+        <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
 
         </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
@@ -19,6 +21,7 @@
                 <RowDefinition Height="4*"/>
 
             </Grid.RowDefinitions>
+            
             <TextBlock Text="Choose a client" Grid.Column="0" Grid.Row="0" FontSize="20" TextWrapping="Wrap"/>
             <TextBlock Text="Client about" Grid.Column="0" Grid.Row="2" FontSize="20" TextWrapping="Wrap"/>
             <ComboBox HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="120" x:Name="_ClientsDropDown"/>
@@ -65,5 +68,5 @@
         </Grid.ColumnDefinitions>
 
     </Grid>
-    
+    </Border>
 </UserControl>
