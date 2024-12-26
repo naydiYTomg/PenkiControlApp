@@ -41,22 +41,10 @@
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
             <Button Content="SELL" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="40"/>
-            <ComboBox HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Width="120" x:Name="_ProductsDropDown" Grid.RowSpan="2"/>
+                <ComboBox HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Width="400" x:Name="_ProductsDropDown" Grid.RowSpan="2"/>
                 <TextBlock Text="Choose a product" Grid.Column="1" Grid.Row="0" FontSize="40" TextWrapping="Wrap" Foreground="White"/>
 
-                <CheckBox Grid.Column="1" Content="Оплатил наличкой" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="2" ScaleY="2" />
-                </CheckBox.LayoutTransform>
-            </CheckBox>
-
-                <CheckBox Grid.Column="1" Content="Оплатил картой" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White">
-                <CheckBox.LayoutTransform>
-                    <ScaleTransform ScaleX="2" ScaleY="2" />
-                </CheckBox.LayoutTransform>
-            </CheckBox>
-            
-        </Grid>
+            </Grid>
 
 
 
