@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="PenkiControlApp.UI.Windows.SellsWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="5*"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock Text="Choose a client" Grid.Column="0" Grid.Row="0" FontSize="20" TextWrapping="Wrap"/>
+            <TextBlock Text="About transaction" Grid.Column="0" Grid.Row="2" FontSize="20" TextWrapping="Wrap"/>
+            <ComboBox HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="120" x:Name="_ClientsDropDown"/>
+            <TextBlock Text="Text here" Grid.Column="0" Grid.Row="3" FontSize="20" TextWrapping="Wrap" x:Name="_ClientAboutInfo"/>
+            
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Button Content="SELL" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="20"/>
+            <ComboBox HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Width="120" x:Name="_ProductsDropDown" Grid.RowSpan="2"/>
+            <TextBlock Text="Choose a product" Grid.Column="1" Grid.Row="0" FontSize="20" TextWrapping="Wrap"/>
+            <Border BorderBrush="#FF000000" BorderThickness="1" CornerRadius="8" Grid.Row="2" Margin="0 0 25 0">
+                <Grid>
+                    <ScrollViewer Grid.Row="1">
+                        <StackPanel x:Name="ProductAddingListStackPanel" Grid.Row="1">
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+
+        </Grid>
+
+
+
+
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+    </Grid>
+
+</UserControl>
