@@ -37,7 +37,7 @@ namespace PenkiControlApp.UI.Windows
             if (amount == 0)
             {
                 var element = sender as Button;
-                var parent = element.Parent;
+                var parent = element.Parent as StackPanel;
                 parent?.Children.Remove(element);
             }
         }
