@@ -36,6 +36,6 @@ public class CategoryRepository
     public List<CategoryDTO> GetCategories()
     {
         var connection = new ConnectionBuilder().WithQuery(CategoryQueries.GET_CATEGORIES_QUERY).Pack();
-        return connection.Execute<CategoryDTO>().ToList();
+        return connection.Execute<CategoryDTO>().AsList();
     }
 }
