@@ -19,6 +19,7 @@ namespace PenkiControlApp.UI.Windows
     /// </summary>
     public partial class ProductAddingElement : UserControl
     {
+        public int Id { get; init; }
         public ProductAddingElement()
         {
             InitializeComponent();
