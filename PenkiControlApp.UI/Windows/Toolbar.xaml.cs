@@ -73,4 +73,12 @@ public partial class Toolbar : UserControl
         _logger.LogMessage($"Clicked Sells button and created Sells window");
         _mainWindow.TabManager.ChangeTab(6);
     }
+
+    
+
+    private void Search_OnGotFocus(object sender, RoutedEventArgs e)
+    {
+        _logger.LogMessage($"Clicked Search button and created Search window");
+        _mainWindow.TabManager.ChangeTab(8);
+    }
 }

@@ -39,18 +39,33 @@ public class TabManager(MainWindow window)
                 case 7: //Product creation window
                     _mainWindow.AddElement(new ProductCreationWindow(_mainWindow) { Height = 700, Width = 1160}, 1);
                     break;
+                case 8: //Search window
+                    _mainWindow.AddElement(new SearchWindow() { Height = 600, Width = 1160}, 1);
+                    break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);
                     break;
             }
 
-            if (tab != 7)
+            if (tab == 8)
+            {
+                EnableButtons();
+            } else if (tab != 7)
             {
                 UpdateButtons(tab);
             }
         }
     }
 
+    private void EnableButtons()
+    {
+        List<UIElement> temp =
+        [
+            _mainWindow.Toolbar.Clients, _mainWindow.Toolbar.Products, _mainWindow.Toolbar.TagsNCategories,
+            _mainWindow.Toolbar.Managers, _mainWindow.Toolbar.Login, _mainWindow.Toolbar.Sells
+        ];
+        temp.ForEach(x => x.IsEnabled = true);
+    }
     private void UpdateButtons(int except)
     {
         List<UIElement> temp =
