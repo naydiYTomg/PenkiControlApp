@@ -11,7 +11,7 @@ public class CategoryManager
     {
         var got = _category.GetCategories();
         List<CategoryOutputModel> outputModels = [];
-        got.ForEach(x => { outputModels.Add(new CategoryOutputModel() { Id = x.Id, Name = x.Name! }); });
+        got.ForEach(x => { outputModels.Add(new CategoryOutputModel{ Id = x.Id, Name = x.Name! }); });
         return outputModels;
     }
 

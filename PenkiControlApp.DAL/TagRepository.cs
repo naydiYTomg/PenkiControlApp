@@ -1,3 +1,4 @@
+using Dapper;
 using PenkiControlApp.Core.DTOs;
 using PenkiControlApp.Core.Queries;
 using PenkiControlApp.DAL.Internal;
@@ -10,6 +11,12 @@ public class TagRepository
     {
         var connection = new ConnectionBuilder().WithQuery(TagQueries.GetTagsByCategoryIdQuery)
             .WithProperties(new { CategoryId = id }).Pack();
-        return connection.Execute<TagDTO>().ToList();
+        return connection.Execute<TagDTO>().AsList();
+    }
+
+    public List<TagDTO> GetAllTags()
+    {
+        var connection = new ConnectionBuilder().WithQuery(TagQueries.GetAllTagsQuery).Pack();
+        return connection.Execute<TagDTO>().AsList();
     }
 }

@@ -3,7 +3,9 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using PenkiControlApp.Core.OutputModels;
 using PenkiControlApp.Logging;
+using PenkiControlApp.UI.InternalTypes;
 
 namespace PenkiControlApp.UI.Windows;
 
@@ -11,6 +13,7 @@ public partial class Toolbar : UserControl
 {
     private readonly MainWindow _mainWindow;
     private readonly PCALogger _logger = PCALogger.GetInstance();
+    private SearchWindow _searchWindow;
     public Toolbar(MainWindow window)
     {
         _mainWindow = window;
@@ -79,6 +82,24 @@ public partial class Toolbar : UserControl
     private void Search_OnGotFocus(object sender, RoutedEventArgs e)
     {
         _logger.LogMessage($"Clicked Search button and created Search window");
-        _mainWindow.TabManager.ChangeTab(8);
+        _searchWindow = _mainWindow.TabManager.ChangeToSearchWindow();
+    }
+
+    private void SearchButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (_mainWindow.TabManager.GetCurrentTab() == 8)
+        {
+            if (!Search.Text.Replace(" ", "").Equals(""))
+            {
+                var data = AllDatabaseData.GetInstance().GetData(Search.Text, "products") as IOutputModel;
+                _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                {
+                    Content = "Type"
+                }, NameLabel =
+                {
+                    Content = (data as ProductForDisplayingOutputModel)!.Name
+                }});
+            }
+        }
     }
 }

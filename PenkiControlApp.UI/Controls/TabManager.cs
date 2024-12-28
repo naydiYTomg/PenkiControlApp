@@ -34,23 +34,17 @@ public class TabManager(MainWindow window)
                     _mainWindow.AddElement(new LoginRegistrationWindow(_mainWindow){ Height = 600, Width = 1160}, 1);
                     break;
                 case 6:
-                    _mainWindow.AddElement(new SellsWindow() { Height = 700, Width = 1280}, 1);
+                    _mainWindow.AddElement(new SellsWindow { Height = 700, Width = 1280}, 1);
                     break;
                 case 7: //Product creation window
                     _mainWindow.AddElement(new ProductCreationWindow(_mainWindow) { Height = 700, Width = 1160}, 1);
-                    break;
-                case 8: //Search window
-                    _mainWindow.AddElement(new SearchWindow() { Height = 600, Width = 1160}, 1);
                     break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);
                     break;
             }
 
-            if (tab == 8)
-            {
-                EnableButtons();
-            } else if (tab != 7)
+            if (tab != 7)
             {
                 UpdateButtons(tab);
             }
@@ -81,6 +75,21 @@ public class TabManager(MainWindow window)
                 x.IsEnabled = true;
             }
         });
+    }
+
+    public Tab GetCurrentTab()
+    {
+        return _currentTab;
+    }
+
+    public SearchWindow ChangeToSearchWindow()
+    {
+        var element = new SearchWindow() { Height = 600, Width = 1160 };
+        _mainWindow.WrapWins.Children.Clear();
+        _currentTab = 8;
+        _mainWindow.AddElement(element, 1);
+        EnableButtons();
+        return element;
     }
     
 }
