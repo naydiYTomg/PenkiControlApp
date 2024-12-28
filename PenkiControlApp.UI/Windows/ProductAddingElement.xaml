@@ -14,8 +14,8 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock TextWrapping="Wrap" x:Name="_ProductNameToAdd" Text="Название" FontSize="28"/>
-        <TextBlock TextWrapping="Wrap" x:Name="_ProductToAddQuantity" Text="Количество" FontSize="28" Grid.Column="1"/>
-        <Button x:Name="_ProductToAddMinus" Content="-" FontSize="28" Grid.Column="2"/>
-        <Button x:Name="_ProductToAddPlus" Content="+" FontSize="28" Grid.Column="3"/>
+        <TextBlock TextWrapping="Wrap" x:Name="_ProductToAddQuantity" Text="0" FontSize="28" Grid.Column="1"/>
+        <Button x:Name="_ProductToAddMinus" Content="-" FontSize="28" Grid.Column="2" Click="ProductToAddMinus_OnClick"/>
+        <Button x:Name="_ProductToAddPlus" Content="+" FontSize="28" Grid.Column="3" Click="ProductToAddPlus_OnClick"/>
     </Grid>
 </UserControl>
