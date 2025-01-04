@@ -16,6 +16,10 @@ public partial class SellsWindow : UserControl
     {
         var got = App.ProductManager.GetAllProducts();
         got.ForEach(x => { _ProductsDropDown.Items.Add(new ComboBoxItem { Content = x.Name }); });
+
+        var AllClients = App.ClientManager.GetAllClients();
+        AllClients.ForEach(x => { _ClientsDropDown.Items.Add(new ComboBoxItem { Content = x.Name }); });
+
     }
     private void ChosenProducts_OnSelected(object sender, SelectionChangedEventArgs e)
     {
@@ -42,12 +46,15 @@ public partial class SellsWindow : UserControl
     }
     private void Sell_click(object sender, EventArgs e)
     {
-        MessageBox.Show("dd");
-        if (!(ProductContainer.Children.Count == 0))
+        if ((_ClientsDropDown.SelectedItem as ComboBoxItem) != null)
         {
-            foreach (ProductAddingElement child in ProductContainer.Children)
+            MessageBox.Show((_ClientsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString());
+            if (!(ProductContainer.Children.Count == 0))
             {
-                MessageBox.Show(child._ProductNameToAdd.Text + child._ProductToAddQuantity.Text);
+                foreach (ProductAddingElement child in ProductContainer.Children)
+                {
+                    MessageBox.Show(child._ProductNameToAdd.Text + child._ProductToAddQuantity.Text);
+                }
             }
         }
     }
