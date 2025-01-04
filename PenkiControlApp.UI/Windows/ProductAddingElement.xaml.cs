@@ -22,10 +22,12 @@ namespace PenkiControlApp.UI.Windows
     public partial class ProductAddingElement : UserControl
     {
         private long amount = 0;
+        private SellsWindow _parent;
         public int Id { get; init; }
-        public ProductAddingElement()
+        public ProductAddingElement(SellsWindow parentWindow)
         {
             InitializeComponent();
+            _parent = parentWindow;
         }
         private void ProductToAddMinus_OnClick(object sender, RoutedEventArgs e)
         {
@@ -36,9 +38,8 @@ namespace PenkiControlApp.UI.Windows
             }
             if (amount == 0)
             {
-                var element = sender as Button;
-                var parent = element.Parent as StackPanel;
-                parent?.Children.Remove(element);
+                _parent.ProductContainer.Children.Remove(this);
+                // Get the button that was clicked
             }
         }
         private void ProductToAddPlus_OnClick(object sender, RoutedEventArgs e)

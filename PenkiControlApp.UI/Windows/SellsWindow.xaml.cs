@@ -6,6 +6,7 @@ namespace PenkiControlApp.UI.Windows;
 public partial class SellsWindow : UserControl
 {
     //private MainWindow _window;
+    long i = 0;
     public SellsWindow()
     {
         InitializeComponent();
@@ -24,6 +25,14 @@ public partial class SellsWindow : UserControl
         //{
         //   ProductContainer.Children.Add(new TagCheckbox(x.Id) { TagName = { Content = x.Name } });
         //});
-        ProductContainer.Children.Add(new ProductAddingElement() { _ProductNameToAdd = {Text = (_ProductsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString() } });
+        if(i == 0) 
+        {
+            MessageBox.Show("yoy");
+            ProductContainer.Children.Add(new ProductAddingElement(this) { _ProductNameToAdd = {Text = (_ProductsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString() } });
+            MessageBox.Show("qqqq");
+            _ProductsDropDown.Items.Remove(_ProductsDropDown.SelectedItem);
+            MessageBox.Show("fgfghfhg");
+            i = 1;
+        }
     }
 }
