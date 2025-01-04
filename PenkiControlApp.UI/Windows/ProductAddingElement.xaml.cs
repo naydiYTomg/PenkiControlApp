@@ -50,5 +50,10 @@ namespace PenkiControlApp.UI.Windows
                 _ProductToAddQuantity.Text = amount.ToString();
             }
         }
+        public void ValueIncrease() 
+        {
+            amount++;
+            _ProductToAddQuantity.Text = amount.ToString();
+        }
     }
 }

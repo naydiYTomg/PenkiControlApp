@@ -6,7 +6,7 @@ namespace PenkiControlApp.UI.Windows;
 public partial class SellsWindow : UserControl
 {
     //private MainWindow _window;
-    long i = 0;
+    //long i = 0;
     public SellsWindow()
     {
         InitializeComponent();
@@ -19,20 +19,25 @@ public partial class SellsWindow : UserControl
     }
     private void ChosenProducts_OnSelected(object sender, SelectionChangedEventArgs e)
     {
-        //ProductContainer.Children.Clear();
-        //var tags = App.TagManager.GetTagsByCategoryName((ProductContainer.SelectedItem as ComboBoxItem)!.Content.ToString()!);
-        //tags.ForEach(x =>
-        //{
-        //   ProductContainer.Children.Add(new TagCheckbox(x.Id) { TagName = { Content = x.Name } });
-        //});
-        if(i == 0) 
+        bool isChildrenHere = false;
+        if (ProductContainer.Children.Count == 0)
         {
-            MessageBox.Show("yoy");
-            ProductContainer.Children.Add(new ProductAddingElement(this) { _ProductNameToAdd = {Text = (_ProductsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString() } });
-            MessageBox.Show("qqqq");
-            _ProductsDropDown.Items.Remove(_ProductsDropDown.SelectedItem);
-            MessageBox.Show("fgfghfhg");
-            i = 1;
+            ProductContainer.Children.Add(new ProductAddingElement(this) { _ProductNameToAdd = { Text = (_ProductsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString() } });
+        }
+        else
+        {
+            foreach (ProductAddingElement child in ProductContainer.Children)
+            {
+                if (child._ProductNameToAdd.Text == (_ProductsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString())
+                {
+                    isChildrenHere = true;
+                    child.ValueIncrease();
+                }
+            }
+            if (!isChildrenHere)
+            {
+                ProductContainer.Children.Add(new ProductAddingElement(this) { _ProductNameToAdd = { Text = (_ProductsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString() } });
+            }
         }
     }
 }
