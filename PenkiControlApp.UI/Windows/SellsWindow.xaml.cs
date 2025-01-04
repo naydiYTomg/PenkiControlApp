@@ -40,4 +40,15 @@ public partial class SellsWindow : UserControl
             }
         }
     }
+    private void Sell_click(object sender, EventArgs e)
+    {
+        MessageBox.Show("dd");
+        if (!(ProductContainer.Children.Count == 0))
+        {
+            foreach (ProductAddingElement child in ProductContainer.Children)
+            {
+                MessageBox.Show(child._ProductNameToAdd.Text + child._ProductToAddQuantity.Text);
+            }
+        }
+    }
 }

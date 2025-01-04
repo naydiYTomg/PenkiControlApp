@@ -41,7 +41,7 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <Button Content="SELL" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="40" Margin="0 0 0 20"/>
+                <Button Content="SELL" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="40" Margin="0 0 0 20" Click="Sell_click"/>
                 <ComboBox HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Width="400" x:Name="_ProductsDropDown" Grid.RowSpan="2" SelectionChanged="ChosenProducts_OnSelected"/>
             <TextBlock Text="Choose a product" Grid.Column="1" Grid.Row="0" FontSize="40" TextWrapping="Wrap" Foreground="White"/>
                 <ScrollViewer Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Margin="0 0 50 0">

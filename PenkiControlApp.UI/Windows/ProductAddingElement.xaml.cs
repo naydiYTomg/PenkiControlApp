@@ -21,7 +21,7 @@ namespace PenkiControlApp.UI.Windows
     /// </summary>
     public partial class ProductAddingElement : UserControl
     {
-        private long amount = 0;
+        private long amount = 1;
         private SellsWindow _parent;
         public int Id { get; init; }
         public ProductAddingElement(SellsWindow parentWindow)
