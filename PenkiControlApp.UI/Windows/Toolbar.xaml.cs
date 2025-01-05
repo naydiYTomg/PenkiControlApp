@@ -100,35 +100,51 @@ public partial class Toolbar : UserControl
             {
                 if (SearchCategory.SelectedIndex == -1 || SearchCategory.Text == "Anywhere")
                 {
-                    var data = AllDatabaseData.GetInstance().GetData(Search.Text, null);
+                    var (data, category) = AllDatabaseData.GetInstance().GetData(Search.Text, null);
                     if (data is not false)
                     {
                         _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
                         {
-                            Content = "Type"
+                            Content = category
                         }, NameLabel =
                         {
-                            Content = (data as ProductForDisplayingOutputModel)!.Name
-                        }});
-                        _searchWindow.StatusField.Content = $"Found in category ??TODO??";
+                            Content = category switch
+                            {
+                                "products" => (data as ProductForDisplayingOutputModel)!.Name,
+                                "categories" => (data as CategoryOutputModel)!.Name,
+                                "clients" => (data as ClientForSearchOutputModel)!.Name,
+                                "orders" => (data as OrderForDisplayingOutputModel)!.Id,
+                                "tags" => (data as TagForDisplayingOutputModel)!.Name,
+                                _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
+                            }
+                        }, Width = 1000});
+                        _searchWindow.StatusField.Content = $"Found in category {category}";
                     }
                     else
                     {
-                        _searchWindow.StatusField.Content = $"Not found in category database";
+                        _searchWindow.StatusField.Content = $"Not found in database";
                     }
                 }
                 else
                 {
-                    var data = AllDatabaseData.GetInstance().GetData(Search.Text, SearchCategory.Text);
+                    var (data, _) = AllDatabaseData.GetInstance().GetData(Search.Text, SearchCategory.Text);
                     if (data is not false)
                     {
                         _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
                         {
-                            Content = "Type"
+                            Content = SearchCategory.Text
                         }, NameLabel =
                         {
-                            Content = (data as ProductForDisplayingOutputModel)!.Name
-                        }});
+                            Content = SearchCategory.Text switch
+                            {
+                                "Products" => (data as ProductForDisplayingOutputModel)!.Name,
+                                "Categories" => (data as CategoryOutputModel)!.Name,
+                                "Clients" => (data as ClientForSearchOutputModel)!.Name,
+                                "Orders" => (data as OrderForDisplayingOutputModel)!.Id,
+                                "Tags" => (data as TagForDisplayingOutputModel)!.Name,
+                                _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
+                            }
+                        }, Width = 1000});
                         _searchWindow.StatusField.Content = $"Found in category {SearchCategory.Text}";
                     }
                     else
