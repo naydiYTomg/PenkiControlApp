@@ -13,29 +13,31 @@ public class AllDatabaseData
         return _instance ??= new AllDatabaseData();
     }
 
-    public object GetData(string key, string? where)
+    public (object, string) GetData(string key, string? where)
     {
-        foreach (var (k, v) in _data)
-        {
-            Console.WriteLine($"{k}:");
-            foreach (var (n, d) in v)
-            {
-                Console.WriteLine($"\t- {d}");
-            }
-        }
+        // foreach (var (k, v) in _data)
+        // {
+        //     Console.WriteLine($"{k}:");
+        //     foreach (var (n, d) in v)
+        //     {
+        //         Console.WriteLine($"\t- {d}");
+        //     }
+        // }
         Console.WriteLine($"key is {key}, where is {where}");
         if (where is not null)
         {
             Console.WriteLine($"trying to find {key} in category {where}");
-            try
+
+            foreach (var (k, v) in _data[where.ToLower()])
             {
-                return _data[where.ToLower()][key.ToLower()];
+                if (k == key)
+                {
+                    return (v, where);
+                }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine($"{key} not found in category {where}");
-                return false;
-            }
+            Console.WriteLine($"{key} not found in category {where}");
+            return (false, "None");
+
         }
         else
         {
@@ -47,20 +49,21 @@ public class AllDatabaseData
                     Console.WriteLine($"searching {key} in {s}");
                     foreach (var (k, o) in value)
                     {
+                        Console.WriteLine($"Element :{k}:; key :{key}:");
                         if (k.Equals(key, StringComparison.CurrentCultureIgnoreCase))
                         {
-                            return o;
+                            return (o, s);
                         }
                     }
                 }
                 Console.WriteLine($"{key} not found in database");
-                return false;
+                return (false, "None");
 
             }
             catch (Exception e)
             {
                 Console.WriteLine($"{key} not found in database");
-                return false;
+                return (false, "None");
             }
         }
     }
@@ -119,7 +122,7 @@ public class AllDatabaseData
                 Dictionary<string, IOutputModel> clientsDict = new Dictionary<string, IOutputModel>();
                 clients.ForEach(x =>
                 {
-                    clientsDict[x.Id.ToString()] = x;
+                    clientsDict[x.Name.ToString()] = x;
                 });
         
                 _data["clients"] = clientsDict;
