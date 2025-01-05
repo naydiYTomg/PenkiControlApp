@@ -46,6 +46,10 @@ namespace PenkiControlApp.UI.Windows
                     CategoryLabel =
                     {
                         Content = $":{x.CategoryName}"
+                    },
+                    CostLabel =
+                    {
+                        Content = $"{x.Cost}$"
                     }
                 };
                 ProductsContent.Children.Add(product);

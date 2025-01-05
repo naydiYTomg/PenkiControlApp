@@ -6,6 +6,7 @@ using System.Windows.Media.Imaging;
 using PenkiControlApp.Core.OutputModels;
 using PenkiControlApp.Logging;
 using PenkiControlApp.UI.InternalTypes;
+using State = uint;
 
 namespace PenkiControlApp.UI.Windows;
 
@@ -14,6 +15,7 @@ public partial class Toolbar : UserControl
     private readonly MainWindow _mainWindow;
     private readonly PCALogger _logger = PCALogger.GetInstance();
     private SearchWindow _searchWindow;
+    private State _currentState = 0;
     public Toolbar(MainWindow window)
     {
         _mainWindow = window;
@@ -82,7 +84,12 @@ public partial class Toolbar : UserControl
     private void Search_OnGotFocus(object sender, RoutedEventArgs e)
     {
         _logger.LogMessage($"Clicked Search button and created Search window");
+        if (_mainWindow.TabManager.GetCurrentTab() != 8)
+        {
+            SwitchTabs();
+        }
         _searchWindow = _mainWindow.TabManager.ChangeToSearchWindow();
+        
     }
 
     private void SearchButton_OnClick(object sender, RoutedEventArgs e)
@@ -91,15 +98,52 @@ public partial class Toolbar : UserControl
         {
             if (!Search.Text.Replace(" ", "").Equals(""))
             {
-                var data = AllDatabaseData.GetInstance().GetData(Search.Text, "products") as IOutputModel;
-                _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                var data = AllDatabaseData.GetInstance().GetData(Search.Text, SearchCategory.Text);
+                if (data is not false)
                 {
-                    Content = "Type"
-                }, NameLabel =
+                    _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                    {
+                        Content = "Type"
+                    }, NameLabel =
+                    {
+                        Content = (data as ProductForDisplayingOutputModel)!.Name
+                    }});
+                    _searchWindow.StatusField.Content = $"Found in category {SearchCategory.Text}";
+                }
+                else
                 {
-                    Content = (data as ProductForDisplayingOutputModel)!.Name
-                }});
+                    _searchWindow.StatusField.Content = $"Not found in category {SearchCategory.Text}";
+                }
             }
         }
     }
+
+    private void SwitchTabs()
+    {
+        List<UIElement> @default = [Products, Clients, Managers, TagsNCategories, Sells];
+        List<UIElement> search = [SearchCategory];
+        switch (_currentState)
+        {
+            case 0:
+                @default.ForEach(x => x.Visibility = Visibility.Collapsed);
+                search.ForEach(x => x.Visibility = Visibility.Visible);
+                SearchCategory.Items.Add(new ComboBoxItem { Content = "Products", FontSize = 15 });
+                SearchCategory.Items.Add(new ComboBoxItem { Content = "Categories", FontSize = 15 });
+                SearchCategory.Items.Add(new ComboBoxItem { Content = "Clients", FontSize = 15 });
+                SearchCategory.Items.Add(new ComboBoxItem { Content = "Orders", FontSize = 15 });
+                SearchCategory.Items.Add(new ComboBoxItem { Content = "Tags", FontSize = 15 });
+                _currentState = 1;
+                break;
+            case 1:
+                search.ForEach(x => x.Visibility = Visibility.Collapsed);
+                @default.ForEach(x => x.Visibility = Visibility.Visible);
+                _currentState = 0;
+                break;
+        }
+
+    }
+
+   
+
+    
 }

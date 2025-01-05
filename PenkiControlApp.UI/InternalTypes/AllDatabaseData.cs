@@ -5,7 +5,7 @@ namespace PenkiControlApp.UI.InternalTypes;
 public class AllDatabaseData
 {
     private static AllDatabaseData? _instance;
-    private Dictionary<string, object> _data = new();
+    private Dictionary<string, Dictionary<string, IOutputModel>> _data = new();
     private static int _loadedData = 0;
 
     public static AllDatabaseData GetInstance()
@@ -15,24 +15,37 @@ public class AllDatabaseData
 
     public object GetData(string key, string? where)
     {
+        foreach (var (k, v) in _data)
+        {
+            Console.WriteLine($"{k}:");
+            foreach (var (n, d) in v)
+            {
+                Console.WriteLine($"\t- {d}");
+            }
+        }
+        Console.WriteLine($"key is {key}, where is {where}");
         if (where is not null)
         {
+            Console.WriteLine($"trying to find {key} in category {where}");
             try
             {
-                return (_data[where.ToLower()] as Dictionary<string, object>)![key.ToLower()];
+                return _data[where.ToLower()][key.ToLower()];
             }
             catch (Exception e)
             {
+                Console.WriteLine($"{key} not found in category {where}");
                 return false;
             }
         }
         else
         {
+            Console.WriteLine($"trying to find {key} in all categories");
             try
             {
                 foreach (var (s, value) in _data)
                 {
-                    foreach (var (k, o) in (value as Dictionary<string, object>)!)
+                    Console.WriteLine($"searching {key} in {s}");
+                    foreach (var (k, o) in value)
                     {
                         if (k.Equals(key, StringComparison.CurrentCultureIgnoreCase))
                         {
@@ -40,12 +53,13 @@ public class AllDatabaseData
                         }
                     }
                 }
-
+                Console.WriteLine($"{key} not found in database");
                 return false;
 
             }
             catch (Exception e)
             {
+                Console.WriteLine($"{key} not found in database");
                 return false;
             }
         }

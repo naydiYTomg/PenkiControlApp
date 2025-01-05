@@ -41,6 +41,13 @@
                         </Style>
                     </Button.Resources>
                 </Button>
+                <ComboBox x:Name="SearchCategory" Visibility="Collapsed" Grid.Column="0" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" >
+                    <ComboBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="25"></Setter>
+                        </Style>
+                    </ComboBox.Resources>
+                </ComboBox>
                 <Button x:Name="Products" Grid.Column="1" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" Click="Products_OnClick">
                     <Button.Resources>
                         <Style TargetType="Border">
