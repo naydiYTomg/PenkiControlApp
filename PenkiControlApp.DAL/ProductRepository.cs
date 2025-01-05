@@ -19,10 +19,10 @@ public class ProductRepository
         }
     }
 
-    public int AddNewProduct(string name, int categoryId)
+    public int AddNewProduct(string name, int categoryId, int cost)
     {
         var connection = new ConnectionBuilder().WithQuery(ProductQueries.AddProductQuery)
-            .WithProperties(new { Name = name, CategoryId = categoryId }).Pack();
+            .WithProperties(new { Name = name, CategoryId = categoryId, Cost = cost }).Pack();
         return connection.ExecuteFirst<int>();
     }
 }

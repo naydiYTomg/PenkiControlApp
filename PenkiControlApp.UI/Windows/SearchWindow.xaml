@@ -20,6 +20,7 @@
             <Rectangle Grid.Row="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
             <Rectangle x:Name="LoadingBackground" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
             <Image x:Name="LoadingGif" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2"></Image>
+            <Label x:Name="StatusField" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="35 0 35 0" FontSize="20" Foreground="White"></Label>
             <ProgressBar x:Name="LoadingProgressBar" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Height="50" Width="600" Value="0"></ProgressBar>
             <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0 0 10 0">
                 <StackPanel x:Name="SearchResults"></StackPanel>

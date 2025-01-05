@@ -19,9 +19,11 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label x:Name="NameLabel" Grid.Column="0" Content="Name" FontSize="24"/>
-                <Label x:Name="CategoryLabel"  Grid.Column="1" Content=":Category" FontSize="24"></Label>
+                <Label x:Name="CostLabel" Grid.Column="0" HorizontalContentAlignment="Left" Content="Cost" FontSize="24"/>
+                <Label x:Name="NameLabel" Grid.Column="1" Content="Name" FontSize="24"/>
+                <Label x:Name="CategoryLabel"  Grid.Column="2" Content=":Category" FontSize="24"></Label>
             </Grid>
         </Button>
 
