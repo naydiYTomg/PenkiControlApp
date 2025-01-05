@@ -98,21 +98,43 @@ public partial class Toolbar : UserControl
         {
             if (!Search.Text.Replace(" ", "").Equals(""))
             {
-                var data = AllDatabaseData.GetInstance().GetData(Search.Text, SearchCategory.Text);
-                if (data is not false)
+                if (SearchCategory.SelectedIndex == -1 || SearchCategory.Text == "Anywhere")
                 {
-                    _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                    var data = AllDatabaseData.GetInstance().GetData(Search.Text, null);
+                    if (data is not false)
                     {
-                        Content = "Type"
-                    }, NameLabel =
+                        _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                        {
+                            Content = "Type"
+                        }, NameLabel =
+                        {
+                            Content = (data as ProductForDisplayingOutputModel)!.Name
+                        }});
+                        _searchWindow.StatusField.Content = $"Found in category ??TODO??";
+                    }
+                    else
                     {
-                        Content = (data as ProductForDisplayingOutputModel)!.Name
-                    }});
-                    _searchWindow.StatusField.Content = $"Found in category {SearchCategory.Text}";
+                        _searchWindow.StatusField.Content = $"Not found in category database";
+                    }
                 }
                 else
                 {
-                    _searchWindow.StatusField.Content = $"Not found in category {SearchCategory.Text}";
+                    var data = AllDatabaseData.GetInstance().GetData(Search.Text, SearchCategory.Text);
+                    if (data is not false)
+                    {
+                        _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                        {
+                            Content = "Type"
+                        }, NameLabel =
+                        {
+                            Content = (data as ProductForDisplayingOutputModel)!.Name
+                        }});
+                        _searchWindow.StatusField.Content = $"Found in category {SearchCategory.Text}";
+                    }
+                    else
+                    {
+                        _searchWindow.StatusField.Content = $"Not found in category {SearchCategory.Text}";
+                    }
                 }
             }
         }
@@ -127,6 +149,7 @@ public partial class Toolbar : UserControl
             case 0:
                 @default.ForEach(x => x.Visibility = Visibility.Collapsed);
                 search.ForEach(x => x.Visibility = Visibility.Visible);
+                SearchCategory.Items.Add(new ComboBoxItem { Content = "Anywhere", FontSize = 15 });
                 SearchCategory.Items.Add(new ComboBoxItem { Content = "Products", FontSize = 15 });
                 SearchCategory.Items.Add(new ComboBoxItem { Content = "Categories", FontSize = 15 });
                 SearchCategory.Items.Add(new ComboBoxItem { Content = "Clients", FontSize = 15 });
