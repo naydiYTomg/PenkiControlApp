@@ -14,5 +14,11 @@ public class ClientManager
         got.ForEach(x => outputModels.Add(new ClientForDisplayingOutputModel{ Name = x.Name!, Id = x.Id, Surname = x.Surname! }));
         return outputModels;
     }
-    
+    public List<ClientForDisplayingOutputModel> GetClientById()
+    {
+        List<ClientForDisplayingOutputModel> outputModels = [];
+        var got = _repository.GetClientById();
+        got.ForEach(x => outputModels.Add(new ClientForDisplayingOutputModel { Name = x.Name!, Id = x.Id, Surname = x.Surname! }));
+        return outputModels;
+    }
 }

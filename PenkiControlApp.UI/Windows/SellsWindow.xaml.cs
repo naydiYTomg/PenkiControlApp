@@ -18,7 +18,7 @@ public partial class SellsWindow : UserControl
         got.ForEach(x => { _ProductsDropDown.Items.Add(new ComboBoxItem { Content = x.Name }); });
 
         var AllClients = App.ClientManager.GetAllClients();
-        AllClients.ForEach(x => { _ClientsDropDown.Items.Add(new ComboBoxItem { Content = x.Name }); });
+        AllClients.ForEach(x => { _ClientsDropDown.Items.Add(new ComboBoxItem { Content = x.Name + " " + x.Surname }); });
 
     }
     private void ChosenProducts_OnSelected(object sender, SelectionChangedEventArgs e)
@@ -48,6 +48,12 @@ public partial class SellsWindow : UserControl
     {
         if ((_ClientsDropDown.SelectedItem as ComboBoxItem) != null)
         {
+            var clients = App.ClientManager.GetClientById();
+            clients.ForEach(x =>
+            {
+                MessageBox.Show((x.Id).ToString());
+            });
+
             MessageBox.Show((_ClientsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString());
             if (!(ProductContainer.Children.Count == 0))
             {
