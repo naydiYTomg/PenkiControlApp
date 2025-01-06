@@ -4,6 +4,7 @@ using PenkiControlApp.Core.DTOs;
 using PenkiControlApp.Core.Queries;
 namespace PenkiControlApp.DAL;
 
+using PenkiControlApp.DAL.Internal;
 using System;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -24,19 +25,25 @@ public class ClientRepository
         }
     }
 
-    public List<ClientDTO> GetClientById()
-    {
-        string connectionString = Constants.CONNECTION_INFO;
+    //public List<ClientDTO> GetClientById()
+    //{
+    //    string connectionString = Constants.CONNECTION_INFO;
 
-        using (var connection = new Npgsql.NpgsqlConnection(connectionString))
-        {
-            string query = ClientQueries.GET_CLIENT_QUERY;
+    //    using (var connection = new Npgsql.NpgsqlConnection(connectionString))
+    //    {
+    //        string query = ClientQueries.GET_CLIENT_BY_ID_QUERY;
             
-            AllocConsole(); // Create a console window
-            Console.WriteLine(connection.Query<ClientDTO>(query)); // Write to the console
-            List<ClientDTO> result = connection.Query<ClientDTO>(query).ToList();
-            return result;
-        }
+    //        AllocConsole(); // Create a console window
+    //        Console.WriteLine(connection.Query<ClientDTO>(query)); // Write to the console
+    //        List<ClientDTO> result = connection.Query<ClientDTO>(query).ToList();
+    //        return result;
+    //    }
+    //}
+    public ClientDTO GetClientById(string name)
+    {
+        var connection = new ConnectionBuilder().WithQuery(ClientQueries.GET_CLIENT_BY_ID_QUERY)
+            .WithProperties(new { Name = name }).Pack();
+        return connection.ExecuteFirst<ClientDTO>();
     }
 
 }

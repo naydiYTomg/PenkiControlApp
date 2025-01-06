@@ -48,11 +48,8 @@ public partial class SellsWindow : UserControl
     {
         if ((_ClientsDropDown.SelectedItem as ComboBoxItem) != null)
         {
-            var clients = App.ClientManager.GetClientById();
-            clients.ForEach(x =>
-            {
-                MessageBox.Show((x.Id).ToString());
-            });
+            var client = App.ClientManager.GetClientById("Sanek");
+            MessageBox.Show((client.Id).ToString());
 
             MessageBox.Show((_ClientsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString());
             if (!(ProductContainer.Children.Count == 0))
