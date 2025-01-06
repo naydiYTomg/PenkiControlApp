@@ -48,11 +48,12 @@ public partial class SellsWindow : UserControl
     {
         if ((_ClientsDropDown.SelectedItem as ComboBoxItem) != null)
         {
-            var client = App.ClientManager.GetClientById("Sanek");
-            MessageBox.Show((client.Id).ToString());
+            string[] nameAndSurname = _ClientsDropDown.Text.Split(" ");
+            var client = App.ClientManager.GetClientIdByNameAndSurname(nameAndSurname[0], nameAndSurname[1]);
+            MessageBox.Show(client.ToString());
 
-            MessageBox.Show((_ClientsDropDown.SelectedItem as ComboBoxItem)!.Content.ToString());
-            if (!(ProductContainer.Children.Count == 0))
+            //MessageBox.Show(();
+            if (ProductContainer.Children.Count != 0)
             {
                 foreach (ProductAddingElement child in ProductContainer.Children)
                 {

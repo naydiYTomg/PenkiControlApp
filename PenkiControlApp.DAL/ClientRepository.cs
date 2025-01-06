@@ -39,10 +39,10 @@ public class ClientRepository
     //        return result;
     //    }
     //}
-    public ClientDTO GetClientById(string name)
+    public ClientDTO GetClientIdByNameAndSurname(string name, string surname)
     {
-        var connection = new ConnectionBuilder().WithQuery(ClientQueries.GET_CLIENT_BY_ID_QUERY)
-            .WithProperties(new { Name = name }).Pack();
+        var connection = new ConnectionBuilder().WithQuery(ClientQueries.GET_CLIENT_ID_BY_NAME_AND_SURNAME_QUERY)
+            .WithProperties(new { Name = name, Surname = surname }).Pack();
         return connection.ExecuteFirst<ClientDTO>();
     }
 
