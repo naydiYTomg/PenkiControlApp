@@ -1,12 +1,15 @@
 using System.IO;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using PenkiControlApp.UI.Controls;
 using PenkiControlApp.UI.InternalTypes;
+using EventManager = PenkiControlApp.UI.Controls.EventManager;
 
 namespace PenkiControlApp.UI.Windows;
 
-public partial class SearchWindow : UserControl
+public partial class SearchWindow : UserControl, IEventListener
 {
     private AllDatabaseData _database = AllDatabaseData.GetInstance();
     private int _currentFrameIndex = 0;
@@ -14,6 +17,7 @@ public partial class SearchWindow : UserControl
     public SearchWindow()
     {
         InitializeComponent();
+        EventManager.OnEventOccurred += HandleEvent;
     }
 
     private void TimerTick(object? sender, EventArgs e)
@@ -38,6 +42,7 @@ public partial class SearchWindow : UserControl
             MainGrid.Children.Remove(LoadingProgressBar);
             MainGrid.Children.Remove(LoadingGif);
             MainGrid.Children.Remove(LoadingBackground);
+            EventManager.TriggerEvent("SearchWindowInitialized");
         }
         
     }
@@ -51,5 +56,31 @@ public partial class SearchWindow : UserControl
         }
 
         return true;
+    }
+
+    public void HandleEvent(string name)
+    {
+        switch (name)
+        {
+            case "OpenedSearchResultInfoWindow":
+            {
+                foreach (UIElement searchResultsChild in SearchResults.Children)
+                {
+                    searchResultsChild.IsEnabled = false;
+                }
+
+                break;
+            }
+            case "ClosedSearchResultInfoWindow":
+            {
+                foreach (UIElement searchResultsChild in SearchResults.Children)
+                {
+                    searchResultsChild.IsEnabled = true;
+                }
+                InfoPanel.Children.Clear();
+
+                break;
+            }
+        }
     }
 }
