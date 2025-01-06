@@ -22,6 +22,7 @@ public partial class App : Application
     public static readonly TagManager TagManager = new();
     public static readonly ProductTagRelManager ProductTagRelManager = new();
     public static readonly OrderManager OrderManager = new();
+    public static readonly OrderProductRelManager OrderProductRelManager = new();
     public static User? CurrentUser { get; set; }
     public static Language UILanguage { get; set; }
     private void App_OnExit(object sender, ExitEventArgs e)

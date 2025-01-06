@@ -19,7 +19,7 @@ public class ProductManager
         got.ForEach(x =>
         {
             _logger.LogMessage($"{x.ToString()}");
-            CategoryDTO category = _category.GetCategoryById(x.CategoryId);
+            CategoryDTO category = _category.GetCategoryById((int)x.CategoryId!);
             outputModels.Add(new ProductForDisplayingOutputModel
             {
                 Id = x.Id,
