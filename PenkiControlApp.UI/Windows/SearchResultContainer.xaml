@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              d:DesignHeight="70" d:DesignWidth="1000">
     <Grid>
-        <Button Width="1000"  BorderBrush="Black" BorderThickness="5" FontSize="20" Background="#00000000">
+        <Button x:Name="ButtonOpenInfo" Width="1000"  BorderBrush="Black" BorderThickness="5" FontSize="20" Background="#00000000" Click="ButtonOpenInfo_OnClick">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="30"/>

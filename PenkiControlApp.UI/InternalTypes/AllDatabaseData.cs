@@ -50,14 +50,29 @@ public class AllDatabaseData
                 foreach (var (s, value) in _data)
                 {
                     // Console.WriteLine($"searching {key} in {s}");
-                    foreach (var (k, o) in value)
+                    if (s == "clients")
                     {
-                        // Console.WriteLine($"Element :{k}:; key :{key}:");
-                        if (k.Equals(key, StringComparison.CurrentCultureIgnoreCase))
+                        foreach (var (k, o) in value)
                         {
-                            output.Add((o, s));
+                            var temp = k.Split(".");
+                            if (temp[0].Equals(key, StringComparison.CurrentCultureIgnoreCase) || temp[1].Equals(key, StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                output.Add((o, s));
+                            }
                         }
                     }
+                    else
+                    {
+                        foreach (var (k, o) in value)
+                        {
+                            // Console.WriteLine($"Element :{k}:; key :{key}:");
+                            if (k.Equals(key, StringComparison.CurrentCultureIgnoreCase))
+                            {
+                                output.Add((o, s));
+                            }
+                        }
+                    }
+                    
                 }
                 // Console.WriteLine($"{key} not found in database");
                 return (output, "None");
@@ -125,7 +140,7 @@ public class AllDatabaseData
                 Dictionary<string, IOutputModel> clientsDict = new Dictionary<string, IOutputModel>();
                 clients.ForEach(x =>
                 {
-                    clientsDict[x.Name.ToString()] = x;
+                    clientsDict[$"{x.Name}.{x.Surname}"] = x;
                 });
         
                 _data["clients"] = clientsDict;

@@ -6,12 +6,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using PenkiControlApp.Core.OutputModels;
 using PenkiControlApp.Logging;
+using PenkiControlApp.UI.Controls;
 using PenkiControlApp.UI.InternalTypes;
+using EventManager = PenkiControlApp.UI.Controls.EventManager;
 using State = uint;
 
 namespace PenkiControlApp.UI.Windows;
 
-public partial class Toolbar : UserControl
+public partial class Toolbar : UserControl, IEventListener
 {
     private readonly MainWindow _mainWindow;
     private readonly PCALogger _logger = PCALogger.GetInstance();
@@ -20,6 +22,7 @@ public partial class Toolbar : UserControl
     public Toolbar(MainWindow window)
     {
         _mainWindow = window;
+        EventManager.OnEventOccurred += HandleEvent;
         InitializeComponent();
     }
 
@@ -88,8 +91,10 @@ public partial class Toolbar : UserControl
         if (_mainWindow.TabManager.GetCurrentTab() != 8)
         {
             SwitchTabs();
+            Search.IsEnabled = false;
+            _searchWindow = _mainWindow.TabManager.ChangeToSearchWindow();
         }
-        _searchWindow = _mainWindow.TabManager.ChangeToSearchWindow();
+        
         
     }
 
@@ -99,6 +104,7 @@ public partial class Toolbar : UserControl
         {
             if (!Search.Text.Replace(" ", "").Equals(""))
             {
+                _searchWindow.SearchResults.Children.Clear();
                 if (SearchCategory.SelectedIndex == -1 || SearchCategory.Text == "Anywhere")
                 {
                     var (data, _) = AllDatabaseData.GetInstance().GetData(Search.Text, null);
@@ -109,7 +115,7 @@ public partial class Toolbar : UserControl
                         {
                             var model = (((IOutputModel, string))x).Item1;
                             var category = (((IOutputModel, string))x).Item2;
-                            _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                            _searchWindow.SearchResults.Children.Add(new SearchResultContainer(_searchWindow){ TypeLabel =
                             {
                                 Content = category
                             }, NameLabel =
@@ -123,7 +129,15 @@ public partial class Toolbar : UserControl
                                     "tags" => (model as TagForDisplayingOutputModel)!.Name,
                                     _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
                                 }
-                            }, Width = 1000});
+                            }, Width = 1000, Data = category switch
+                            {
+                                "products" => (model as ProductForDisplayingOutputModel)!,
+                                "categories" => (model as CategoryOutputModel)!,
+                                "clients" => (model as ClientForSearchOutputModel)!,
+                                "orders" => (model as OrderForDisplayingOutputModel)!,
+                                "tags" => (model as TagForDisplayingOutputModel)!,
+                                _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
+                            }});
                             // categories.Add(category);
                         });
                         // _searchWindow.StatusField.Content = $"Found in category {categories.ToArray()}";
@@ -140,7 +154,7 @@ public partial class Toolbar : UserControl
                     {
                         data.ForEach(x =>
                         {
-                            _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                            _searchWindow.SearchResults.Children.Add(new SearchResultContainer(_searchWindow){ TypeLabel =
                             {
                                 Content = SearchCategory.Text
                             }, NameLabel =
@@ -154,7 +168,15 @@ public partial class Toolbar : UserControl
                                     "Tags" => (x as TagForDisplayingOutputModel)!.Name,
                                     _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
                                 }
-                            }, Width = 1000});
+                            }, Width = 1000, Data = SearchCategory.Text switch
+                                {
+                                "Products" => (x as ProductForDisplayingOutputModel)!,
+                                "Categories" => (x as CategoryOutputModel)!,
+                                "Clients" => (x as ClientForSearchOutputModel)!,
+                                "Orders" => (x as OrderForDisplayingOutputModel)!,
+                                "Tags" => (x as TagForDisplayingOutputModel)!,
+                                _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
+                            }});
                             
                         });
                         _searchWindow.StatusField.Content = $"Found in category {SearchCategory.Text}";
@@ -200,5 +222,19 @@ public partial class Toolbar : UserControl
     {
         SwitchTabs();
         _mainWindow.TabManager.ChangeTab(1);
+        Search.Clear();
+    }
+
+    public void HandleEvent(string name)
+    {
+        switch (name)
+        {
+            case "SearchWindowInitialized" or "ClosedSearchResultInfoWindow":
+                Search.IsEnabled = true;
+                break;
+            case "OpenedSearchResultInfoWindow":
+                Search.IsEnabled = false;
+                break;
+        }
     }
 }

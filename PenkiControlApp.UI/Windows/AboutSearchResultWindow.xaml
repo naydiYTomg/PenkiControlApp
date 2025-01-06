@@ -1,0 +1,45 @@
+<UserControl x:Class="PenkiControlApp.UI.Windows.AboutSearchResultWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
+             mc:Ignorable="d"
+             d:DesignHeight="550" d:DesignWidth="1100">
+    <Grid Background="Black" Width="1100" Height="550">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label x:Name="InfoLabel1" Foreground="White" Grid.Row="0" FontSize="25" VerticalContentAlignment="Center" Grid.Column="0"></Label>
+        <Label x:Name="InfoLabel2" Foreground="White" Grid.Row="1" FontSize="25" VerticalContentAlignment="Center" Grid.Column="0"></Label>
+        <Label x:Name="InfoLabel3" Foreground="White" Grid.Row="2" FontSize="25" VerticalContentAlignment="Center" Grid.Column="0"></Label>
+        <Label x:Name="InfoLabel4" Foreground="White" Grid.Row="3" FontSize="25" VerticalContentAlignment="Center" Grid.Column="0"></Label>
+        <Button x:Name="CloseButton" Grid.Row="0" Grid.Column="2" Margin="0 2 2 0" Content="X" Click="CloseButton_OnClick">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"></Setter>
+                </Style>
+            </Button.Resources>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF00AAAA" Offset="0.0"/>
+                    <GradientStop Color="Aqua" Offset="0.3"/>
+                    <GradientStop Color="ForestGreen" Offset="1.1"/>
+                    
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBlock Foreground="White" x:Name="OtherInfo" FontSize="25" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" TextWrapping="Wrap"></TextBlock>
+        
+    </Grid>
+</UserControl>
