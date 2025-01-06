@@ -1,3 +1,4 @@
+using PenkiControlApp.Core.InputModels;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -51,8 +52,8 @@ public partial class SellsWindow : UserControl
             string[] nameAndSurname = _ClientsDropDown.Text.Split(" ");
             var client = App.ClientManager.GetClientIdByNameAndSurname(nameAndSurname[0], nameAndSurname[1]);
             MessageBox.Show(client.ToString());
-
-            //MessageBox.Show(();
+            var orderId = App.OrderManager.InsertOrder(new OrderInputModel { ClientId = client, Sum = 1, Date = (int)DateTime.Now.ToFileTime(), UserId = 1});
+            MessageBox.Show(orderId.ToString());
             if (ProductContainer.Children.Count != 0)
             {
                 foreach (ProductAddingElement child in ProductContainer.Children)

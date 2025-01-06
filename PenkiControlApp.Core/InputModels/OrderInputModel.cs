@@ -8,7 +8,6 @@ namespace PenkiControlApp.Core.InputModels
 {
     public class OrderInputModel
     {
-        public int Id { get; set; }
         public int Sum { get; set; }
         public int Date {  get; set; }
         public int UserId { get; set; }
