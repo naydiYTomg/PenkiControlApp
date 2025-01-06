@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -100,25 +101,32 @@ public partial class Toolbar : UserControl
             {
                 if (SearchCategory.SelectedIndex == -1 || SearchCategory.Text == "Anywhere")
                 {
-                    var (data, category) = AllDatabaseData.GetInstance().GetData(Search.Text, null);
-                    if (data is not false)
+                    var (data, _) = AllDatabaseData.GetInstance().GetData(Search.Text, null);
+                    if (data.Count != 0)
                     {
-                        _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                        // List<string> categories = [];
+                        data.ForEach(x =>
                         {
-                            Content = category
-                        }, NameLabel =
-                        {
-                            Content = category switch
+                            var model = (((IOutputModel, string))x).Item1;
+                            var category = (((IOutputModel, string))x).Item2;
+                            _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
                             {
-                                "products" => (data as ProductForDisplayingOutputModel)!.Name,
-                                "categories" => (data as CategoryOutputModel)!.Name,
-                                "clients" => (data as ClientForSearchOutputModel)!.Name,
-                                "orders" => (data as OrderForDisplayingOutputModel)!.Id,
-                                "tags" => (data as TagForDisplayingOutputModel)!.Name,
-                                _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
-                            }
-                        }, Width = 1000});
-                        _searchWindow.StatusField.Content = $"Found in category {category}";
+                                Content = category
+                            }, NameLabel =
+                            {
+                                Content = category switch
+                                {
+                                    "products" => (model as ProductForDisplayingOutputModel)!.Name,
+                                    "categories" => (model as CategoryOutputModel)!.Name,
+                                    "clients" => (model as ClientForSearchOutputModel)!.Name,
+                                    "orders" => (model as OrderForDisplayingOutputModel)!.Id,
+                                    "tags" => (model as TagForDisplayingOutputModel)!.Name,
+                                    _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
+                                }
+                            }, Width = 1000});
+                            // categories.Add(category);
+                        });
+                        // _searchWindow.StatusField.Content = $"Found in category {categories.ToArray()}";
                     }
                     else
                     {
@@ -128,23 +136,27 @@ public partial class Toolbar : UserControl
                 else
                 {
                     var (data, _) = AllDatabaseData.GetInstance().GetData(Search.Text, SearchCategory.Text);
-                    if (data is not false)
+                    if (data.Count != 0)
                     {
-                        _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
+                        data.ForEach(x =>
                         {
-                            Content = SearchCategory.Text
-                        }, NameLabel =
-                        {
-                            Content = SearchCategory.Text switch
+                            _searchWindow.SearchResults.Children.Add(new SearchResultContainer{ TypeLabel =
                             {
-                                "Products" => (data as ProductForDisplayingOutputModel)!.Name,
-                                "Categories" => (data as CategoryOutputModel)!.Name,
-                                "Clients" => (data as ClientForSearchOutputModel)!.Name,
-                                "Orders" => (data as OrderForDisplayingOutputModel)!.Id,
-                                "Tags" => (data as TagForDisplayingOutputModel)!.Name,
-                                _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
-                            }
-                        }, Width = 1000});
+                                Content = SearchCategory.Text
+                            }, NameLabel =
+                            {
+                                Content = SearchCategory.Text switch
+                                {
+                                    "Products" => (x as ProductForDisplayingOutputModel)!.Name,
+                                    "Categories" => (x as CategoryOutputModel)!.Name,
+                                    "Clients" => (x as ClientForSearchOutputModel)!.Name,
+                                    "Orders" => (x as OrderForDisplayingOutputModel)!.Id,
+                                    "Tags" => (x as TagForDisplayingOutputModel)!.Name,
+                                    _ => throw new SystemException("SOS!! SOS!! MI PADAYEM!!")
+                                }
+                            }, Width = 1000});
+                            
+                        });
                         _searchWindow.StatusField.Content = $"Found in category {SearchCategory.Text}";
                     }
                     else
@@ -159,7 +171,7 @@ public partial class Toolbar : UserControl
     private void SwitchTabs()
     {
         List<UIElement> @default = [Products, Clients, Managers, TagsNCategories, Sells];
-        List<UIElement> search = [SearchCategory];
+        List<UIElement> search = [SearchCategory, ExitSearch];
         switch (_currentState)
         {
             case 0:
@@ -176,13 +188,17 @@ public partial class Toolbar : UserControl
             case 1:
                 search.ForEach(x => x.Visibility = Visibility.Collapsed);
                 @default.ForEach(x => x.Visibility = Visibility.Visible);
+                SearchCategory.Items.Clear();
                 _currentState = 0;
                 break;
         }
 
     }
 
-   
 
-    
+    private void ExitSearch_OnClick(object sender, RoutedEventArgs e)
+    {
+        SwitchTabs();
+        _mainWindow.TabManager.ChangeTab(1);
+    }
 }
