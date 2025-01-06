@@ -1,3 +1,4 @@
+using System.Windows.Documents;
 using PenkiControlApp.Core.OutputModels;
 
 namespace PenkiControlApp.UI.InternalTypes;
@@ -13,7 +14,7 @@ public class AllDatabaseData
         return _instance ??= new AllDatabaseData();
     }
 
-    public (object, string) GetData(string key, string? where)
+    public (List<object>, string) GetData(string key, string? where)
     {
         // foreach (var (k, v) in _data)
         // {
@@ -23,47 +24,49 @@ public class AllDatabaseData
         //         Console.WriteLine($"\t- {d}");
         //     }
         // }
-        Console.WriteLine($"key is {key}, where is {where}");
+        // Console.WriteLine($"key is {key}, where is {where}");
         if (where is not null)
         {
-            Console.WriteLine($"trying to find {key} in category {where}");
-
+            // Console.WriteLine($"trying to find {key} in category {where}");
+            List<object> output = [];
             foreach (var (k, v) in _data[where.ToLower()])
             {
                 if (k == key)
                 {
-                    return (v, where);
+                    output.Add(v);
                 }
             }
-            Console.WriteLine($"{key} not found in category {where}");
-            return (false, "None");
+            
+            // Console.WriteLine($"{key} not found in category {where}");
+            return (output, where);
 
         }
         else
         {
-            Console.WriteLine($"trying to find {key} in all categories");
+            // Console.WriteLine($"trying to find {key} in all categories");
             try
             {
+                List<object> output = [];
                 foreach (var (s, value) in _data)
                 {
-                    Console.WriteLine($"searching {key} in {s}");
+                    // Console.WriteLine($"searching {key} in {s}");
                     foreach (var (k, o) in value)
                     {
-                        Console.WriteLine($"Element :{k}:; key :{key}:");
+                        // Console.WriteLine($"Element :{k}:; key :{key}:");
                         if (k.Equals(key, StringComparison.CurrentCultureIgnoreCase))
                         {
-                            return (o, s);
+                            output.Add((o, s));
                         }
                     }
                 }
-                Console.WriteLine($"{key} not found in database");
-                return (false, "None");
+                // Console.WriteLine($"{key} not found in database");
+                return (output, "None");
 
             }
             catch (Exception e)
             {
-                Console.WriteLine($"{key} not found in database");
-                return (false, "None");
+                // Console.WriteLine($"{key} not found in database");
+                return ([], "None");
             }
         }
     }

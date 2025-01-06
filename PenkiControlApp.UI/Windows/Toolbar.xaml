@@ -48,6 +48,13 @@
                         </Style>
                     </ComboBox.Resources>
                 </ComboBox>
+                <Button x:Name="ExitSearch" Grid.Column="4" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" Click="ExitSearch_OnClick">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="25"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
                 <Button x:Name="Products" Grid.Column="1" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" Click="Products_OnClick">
                     <Button.Resources>
                         <Style TargetType="Border">
