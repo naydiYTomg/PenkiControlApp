@@ -24,16 +24,17 @@ public class ProductManager
             {
                 Id = x.Id,
                 Name = x.Name!,
-                CategoryName = category.Name!
+                CategoryName = category.Name!,
+                Cost = x.Cost
             });
             
         });
         return outputModels;
     }
 
-    public int AddNewProduct(string name, int categoryId)
+    public int AddNewProduct(string name, int categoryId, int cost)
     {
-        var got = _repository.AddNewProduct(name, categoryId);
+        var got = _repository.AddNewProduct(name, categoryId, cost);
         return got;
     }
 }

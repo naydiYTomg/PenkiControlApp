@@ -32,8 +32,9 @@ public partial class ProductCreationWindow : UserControl
     {
         var name = NameOfProductField.Text;
         var categoryName = (ChosenCategories.SelectedItem as ComboBoxItem)!.Content.ToString()!;
+        var cost = int.Parse(CostOfProductField.Text);
         var categoryId = App.CategoryManager.GetCategoryIdByName(categoryName);
-        var productId = App.ProductManager.AddNewProduct(name, categoryId);
+        var productId = App.ProductManager.AddNewProduct(name, categoryId, cost);
         List<int> chosenTagsIds = [];
         chosenTagsIds.AddRange(from UIElement tagsContainerChild in TagsContainer.Children select tagsContainerChild as TagCheckbox into cur where (bool)cur!.Selected.IsChecked! select cur.Id);
         App.ProductTagRelManager.AddTagsToProduct(productId, chosenTagsIds);

@@ -41,6 +41,20 @@
                         </Style>
                     </Button.Resources>
                 </Button>
+                <ComboBox x:Name="SearchCategory" Visibility="Collapsed" Grid.Column="0" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" >
+                    <ComboBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="25"></Setter>
+                        </Style>
+                    </ComboBox.Resources>
+                </ComboBox>
+                <Button x:Name="ExitSearch" Grid.Column="4" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" Click="ExitSearch_OnClick">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="25"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
                 <Button x:Name="Products" Grid.Column="1" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" Click="Products_OnClick">
                     <Button.Resources>
                         <Style TargetType="Border">
@@ -70,7 +84,7 @@
                     </Button.Resources>
                 </Button>
             </Grid>
-            <TextBox x:Name="Search" Height="50" Grid.Column="7" Grid.ColumnSpan="4" Background="#c9b176" FontSize="30" BorderThickness="3" BorderBrush="Black">
+            <TextBox x:Name="Search" Height="50" Grid.Column="7" Grid.ColumnSpan="4" Background="#c9b176" FontSize="30" GotFocus="Search_OnGotFocus" BorderThickness="3" BorderBrush="Black">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -83,7 +97,7 @@
             <!--     </Button.Background> -->
             <!-- </Button> -->
             <Image x:Name="Login" Grid.Column="11" Source="{StaticResource Login}" Width="50" Height="50" MouseDown="Login_OnMouseDown" MouseUp="Login_OnClick" MouseLeave="Login_OnMouseLeave"></Image>
-            <Button x:Name="SearchButton" Grid.Column="10" Width="40" Height="40" BorderThickness="0" Margin="50, 0, 0, 0">
+            <Button x:Name="SearchButton" Grid.Column="10" Width="40" Height="40" BorderThickness="0" Margin="50, 0, 0, 0" Click="SearchButton_OnClick">
                 <Button.Background>
                     <ImageBrush ImageSource="{StaticResource Loopy}"></ImageBrush>
                 </Button.Background>

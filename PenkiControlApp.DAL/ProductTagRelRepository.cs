@@ -1,3 +1,4 @@
+using Dapper;
 using PenkiControlApp.Core.DTOs;
 using PenkiControlApp.Core.Queries;
 using PenkiControlApp.DAL.Internal;
@@ -9,7 +10,7 @@ public class ProductTagRelRepository
     public List<ProductTagRelDTO> GetRelations()
     {
         var connection = new ConnectionBuilder().WithQuery(ProductTagRelQueries.GetAllRelationsQuery).Pack();
-        return connection.Execute<ProductTagRelDTO>().ToList();
+        return connection.Execute<ProductTagRelDTO>().AsList();
     }
 
     public void AddTagsToProduct(int productId, List<TagDTO> tags)

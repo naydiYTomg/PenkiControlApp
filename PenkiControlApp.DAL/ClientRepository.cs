@@ -14,7 +14,7 @@ public class ClientRepository
         using (var connection = new Npgsql.NpgsqlConnection(connectionString))
         {
             string query = ClientQueries.GET_CLIENT_QUERY;
-            List<ClientDTO> result = connection.Query<ClientDTO>(query).ToList();
+            List<ClientDTO> result = connection.Query<ClientDTO>(query).AsList();
             return result;
         }
     }

@@ -14,7 +14,7 @@ public class UserRepository
     public List<UserDTO> GetAllUsers()
     {
         var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_USERS_QUERY).Pack();
-        return connection.Execute<UserDTO>().ToList();
+        return connection.Execute<UserDTO>().AsList();
     }
 
     public UserDTO GetUserByLogin(string login)
@@ -34,7 +34,7 @@ public class UserRepository
     public List<UserDTO> GetManagers()
     {
         var connection = new ConnectionBuilder().WithQuery(UserQueries.GET_MANAGERS_QUERY).Pack();
-        return connection.Execute<UserDTO>().ToList();
+        return connection.Execute<UserDTO>().AsList();
     }
 
     public int InsertUser(UserDTO user)

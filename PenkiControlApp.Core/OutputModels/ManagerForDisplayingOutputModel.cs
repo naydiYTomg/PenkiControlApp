@@ -1,6 +1,6 @@
 namespace PenkiControlApp.Core.OutputModels;
 
-public class ManagerForDisplayingOutputModel
+public class ManagerForDisplayingOutputModel : IOutputModel
 {
     public required int Id { get; set; }
     public required string Name { get; set; }
