@@ -54,7 +54,7 @@ public partial class SellsWindow : UserControl
             string[] nameAndSurname = _ClientsDropDown.Text.Split(" ");
             var client = App.ClientManager.GetClientIdByNameAndSurname(nameAndSurname[0], nameAndSurname[1]);
             MessageBox.Show(client.ToString());
-            var orderId = App.OrderManager.InsertOrder(new OrderInputModel { ClientId = client, Sum = 1, Date = (int)DateTime.Now.ToFileTime(), UserId = 1});
+            var orderId = App.OrderManager.InsertOrder(new OrderInputModel() { ClientId = client, Sum = 1, Date = (int)DateTime.Now.ToFileTime(), UserId = 1});
             MessageBox.Show(orderId.ToString());
             
             

@@ -1,3 +1,4 @@
+using PenkiControlApp.Core.InputModels;
 using PenkiControlApp.Core.OutputModels;
 using PenkiControlApp.DAL;
 
