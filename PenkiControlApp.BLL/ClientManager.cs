@@ -22,4 +22,10 @@ public class ClientManager
         got.ForEach(x => outputModels.Add(new ClientForSearchOutputModel { Id = x.Id, Name = x.Name!, Surname = x.Surname!, Age = x.Age }));
         return outputModels;
     }
+    public int GetClientIdByNameAndSurname(string name, string surname)
+    {
+        var got = _repository.GetClientIdByNameAndSurname(name, surname);
+        //got.ForEach(x => outputModels.Add(new ClientForDisplayingOutputModel { Name = x.Name!, Id = x.Id, Surname = x.Surname! }));
+        return got.Id;
+    }
 }

@@ -12,4 +12,9 @@ public class OrderRepository
         var connection = new ConnectionBuilder().WithQuery(OrderQueries.GetAllOrdersQuery).Pack();
         return connection.Execute<OrderDTO>().AsList();
     }
-}
+        public int InsertOrder(OrderDTO DTO)
+        {
+            var connection = new ConnectionBuilder().WithQuery(OrderQueries.INSERT_ORDER_QUERY).WithProperties(new {Sum = DTO.Sum, Date = DTO.Date, UserId = DTO.UserId, ClientId = DTO.ClientId}).Pack();
+            return connection.ExecuteFirst<int>();
+        }
+    }
