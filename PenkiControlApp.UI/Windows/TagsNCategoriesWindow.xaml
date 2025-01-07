@@ -24,8 +24,7 @@
             <Label x:Name="InfoLabel" Grid.Row="0" HorizontalAlignment="Center" Content="Tags &amp; Categories" FontSize="40" Margin="60 0 0 0" Foreground="White"></Label>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
                   <local:CategoryWindow Width="270" Margin="10 0 0 0"></local:CategoryWindow>
-                  <local:CategoryWindow Width="270" Margin="150 0 0 0 " Loaded="CategoryWindow_Loaded"></local:CategoryWindow>
-                  <local:CategoryWindow Width="270" Margin="150 0 0 0"></local:CategoryWindow>
+                  
               </StackPanel>
               <ListView Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                   <ListView.ItemsPanel>

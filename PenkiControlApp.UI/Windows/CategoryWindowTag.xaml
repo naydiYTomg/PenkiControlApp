@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              d:DesignHeight="100" d:DesignWidth="150">
     <Border BorderBrush="Black" BorderThickness="5" Height="100" Width="150" CornerRadius="10">
-        <TextBlock TextWrapping="Wrap" Text="Tag1" FontSize="20"></TextBlock>
+        <TextBlock TextWrapping="Wrap" x:Name="TagName" Text="Tag1" FontSize="20"></TextBlock>
     </Border>
 
 </UserControl>

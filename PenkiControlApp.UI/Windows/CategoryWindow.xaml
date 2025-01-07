@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Initialized="CategoryWindow_OnInitialized">
     <Border Background="White" CornerRadius="30" BorderBrush="Black" BorderThickness="5">
         <Grid>
         <Grid.RowDefinitions>
@@ -15,28 +15,9 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         
-        <Label x:Name="NameOfCategory" Content="PlaceholderCategory" Margin="0 0 0 0" Grid.Row="0" Grid.RowSpan="2" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
-        <WrapPanel Grid.Row="2" x:Name="Tags" Width="200">
-            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10">
-                <Label Content="Tag1" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="60 0 0 0 ">
-                <Label Content="Tag2" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="0 00 0 0 ">
-                <Label Content="Tag3" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="60 00 0 0 ">
-                <Label Content="Tag4" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="0 00 0 0 ">
-                <Label Content="Tag5" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="5" Height="53" Width="70" CornerRadius="10" Margin="60 00 0 0 ">
-                <Label Content="Tag6" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></Label>
-            </Border>
-            
-        </WrapPanel>
+        <TextBlock TextWrapping="Wrap" x:Name="NameOfCategory" Text="PlaceholderCategory" Margin="0 0 0 0" Grid.Row="0" Grid.RowSpan="2" FontSize="25"/>
+            <WrapPanel Grid.Row="2" x:Name="Tags" Width="200">
+            </WrapPanel>
         <Button Content="Подробнее" x:Name="About" Grid.Row="3" Background="Bisque" Foreground="Black" FontSize="15" BorderThickness="0">
             <Button.Resources>
                 <Style TargetType="Border">
