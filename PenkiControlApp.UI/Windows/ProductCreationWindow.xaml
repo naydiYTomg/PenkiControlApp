@@ -32,14 +32,14 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Content="Enter name of product:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
-                <Label Grid.Row="0" Grid.Column="2" Content="Choose category:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
-                <Label Grid.Row="0" Grid.Column="1" Content="Enter cost:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
+                <Label x:Name="LabelEnterName" Content="Enter name of product:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
+                <Label x:Name="LabelChooseCategory" Grid.Row="0" Grid.Column="2" Content="Choose category:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
+                <Label x:Name="LabelEnterCost" Grid.Row="0" Grid.Column="1" Content="Enter cost:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
                 <TextBox x:Name="CostOfProductField" Grid.Row="1" Grid.Column="1" FontSize="30" Foreground="Black" VerticalContentAlignment="Center"/>
                 <ComboBox x:Name="ChosenCategories" Grid.Row="1" Grid.Column="2" SelectionChanged="ChosenCategories_OnSelected"/>
                 <TextBox x:Name="NameOfProductField" Grid.Row="1" Grid.Column="0" FontSize="30" Foreground="Black" VerticalContentAlignment="Center"/>
-                <Label Grid.Row="2" Grid.Column="0" Content="Write about product:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
-                <Label Grid.Row="2" Grid.Column="2" Content="Choose tags:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
+                <Label x:Name="LabelWriteAbout" Grid.Row="2" Grid.Column="0" Content="Write about product:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
+                <Label x:Name="LabelChooseTags" Grid.Row="2" Grid.Column="2" Content="Choose tags:" FontSize="40" Foreground="White" VerticalContentAlignment="Bottom"/>
                 <TextBox x:Name="AboutProductField" Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" FontSize="30" Foreground="Black" TextWrapping="Wrap">
                     <TextBox.Resources>
                         <Style TargetType="Border">

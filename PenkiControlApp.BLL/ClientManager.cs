@@ -28,4 +28,15 @@ public class ClientManager
         //got.ForEach(x => outputModels.Add(new ClientForDisplayingOutputModel { Name = x.Name!, Id = x.Id, Surname = x.Surname! }));
         return got.Id;
     }
+    
+    public List<ClientFavoriteTagOutputModel> GetClientFavoriteTags(int id, int count)
+    {
+        var got = _repository.GetClientsFavoriteTags(id, count);
+        List<ClientFavoriteTagOutputModel> outputModels = [];
+        got.ForEach(x =>
+        {
+            outputModels.Add(new ClientFavoriteTagOutputModel{ Id = x.Id });
+        });
+        return outputModels;
+    }
 }

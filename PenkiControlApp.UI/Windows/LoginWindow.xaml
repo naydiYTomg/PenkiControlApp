@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
              mc:Ignorable="d"
-             d:DesignHeight="640" d:DesignWidth="1280">
+             d:DesignHeight="640" d:DesignWidth="1280" Initialized="LoginWindow_OnInitialized">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -19,7 +19,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="LoginInfoLabel" Content="Fill in this fields to login" FontSize="50" VerticalContentAlignment="Center"/>
+        <Label x:Name="LoginInfoLabel" Content="Fill in this fields to login" FontSize="35" VerticalContentAlignment="Center"/>
         <Label x:Name="ErrorsLabel" Grid.Row="0" Grid.Column="1" Foreground="DarkRed" FontSize="20"></Label>
         <TextBox Grid.ColumnSpan="2" Grid.Column="0" x:Name="LoginField" Grid.Row="1" TextAlignment="Left" VerticalContentAlignment="Center" FontSize="40"></TextBox>
         <TextBox Grid.ColumnSpan="2" Grid.Column="0" x:Name="PasswordField" Grid.Row="2" TextAlignment="Left" VerticalContentAlignment="Center" FontSize="40"></TextBox>

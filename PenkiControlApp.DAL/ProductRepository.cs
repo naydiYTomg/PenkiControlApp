@@ -25,4 +25,11 @@ public class ProductRepository
             .WithProperties(new { Name = name, CategoryId = categoryId, Cost = cost }).Pack();
         return connection.ExecuteFirst<int>();
     }
+
+    public ProductDTO GetRandomProductByTag(int tagId)
+    {
+        var connection = new ConnectionBuilder().WithQuery(ProductQueries.GetRandomProductByTagQuery)
+            .WithProperties(new { Id = tagId }).Pack();
+        return connection.ExecuteFirst<ProductDTO>();
+    }
 }

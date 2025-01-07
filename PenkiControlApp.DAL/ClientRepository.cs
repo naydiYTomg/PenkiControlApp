@@ -45,5 +45,11 @@ public class ClientRepository
             .WithProperties(new { Name = name, Surname = surname }).Pack();
         return connection.ExecuteFirst<ClientDTO>();
     }
+    public List<ClientFavoriteTagDTO> GetClientsFavoriteTags(int userId, int count)
+    {
+        var connection = new ConnectionBuilder().WithQuery(ClientQueries.GetClientsFavoriteNTagsQuery)
+            .WithProperties(new { Id = userId, N = count }).Pack();
+        return connection.Execute<ClientFavoriteTagDTO>().AsList();
+    }
 
 }

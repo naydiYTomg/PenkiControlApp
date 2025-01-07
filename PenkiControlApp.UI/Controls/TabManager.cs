@@ -39,14 +39,24 @@ public class TabManager(MainWindow window)
                 case 7: //Product creation window
                     _mainWindow.AddElement(new ProductCreationWindow(_mainWindow) { Height = 700, Width = 1160}, 1);
                     break;
+                case 9: //Recommendations window
+                    _mainWindow.AddElement(new RecommendationsWindow() { Height = 700, Width = 1280 }, 1);
+                    break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);
                     break;
             }
-
+            
             if (tab != 7)
             {
-                UpdateButtons(tab);
+                if (tab == 9)
+                {
+                    UpdateButtons(tab-2);
+                }
+                else
+                {
+                    UpdateButtons(tab);
+                }
             }
         }
     }
@@ -56,7 +66,7 @@ public class TabManager(MainWindow window)
         List<UIElement> temp =
         [
             _mainWindow.Toolbar.Clients, _mainWindow.Toolbar.Products, _mainWindow.Toolbar.TagsNCategories,
-            _mainWindow.Toolbar.Managers, _mainWindow.Toolbar.Login, _mainWindow.Toolbar.Sells
+            _mainWindow.Toolbar.Managers, _mainWindow.Toolbar.Login, _mainWindow.Toolbar.Sells, _mainWindow.Toolbar.Recommendations
         ];
         temp.ForEach(x => x.IsEnabled = true);
     }
@@ -65,7 +75,7 @@ public class TabManager(MainWindow window)
         List<UIElement> temp =
         [
             _mainWindow.Toolbar.Clients, _mainWindow.Toolbar.Products, _mainWindow.Toolbar.TagsNCategories,
-            _mainWindow.Toolbar.Managers, _mainWindow.Toolbar.Login, _mainWindow.Toolbar.Sells
+            _mainWindow.Toolbar.Managers, _mainWindow.Toolbar.Login, _mainWindow.Toolbar.Sells, _mainWindow.Toolbar.Recommendations
         ];
         temp[except - 1].IsEnabled = false;
         temp.ForEach(x =>

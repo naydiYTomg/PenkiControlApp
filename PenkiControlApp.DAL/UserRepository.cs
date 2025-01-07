@@ -82,4 +82,6 @@ public class UserRepository
             .WithProperties(new { Login = login }).Pack();
         return connection.ExecuteFirst<string>();
     }
+
+    
 }

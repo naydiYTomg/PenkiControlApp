@@ -14,6 +14,27 @@ public partial class ProductCreationWindow : UserControl
 
     private void ProductCreationWindow_OnInitialized(object? sender, EventArgs e)
     {
+        switch (App.UILanguage)
+        {
+            case InternalTypes.Language.Russian:
+                InfoLabel.Content = "Создание продукта";
+                LabelEnterName.Content = "Введите название продукта: ";
+                LabelEnterCost.Content = "Введите цену: ";
+                LabelChooseCategory.Content = "Выберите категорию: ";
+                LabelWriteAbout.Content = "Напишите о продукте: ";
+                LabelChooseTags.Content = "Выберите тэги: ";
+                CreateButton.Content = "Создать!";
+                break;
+            default:
+                InfoLabel.Content = "Product Creation";
+                LabelEnterName.Content = "Enter name of product: ";
+                LabelEnterCost.Content = "Enter cost: ";
+                LabelChooseCategory.Content = "Choose category: ";
+                LabelWriteAbout.Content = "Write about product: ";
+                LabelChooseTags.Content = "Choose tags: ";
+                CreateButton.Content = "Create!";
+                break;
+        }
         var got = App.CategoryManager.GetCategories();
         got.ForEach(x => { ChosenCategories.Items.Add(new ComboBoxItem { Content = x.Name }); });
     }

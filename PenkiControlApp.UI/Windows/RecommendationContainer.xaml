@@ -1,0 +1,22 @@
+<UserControl x:Class="PenkiControlApp.UI.Windows.RecommendationContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
+             mc:Ignorable="d"
+             d:DesignHeight="70" d:DesignWidth="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="4" Fill="Black"/>
+        <Label x:Name="IdLabel" Grid.Column="0" Foreground="White" Content="ID: 1214"/>
+        <Label x:Name="NameLabel" Grid.Column="0" Foreground="White" Content="NAME" VerticalContentAlignment="Center" FontSize="22"/>
+        <Label x:Name="CategoryLabel" Grid.Column="1" Foreground="White" VerticalContentAlignment="Center" FontSize="22" Content="in category CATEGORY"/>
+        <Label x:Name="CostLabel" Grid.Column="3" Foreground="White" VerticalContentAlignment="Center" FontSize="22" Content="Cost: 399$"/>
+    </Grid>
+</UserControl>

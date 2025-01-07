@@ -32,6 +32,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                     
                 </Grid.ColumnDefinitions>
                 <Button x:Name="Clients" Grid.Column="0" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" Click="Clients_OnClick">
@@ -77,6 +78,13 @@
                     </Button.Resources>
                 </Button>
                 <Button x:Name="Sells" Grid.Column="4" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" Click="Sells_OnClick">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="25"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button x:Name="Recommendations" Grid.Column="5" Width="50" Height="50" BorderBrush="#4f2607" BorderThickness="4" Click="Recommendations_OnClick">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="25"></Setter>
