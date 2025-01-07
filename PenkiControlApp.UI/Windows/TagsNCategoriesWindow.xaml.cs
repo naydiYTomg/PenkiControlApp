@@ -21,14 +21,15 @@ namespace PenkiControlApp.UI.Windows
             var categories = App.CategoryManager.GetCategories();
             categories.ForEach(x =>
             {
-                MessageBox.Show(x.Name.ToString());
 
+                
                 var category = new CategoryWindow()
                 {
-                    //Id = x.Id,
+                    Id = x.Id,
+
                     NameOfCategory = { Text = x.Name }
                 };
-
+                //MessageBox.Show(x.Id.ToString());
                 CategoriesList.Children.Add(category);
             });
         }

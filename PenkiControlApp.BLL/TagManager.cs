@@ -28,4 +28,15 @@ public class TagManager
         return outputModels;
 
     }
+
+    public List<TagOutputModel> GetAllTagsByCategoryId(int id)
+    {
+        var got = _repository.GetTagsByCategoryId(id);
+        List<TagOutputModel> outputModels = [];
+        got.ForEach(x =>
+        {
+            outputModels.Add(new TagOutputModel { Id = x.Id, Name = x.Name!, CategoryId = x.CategoryId });
+        });
+        return outputModels;
+    }
 }

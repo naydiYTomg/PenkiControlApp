@@ -1,10 +1,15 @@
+using PenkiControlApp.DAL;
 using System.Windows;
 using System.Windows.Controls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PenkiControlApp.UI.Windows;
 
 public partial class CategoryWindow : UserControl
 {
+    private readonly TagRepository _repository = new();
+    public int Id { get; init; }
+    public int categoryNumber = 1;
     public CategoryWindow()
     {
         InitializeComponent();
@@ -15,17 +20,31 @@ public partial class CategoryWindow : UserControl
         //    _ => NameOfCategory.Text
         //};
     }
-    private void CategoryWindow_OnInitialized(object? sender, EventArgs e)
+    private void CategoryWindow_OnInitialized(object? sender, EventArgs e) //, int CurrentCategoryId
     {
         //MessageBox.Show("lock in");
         //Tags.Children.Add(new CategoryWindowTag());
-        var categories = App.CategoryManager.GetCategories();
-        categories.ForEach(x =>
-        {
-            MessageBox.Show(x.Name.ToString());
-            NameOfCategory.Text = x.Name;
-        }
+        //var categories = App.CategoryManager.GetCategories();
+        //categories.ForEach(x =>
+        //{
+            //MessageBox.Show(x.Name.ToString());
+            //NameOfCategory.Text = x.Name;
+        //    Tags.Children.Add(new CategoryWindowTag());
+        //});
 
-        );
+        //NameOfCategory = { Text = x.Name }
+        var tags = App.TagManager.GetAllTagsByCategoryId(categoryNumber);
+        MessageBox.Show(tags.ToString());
+        categoryNumber = categoryNumber + 1;
+        tags.ForEach(x =>
+        {
+            var tag = new CategoryWindowTag(this)
+            {
+                TagName = { Text = x.Name },
+                Id = x.Id
+            };
+            Tags.Children.Add(tag);
+        });
+
     }
 }
