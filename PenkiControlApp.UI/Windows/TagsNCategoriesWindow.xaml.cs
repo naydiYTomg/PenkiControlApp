@@ -3,10 +3,14 @@ using System.Windows.Controls;
 
 namespace PenkiControlApp.UI.Windows
 {
+
     public partial class TagsNCategoriesWindow : UserControl
+
     {
+        public static int categoryNumber = 1;
         public TagsNCategoriesWindow()
         {
+
             InitializeComponent();
             InfoLabel.Content = App.UILanguage switch
             {
@@ -14,6 +18,7 @@ namespace PenkiControlApp.UI.Windows
                 InternalTypes.Language.Russian => "Тэги & Категории",
                 _ => InfoLabel.Content
             };
+
         }
 
         private void TagsNCategoriesWindow_OnInitialized(object? sender, EventArgs e)

@@ -9,7 +9,7 @@ public partial class CategoryWindow : UserControl
 {
     private readonly TagRepository _repository = new();
     public int Id { get; init; }
-    public int categoryNumber = 1;
+    
     public CategoryWindow()
     {
         InitializeComponent();
@@ -33,9 +33,11 @@ public partial class CategoryWindow : UserControl
         //});
 
         //NameOfCategory = { Text = x.Name }
-        var tags = App.TagManager.GetAllTagsByCategoryId(categoryNumber);
-        MessageBox.Show(tags.ToString());
-        categoryNumber = categoryNumber + 1;
+        var tags = App.TagManager.GetAllTagsByCategoryId(TagsNCategoriesWindow.categoryNumber);
+        
+        
+        MessageBox.Show("HEY "+ TagsNCategoriesWindow.categoryNumber.ToString());
+        TagsNCategoriesWindow.categoryNumber = TagsNCategoriesWindow.categoryNumber + 1;
         tags.ForEach(x =>
         {
             var tag = new CategoryWindowTag(this)
