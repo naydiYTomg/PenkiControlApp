@@ -1,0 +1,45 @@
+<UserControl x:Class="PenkiControlApp.UI.Windows.CurrentUserWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="1160" Initialized="CurrentUserWindow_OnInitialized">
+    <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
+        <Grid x:Name="GridMain">
+              
+            <!-- <Grid.ColumnDefinitions> -->
+            <!--     <ColumnDefinition Width="1*"/> -->
+            <!--     <ColumnDefinition Width="2*"/> -->
+            <!--     <ColumnDefinition Width="1*"/> -->
+            <!-- </Grid.ColumnDefinitions> -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.Row="0" Grid.RowSpan="3" Fill="Black" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>
+            <Label x:Name="InfoLabel" Grid.Row="0" HorizontalAlignment="Center" Content="Current User" FontSize="40" Margin="60 0 0 0" Foreground="White"></Label>
+            <Grid Grid.Row="1" x:Name="GridUserInfo">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label x:Name="LabelUsername" Content="Login: llal" Foreground="White" FontSize="35" VerticalContentAlignment="Center"></Label>
+                <Label x:Name="OnlyLocLabelPassword" Grid.Row="1" Grid.Column="0" Content="Password: *****" Foreground="White" FontSize="35" VerticalContentAlignment="Center"></Label>
+                <Label x:Name="LabelName" Grid.Row="0" Grid.Column="2" Content="Name: sdfsd" Foreground="White" FontSize="35" VerticalContentAlignment="Center"></Label>
+                <Label x:Name="LabelSurname" Grid.Row="1" Grid.Column="2" Content="Surname: gags" Foreground="White" FontSize="35" VerticalContentAlignment="Center"></Label>
+                <TextBlock x:Name="TBAdditional" Grid.Row="2" Grid.Column="0" Foreground="White" FontSize="35" Text="You're an administrator" TextWrapping="Wrap"/>
+                <Button x:Name="ButtonLogout" Grid.Row="2" Grid.Column="2" Content="Logout" FontSize="35" Click="ButtonLogout_OnClick"></Button>
+            </Grid>
+              
+        </Grid>
+    </Border>
+</UserControl>

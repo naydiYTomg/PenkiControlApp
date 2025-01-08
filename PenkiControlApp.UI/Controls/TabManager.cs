@@ -31,7 +31,14 @@ public class TabManager(MainWindow window)
                     _mainWindow.AddElement(new ManagerWindows{ Height = 600, Width = 1160 }, 1);
                     break;
                 case 5:
-                    _mainWindow.AddElement(new LoginRegistrationWindow(_mainWindow){ Height = 600, Width = 1160}, 1);
+                    if (App.CurrentUser is null)
+                    {
+                        _mainWindow.AddElement(new LoginRegistrationWindow(_mainWindow){ Height = 600, Width = 1160}, 1);
+                    }
+                    else
+                    {
+                        _mainWindow.AddElement(new CurrentUserWindow(_mainWindow) { Height = 600, Width = 1160 }, 1);
+                    }
                     break;
                 case 6:
                     _mainWindow.AddElement(new SellsWindow { Height = 600, Width = 1160}, 1);
