@@ -94,5 +94,20 @@ public class UserManager
             return false;
         }
     }
-    
+
+    public void MakeUserManager(int id)
+    {
+        _userRepository.MakeUserManager(id);
+    }
+
+    public List<UserOutputModel> GetUsersWhoIsNotManagers()
+    {
+        var got = _userRepository.GetUsersWhoIsNotManagers();
+        List<UserOutputModel> outputModels = [];
+        got.ForEach(x =>
+        {
+            outputModels.Add(new UserOutputModel() { Id = x.Id, Name = x.Name!, Surname = x.Surname! });
+        });
+        return outputModels;
+    }
 }

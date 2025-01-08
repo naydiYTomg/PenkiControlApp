@@ -44,5 +44,15 @@
             """
             select * from "User" where "Manager"=true and "Login"=@Login
             """;
+
+        public const string MakeUserManagerQuery = """
+                                                    update "User"
+                                                    set "Manager"=true
+                                                    where "Id"=@Id returning "Id"
+                                                   """;
+
+        public const string GetUsersWhoIsNotManagers = """
+                                                       select * from "User" where "Manager"=false
+                                                       """;
     }
 }

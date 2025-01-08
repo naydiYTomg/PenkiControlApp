@@ -37,6 +37,19 @@ public class UserRepository
         return connection.Execute<UserDTO>().AsList();
     }
 
+    public void MakeUserManager(int id)
+    {
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.MakeUserManagerQuery)
+            .WithProperties(new { Id = id }).Pack();
+        connection.ExecuteFirst<int>();
+    }
+
+    public List<UserDTO> GetUsersWhoIsNotManagers()
+    {
+        var connection = new ConnectionBuilder().WithQuery(UserQueries.GetUsersWhoIsNotManagers).Pack();
+        return connection.Execute<UserDTO>().AsList();
+    }
+
     public int InsertUser(UserDTO user)
     {
         var connection = new ConnectionBuilder().WithQuery(UserQueries.INSERT_USER_QUERY).WithProperties(new

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
         mc:Ignorable="d"
-        d:DesignHeight="640" d:DesignWidth="1280" Initialized="ManagerWindows_OnInitialized">
+        d:DesignHeight="600" d:DesignWidth="1160" Initialized="ManagerWindows_OnInitialized">
     <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
         
         <Grid>
@@ -19,6 +19,8 @@
             </Grid.RowDefinitions>
             <Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
             <Label x:Name="InfoLabel" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Managers" FontSize="40" Margin="60 0 0 0" Foreground="White"></Label>
+            <Button x:Name="ButtonMakeManager" Grid.Row="0" Grid.Column="1" Width="50" Height="50" HorizontalAlignment="Right" Margin="0 0 50 0" Content="+" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="ButtonMakeManager_OnClick"></Button>
+            
             <Border Grid.Row="1" Grid.Column="0" x:Name="CurrentManager" CornerRadius="50" Margin="20">
                 
                 <Grid>
@@ -52,6 +54,14 @@
                     </ScrollViewer>
                 </Grid>
             </Border>
+            <Grid Visibility="Collapsed" x:Name="GridManagerMaking" Grid.Row="0" Grid.Column="1" Height="150" Grid.RowSpan="2" Width="400" Margin="80 -432 0 0" Background="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ComboBox x:Name="ComboBoxUsers"></ComboBox>
+                <Button x:Name="ButtonMakeHimManager" Grid.Row="1" Content="Make him a manager" Click="ButtonMakeHimManager_OnClick"></Button>
+            </Grid>
         </Grid>
     </Border>
 
