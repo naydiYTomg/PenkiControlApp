@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
       mc:Ignorable="d"
-      d:DesignHeight="600" d:DesignWidth="1160">
+      d:DesignHeight="600" d:DesignWidth="1160" Initialized="TagsNCategoriesWindow_OnInitialized">
     
       <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
-          <Grid>
+          <Grid x:Name="GridMain">
               
               <!-- <Grid.ColumnDefinitions> -->
               <!--     <ColumnDefinition Width="1*"/> -->
@@ -23,30 +23,17 @@
             <Rectangle Grid.Row="0" Grid.RowSpan="3" Fill="Black" RadiusX="47" RadiusY="47" Opacity=".6"></Rectangle>
             <Label x:Name="InfoLabel" Grid.Row="0" HorizontalAlignment="Center" Content="Tags &amp; Categories" FontSize="40" Margin="60 0 0 0" Foreground="White"></Label>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-                  <local:CategoryWindow Width="270" Margin="10 0 0 0"></local:CategoryWindow>
-                  <local:CategoryWindow Width="270" Margin="150 0 0 0 " Loaded="CategoryWindow_Loaded"></local:CategoryWindow>
-                  <local:CategoryWindow Width="270" Margin="150 0 0 0"></local:CategoryWindow>
-              </StackPanel>
-              <ListView Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                  <ListView.ItemsPanel>
-                      <ItemsPanelTemplate>
-                          <WrapPanel/>
-                      </ItemsPanelTemplate>
-                  </ListView.ItemsPanel>
-                  <Button Content="&lt;"/>
-                  <ListView Grid.Row="1">
-                      <ListView.ItemsPanel>
-                          <ItemsPanelTemplate>
-                              <WrapPanel/>
-                          </ItemsPanelTemplate>
-                      </ListView.ItemsPanel>
-                      <Button Content="EPIC ELEMENT1"/>
-                      <Button Content="EPIC ELEMENT2"/>
-          
-                  </ListView>
-                  <Button Content="&gt;"/>
-      
-              </ListView>
+                  
+            </StackPanel>
+              <Grid Grid.Row="1" x:Name="GridCategories">
+                  <Grid.ColumnDefinitions>
+                      <ColumnDefinition/>
+                      <ColumnDefinition/>
+                      <ColumnDefinition/>
+                  </Grid.ColumnDefinitions>
+                  
+              </Grid>
+              
           </Grid>
       </Border>
 

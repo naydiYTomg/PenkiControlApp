@@ -11,6 +11,11 @@ public class TagManager
     public List<TagOutputModel> GetTagsByCategoryName(string name)
     {
         int id = _category.GetCategoryIdByName(name);
+        return GetTagsByCategoryId(id);
+    }
+
+    public List<TagOutputModel> GetTagsByCategoryId(int id)
+    {
         var got = _repository.GetTagsByCategoryId(id);
         List<TagOutputModel> outputModels = [];
         got.ForEach(x =>
