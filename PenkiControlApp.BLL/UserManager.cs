@@ -33,12 +33,12 @@ public class UserManager
         return false;
     }
 
-    public void AddNewUser(string name, string surname, string login, string password, bool isManager, bool isAdmin)
+    public int AddNewUser(string name, string surname, string login, string password, bool isManager, bool isAdmin)
     {
         string hashedPassword = Encoding.UTF8.GetString(SHA256.HashData(Encoding.UTF8.GetBytes(password)));
         var user = new UserDTO
         { Login = login, Name = name, Surname = surname, Password = hashedPassword, Manager = isManager, Administrator = isAdmin };
-        _userRepository.InsertUser(user);
+        return _userRepository.InsertUser(user);
     }
 
     public UserForLoginOutputModel GetUserByLogin(string login)

@@ -62,6 +62,10 @@ public partial class Toolbar : UserControl, IEventListener
     {
         _logger.LogMessage($"Clicked Login button up and created LoginRegistration window");
         Login.Source = (ImageSource)Resources["Login"]!;
+        if (_mainWindow.TabManager.GetCurrentTab() == 8)
+        {
+            SwitchTabs();
+        }
         _mainWindow.TabManager.ChangeTab(5);
     }
 
@@ -81,6 +85,11 @@ public partial class Toolbar : UserControl, IEventListener
     {
         _logger.LogMessage($"Clicked Sells button and created Sells window");
         _mainWindow.TabManager.ChangeTab(6);
+    }
+    private void Recommendations_OnClick(object sender, RoutedEventArgs e)
+    {
+        _logger.LogMessage($"Clicked Sells button and created Sells window");
+        _mainWindow.TabManager.ChangeTab(9);
     }
 
     
@@ -192,7 +201,7 @@ public partial class Toolbar : UserControl, IEventListener
 
     private void SwitchTabs()
     {
-        List<UIElement> @default = [Products, Clients, Managers, TagsNCategories, Sells];
+        List<UIElement> @default = [Products, Clients, Managers, TagsNCategories, Sells, Recommendations];
         List<UIElement> search = [SearchCategory, ExitSearch];
         switch (_currentState)
         {
@@ -237,4 +246,6 @@ public partial class Toolbar : UserControl, IEventListener
                 break;
         }
     }
+
+    
 }

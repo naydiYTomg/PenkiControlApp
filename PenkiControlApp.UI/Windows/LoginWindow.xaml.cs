@@ -21,7 +21,11 @@ public partial class LoginWindow : UserControl
     {
         if (LoginField.Text.Equals("") || PasswordField.Text.Equals(""))
         {
-            ErrorsLabel.Content = "Fill in all fields for login!";
+            ErrorsLabel.Content = App.UILanguage switch
+            {
+                InternalTypes.Language.Russian => "Заполните все поля!",
+                _ => "Fill in all fields for login!"
+            };
         }
         else 
         {
@@ -30,7 +34,11 @@ public partial class LoginWindow : UserControl
                 case 1: // USER
                     if (!App.UserManager.TryLoginUser(LoginField.Text, PasswordField.Text))
                     {
-                        ErrorsLabel.Content = "User not exists or wrong password!";
+                        ErrorsLabel.Content = App.UILanguage switch
+                        {
+                            InternalTypes.Language.Russian => "Пользователь не существует или неверный пароль!",
+                            _ => "User not exists or wrong password!"
+                        };
                     }
                     else
                     {
@@ -42,24 +50,32 @@ public partial class LoginWindow : UserControl
                 case 2: // MANAGER
                     if (!App.UserManager.TryLoginManager(LoginField.Text, PasswordField.Text))
                     {
-                        ErrorsLabel.Content = "User not exists or wrong password!";
+                        ErrorsLabel.Content = App.UILanguage switch
+                        {
+                            InternalTypes.Language.Russian => "Пользователь не существует или неверный пароль!",
+                            _ => "User not exists or wrong password!"
+                        };
                     }
                     else
                     {
                         var user = App.UserManager.GetManagerByLogin(LoginField.Text);
-                        App.CurrentUser = new User { Name = user.Name, Id = user.Id, Surname = user.Surname };
+                        App.CurrentUser = new User { Name = user.Name, Id = user.Id, Surname = user.Surname, IsManager = true };
                         _window.TabManager.ChangeTab(1);
                     }
                     break;
                 case 3: // ADMINISTRATOR
                     if (!App.UserManager.TryLoginAdmin(LoginField.Text, PasswordField.Text))
                     {
-                        ErrorsLabel.Content = "User not exists or wrong password!";
+                        ErrorsLabel.Content = App.UILanguage switch
+                        {
+                            InternalTypes.Language.Russian => "Пользователь не существует или неверный пароль!",
+                            _ => "User not exists or wrong password!"
+                        };
                     }
                     else
                     {
                         var user = App.UserManager.GetAdministratorByLogin(LoginField.Text);
-                        App.CurrentUser = new User { Name = user.Name, Id = user.Id, Surname = user.Surname };
+                        App.CurrentUser = new User { Name = user.Name, Id = user.Id, Surname = user.Surname, IsAdmin = true };
                         _window.TabManager.ChangeTab(1);
                     }
                     break;
@@ -67,5 +83,18 @@ public partial class LoginWindow : UserControl
         }
         
         
+    }
+
+    private void LoginWindow_OnInitialized(object? sender, EventArgs e)
+    {
+        switch (App.UILanguage)
+        {
+            case InternalTypes.Language.Russian:
+                LoginInfoLabel.Content = "Заполните эти поля чтобы войти";
+                break;
+            default:
+                LoginInfoLabel.Content = "Fill in this fields to login";
+                break;
+        }
     }
 }

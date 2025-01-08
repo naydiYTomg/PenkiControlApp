@@ -18,18 +18,40 @@ public partial class RegistrationWindow : UserControl
     {
         if (LoginField.Text.Equals("") || PasswordField.Text.Equals("") || NameField.Text.Equals("") || SurnameField.Text.Equals(""))
         {
-            ErrorsLabel.Content = "Fill in all fields for registration!";
+            ErrorsLabel.Content = App.UILanguage switch
+            {
+                InternalTypes.Language.Russian => "Заполните все поля!",
+                _ => "Fill in all fields for registration!"
+            };
         }
         else if (App.UserManager.IsLoginExists(LoginField.Text))
         {
-            ErrorsLabel.Content = $"User with login {LoginField.Text} already exists, try another login";
+            ErrorsLabel.Content = App.UILanguage switch
+            {
+                InternalTypes.Language.Russian => $"Пользователь с логином {LoginField.Text} уже существует, попробуйте другой логин",
+                _ => $"User with login {LoginField.Text} already exists, try another login"
+            };
         }
         else
         {
-            App.UserManager.AddNewUser(NameField.Text, SurnameField.Text, LoginField.Text, PasswordField.Text, false, false);
-            App.CurrentUser = new User() { Name = NameField.Text, Surname = SurnameField.Text, Id = 0 };
+            int id = App.UserManager.AddNewUser(NameField.Text, SurnameField.Text, LoginField.Text, PasswordField.Text, false, false);
+            App.CurrentUser = new User { Name = NameField.Text, Surname = SurnameField.Text, Id = id };
             _window.TabManager.ChangeTab(1);
         }
         
+    }
+
+    private void RegistrationWindow_OnInitialized(object? sender, EventArgs e)
+    {
+        switch (App.UILanguage)
+        {
+            case InternalTypes.Language.Russian:
+                RegisterInfoLabel.Content = "Заполните данные поля чтобы зарегестрироваться";
+                RegisterInfoLabel.FontSize = 25;
+                break;
+            default:
+                RegisterInfoLabel.Content = "Fill in this fields to register";
+                break;
+        }
     }
 }

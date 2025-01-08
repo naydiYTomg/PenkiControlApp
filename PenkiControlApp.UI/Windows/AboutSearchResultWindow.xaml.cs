@@ -15,6 +15,6 @@ public partial class AboutSearchResultWindow : UserControl
 
     private void CloseButton_OnClick(object sender, RoutedEventArgs e)
     {
-        EventManager.TriggerEvent("ClosedSearchResultInfoWindow");
+        EventManager.TriggerEvent("ClosedSearchResultInfoWindow ");
     }
 }

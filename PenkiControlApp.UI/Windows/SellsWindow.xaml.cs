@@ -16,11 +16,28 @@ public partial class SellsWindow : UserControl
     }
     private void SellsWindow_OnInitialized(object? sender, EventArgs e)
     {
+        switch (App.UILanguage)
+        {
+            case InternalTypes.Language.Russian:
+                InfoLabel.Text = "Оформление заказа";
+                InfoLabel.FontSize = 30;
+                InfoLabel.VerticalAlignment = VerticalAlignment.Center;
+                TBChooseClient.Text = "Выберите клиента: ";
+                TBChooseProduct.Text = "Выберите продукты: ";
+                ButtonProcess.Content = "Оформить";
+                break;
+            default:
+                InfoLabel.Text = "Process order";
+                TBChooseClient.Text = "Choose client: ";
+                TBChooseProduct.Text = "Choose products: ";
+                ButtonProcess.Content = "Process";
+                break;
+        }
         var got = App.ProductManager.GetAllProducts();
         got.ForEach(x => { _ProductsDropDown.Items.Add(new ProductDropDownItem { Content = x.Name, Id = x.Id}); });
 
-        var AllClients = App.ClientManager.GetAllClients();
-        AllClients.ForEach(x => { _ClientsDropDown.Items.Add(new ComboBoxItem { Content = x.Name + " " + x.Surname }); });
+        var allClients = App.ClientManager.GetAllClients();
+        allClients.ForEach(x => { _ClientsDropDown.Items.Add(new ComboBoxItem { Content = x.Name + " " + x.Surname }); });
 
     }
     private void ChosenProducts_OnSelected(object sender, SelectionChangedEventArgs e)

@@ -9,11 +9,7 @@
         d:DesignHeight="640" d:DesignWidth="1280">
         <Border BorderBrush="Black" BorderThickness="5" CornerRadius="50">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-
-        </Grid.RowDefinitions>
-        <Rectangle Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="2" Fill="Black" Opacity=".6" RadiusX="47" RadiusY="47"/>
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
@@ -23,12 +19,12 @@
                 <RowDefinition Height="4*"/>
             </Grid.RowDefinitions>
 
-                <TextBlock x:Name ="InfoLabel" Text="Sells" Grid.Column="0" Grid.Row="0" FontSize="50" TextWrapping="Wrap" Foreground="White" Margin="60 0 0 0"/>
-                <TextBlock Text="Choose a client" Grid.Column="0" Grid.Row="1" FontSize="40" TextWrapping="Wrap" Foreground="White"/>
-                <TextBlock Text="Client about" Grid.Column="0" Grid.Row="3" FontSize="40" TextWrapping="Wrap" Foreground="White"/>
+                <TextBlock x:Name="InfoLabel" Text="Process order" Grid.Column="0" Grid.Row="0" FontSize="50" TextWrapping="Wrap" Foreground="White" Margin="60 0 0 0"/>
+                <TextBlock x:Name="TBChooseClient" Text="Choose a client" Grid.Column="0" Grid.Row="1" FontSize="40" TextWrapping="Wrap" Foreground="White"/>
+                <!-- <TextBlock x:Name="TBClientAbout" Text="Client about" Grid.Column="0" Grid.Row="3" FontSize="40" TextWrapping="Wrap" Foreground="White"/> -->
                 <ComboBox HorizontalAlignment="Left" Grid.Row="2" Width="400" VerticalAlignment="Top" x:Name="_ClientsDropDown">
                 </ComboBox>
-                <TextBlock Text="About" Grid.Column="0" Grid.Row="4" FontSize="40" TextWrapping="Wrap" x:Name="_ClientAboutInfo" Foreground="White"/>
+                <!-- <TextBlock  Text="About" Grid.Column="0" Grid.Row="4" FontSize="40" TextWrapping="Wrap" x:Name="_ClientAboutInfo" Foreground="White"/> -->
             
 
         </Grid>
@@ -41,10 +37,10 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-                <Button Content="SELL" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="40" Margin="0 0 0 20" Click="Sell_click"/>
+                <Button x:Name="ButtonProcess" Content="Process" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="40" Margin="0 0 0 20" Click="Sell_click"/>
                 <ComboBox HorizontalAlignment="Left" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Width="400" x:Name="_ProductsDropDown" Grid.RowSpan="2" SelectionChanged="ChosenProducts_OnSelected"/>
-            <TextBlock Text="Choose a product" Grid.Column="1" Grid.Row="0" FontSize="40" TextWrapping="Wrap" Foreground="White"/>
-                <ScrollViewer Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Margin="0 0 50 0">
+            <TextBlock x:Name="TBChooseProduct" Text="Choose a product" Grid.Row="0" FontSize="40" TextWrapping="Wrap" Foreground="White"/>
+                <ScrollViewer Grid.Row="2" Grid.RowSpan="2" Margin="0 0 50 0">
                     <StackPanel x:Name="ProductContainer">
                     </StackPanel>
                 </ScrollViewer>
