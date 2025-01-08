@@ -34,13 +34,13 @@ public class TabManager(MainWindow window)
                     _mainWindow.AddElement(new LoginRegistrationWindow(_mainWindow){ Height = 600, Width = 1160}, 1);
                     break;
                 case 6:
-                    _mainWindow.AddElement(new SellsWindow { Height = 700, Width = 1280}, 1);
+                    _mainWindow.AddElement(new SellsWindow { Height = 600, Width = 1160}, 1);
                     break;
                 case 7: //Product creation window
-                    _mainWindow.AddElement(new ProductCreationWindow(_mainWindow) { Height = 700, Width = 1160}, 1);
+                    _mainWindow.AddElement(new ProductCreationWindow(_mainWindow) { Height = 700, Width = 1280}, 1);
                     break;
                 case 9: //Recommendations window
-                    _mainWindow.AddElement(new RecommendationsWindow() { Height = 700, Width = 1280 }, 1);
+                    _mainWindow.AddElement(new RecommendationsWindow() { Height = 600, Width = 1160 }, 1);
                     break;
                 default:
                     _mainWindow.tabmgrerror("Ya hz kak ti smog eto sdelat", true);
