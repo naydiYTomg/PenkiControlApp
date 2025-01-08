@@ -36,7 +36,7 @@ public partial class CategoryWindow : UserControl
         var tags = App.TagManager.GetAllTagsByCategoryId(TagsNCategoriesWindow.categoryNumber);
         
         
-        MessageBox.Show("HEY "+ TagsNCategoriesWindow.categoryNumber.ToString());
+        //MessageBox.Show("HEY "+ TagsNCategoriesWindow.categoryNumber.ToString());
         TagsNCategoriesWindow.categoryNumber = TagsNCategoriesWindow.categoryNumber + 1;
         tags.ForEach(x =>
         {

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="400" Initialized="CategoryWindow_OnInitialized">
-    <Border Background="White" CornerRadius="30" BorderBrush="Black" BorderThickness="5">
+    <Border Background="White" CornerRadius="30" BorderBrush="Black" BorderThickness="5" Margin="25 0 25 0">
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
