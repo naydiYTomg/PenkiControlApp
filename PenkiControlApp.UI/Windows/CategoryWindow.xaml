@@ -15,7 +15,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-            <TextBlock TextWrapping="Wrap" x:Name="NameOfCategory" Text="PlaceholderCategory" Margin="10 10 10 10" Grid.Row="0" Grid.RowSpan="2" FontSize="25"/>
+            <TextBlock TextWrapping="Wrap" x:Name="NameOfCategory" Text="PlaceholderCategory" HorizontalAlignment="Center" Margin="10 10 10 10" Grid.Row="0" Grid.RowSpan="2" FontSize="25"/>
             <WrapPanel Grid.Row="2" x:Name="Tags" Width="300" Margin="10 10 10 10">
             </WrapPanel>
         <Button Content="Подробнее" x:Name="About" Grid.Row="3" Background="Bisque" Foreground="Black" FontSize="15" BorderThickness="0">

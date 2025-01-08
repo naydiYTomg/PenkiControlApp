@@ -22,21 +22,10 @@ public partial class CategoryWindow : UserControl
     }
     private void CategoryWindow_OnInitialized(object? sender, EventArgs e) //, int CurrentCategoryId
     {
-        //MessageBox.Show("lock in");
-        //Tags.Children.Add(new CategoryWindowTag());
-        //var categories = App.CategoryManager.GetCategories();
-        //categories.ForEach(x =>
-        //{
-            //MessageBox.Show(x.Name.ToString());
-            //NameOfCategory.Text = x.Name;
-        //    Tags.Children.Add(new CategoryWindowTag());
-        //});
-
-        //NameOfCategory = { Text = x.Name }
+        
         var tags = App.TagManager.GetAllTagsByCategoryId(TagsNCategoriesWindow.categoryNumber);
         
         
-        //MessageBox.Show("HEY "+ TagsNCategoriesWindow.categoryNumber.ToString());
         TagsNCategoriesWindow.categoryNumber = TagsNCategoriesWindow.categoryNumber + 1;
         tags.ForEach(x =>
         {
