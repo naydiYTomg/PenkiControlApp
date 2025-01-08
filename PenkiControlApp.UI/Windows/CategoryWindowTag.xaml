@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
              mc:Ignorable="d"
-             d:DesignHeight="100" d:DesignWidth="150">
-    <Border BorderBrush="Black" BorderThickness="5" Height="100" Width="150" CornerRadius="10">
-        <TextBlock TextWrapping="Wrap" x:Name="TagName" Text="Tag1" FontSize="20"></TextBlock>
+             d:DesignHeight="50" d:DesignWidth="130">
+    <Border BorderBrush="Black" BorderThickness="5" Height="40" Width="120" CornerRadius="10">
+        <TextBlock TextWrapping="Wrap" x:Name="TagName" Text="Tag1" FontSize="15" Margin="5 5 5 5"></TextBlock>
     </Border>
 
 </UserControl>

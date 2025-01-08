@@ -12,6 +12,7 @@ namespace PenkiControlApp.UI.Windows
         {
 
             InitializeComponent();
+            categoryNumber = 1;
             InfoLabel.Content = App.UILanguage switch
             {
                 InternalTypes.Language.English or InternalTypes.Language.Other => "Tags & Categories",

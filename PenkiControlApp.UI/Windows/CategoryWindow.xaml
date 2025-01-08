@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:PenkiControlApp.UI.Windows"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300" Initialized="CategoryWindow_OnInitialized">
+             d:DesignHeight="300" d:DesignWidth="400" Initialized="CategoryWindow_OnInitialized">
     <Border Background="White" CornerRadius="30" BorderBrush="Black" BorderThickness="5">
         <Grid>
         <Grid.RowDefinitions>
@@ -14,9 +14,9 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        
-        <TextBlock TextWrapping="Wrap" x:Name="NameOfCategory" Text="PlaceholderCategory" Margin="0 0 0 0" Grid.Row="0" Grid.RowSpan="2" FontSize="25"/>
-            <WrapPanel Grid.Row="2" x:Name="Tags" Width="200">
+
+            <TextBlock TextWrapping="Wrap" x:Name="NameOfCategory" Text="PlaceholderCategory" Margin="10 10 10 10" Grid.Row="0" Grid.RowSpan="2" FontSize="25"/>
+            <WrapPanel Grid.Row="2" x:Name="Tags" Width="300" Margin="10 10 10 10">
             </WrapPanel>
         <Button Content="Подробнее" x:Name="About" Grid.Row="3" Background="Bisque" Foreground="Black" FontSize="15" BorderThickness="0">
             <Button.Resources>
