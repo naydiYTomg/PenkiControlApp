@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using System.Windows.Documents;
 using PenkiControlApp.Core.OutputModels;
 
@@ -55,7 +56,8 @@ public class AllDatabaseData
                         foreach (var (k, o) in value)
                         {
                             var temp = k.Split(".");
-                            if (temp[0].Equals(key, StringComparison.CurrentCultureIgnoreCase) || temp[1].Equals(key, StringComparison.CurrentCultureIgnoreCase))
+                            Regex regex = new Regex(key.ToLower());
+                            if (regex.IsMatch(temp[0].ToLower()) || regex.IsMatch(temp[1].ToLower()))
                             {
                                 output.Add((o, s));
                             }
@@ -66,7 +68,8 @@ public class AllDatabaseData
                         foreach (var (k, o) in value)
                         {
                             // Console.WriteLine($"Element :{k}:; key :{key}:");
-                            if (k.Equals(key, StringComparison.CurrentCultureIgnoreCase))
+                            Regex regex = new Regex(key.ToLower());
+                            if (regex.IsMatch(k.ToLower()))
                             {
                                 output.Add((o, s));
                             }
